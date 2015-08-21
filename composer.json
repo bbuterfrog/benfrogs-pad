@@ -1,0 +1,22 @@
+{"repositories": [
+    {
+        "type": "composer",
+        "url": "https://packages.zendframework.com/"
+    }
+],
+
+"require": {
+    "zendframework/zend-config": "2.3.*",
+    "zendframework/zend-http": "2.3.*",
+    "zendframework/zend-uri": "2.3.*",
+    "zendframework/zend-dom": "2.3.*",
+    "zendframework/zend-escaper" :"2.3.*",
+   "zendframework/zend-form" :"2.3.*",
+  "zendframework/zend-form" : "2.3.*",
+   "zendframework/zend-json" :"2.3.*",
+   "zendframework/zend-math" : "2.3.*",
+   "zendframework/zend-uri" : "2.3.*",
+   "zendframework/zendframework" : "2.3.*",
+   "zendframework/zend-validator" : "2.3.*",
+   "zendframework/zend-i18n" : "2.3.*"
+}}
