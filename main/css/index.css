@@ -5,3 +5,9 @@
 	background: blue;
 }
 
+#frog-picture {
+	float: left;
+	width: 5%;
+	margin-right: 2rem;
+	
+}
