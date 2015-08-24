@@ -26,7 +26,7 @@ body {
 
 #title {
 	float: top;
-	background-color: blue;
+	
 }
 
 h1.title {
@@ -52,13 +52,13 @@ h2.nav {
 
 #navcode {
 	float: left;
-	background-color: blue;
+	
     
 }
 
 #navabout {
 	float: right;
-	background-color: blue;
+	
 }
 
 
