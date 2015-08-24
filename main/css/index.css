@@ -18,6 +18,9 @@ body {
 #header {
 	height: 30%;
 	width: 100%;
+}
+
+.head {
 	background-color: blue;
 }
 
@@ -58,9 +61,6 @@ h2.nav {
 	background-color: blue;
 }
 
-.nav {
-	background-color: blue;
-}
 
 @media (max-width: 600px) {
 #navigation {
