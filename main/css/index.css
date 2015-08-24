@@ -30,10 +30,10 @@ h1.title {
 	font-size: 3em; 
 	font-family: arial, sans-serif;
 	padding-left: 1em;
-} 
+}
+ 
 #navigation {
-	width: 100%;
-	background-color: blue;
+	width: 50%;
 	float: bottom;
 }
 
@@ -55,6 +55,9 @@ h2.nav {
 }
 
 @media (max-width: 600px) {
+#navigation {
+	width: 100%;
+}	
 #nav-code {    
     float: center;
     }
