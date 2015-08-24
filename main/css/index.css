@@ -23,6 +23,7 @@ body {
 
 #title {
 	float: top;
+	background-color: blue;
 }
 
 h1.title {
@@ -35,6 +36,7 @@ h1.title {
 #navigation {
 	width: 50%;
 	float: bottom;
+	background-color: blue;
 }
 
 h2.nav {
