@@ -22,6 +22,7 @@ body: {
 }
 
 #title {
+	height: 50%;
 	float: top;
 }
 
@@ -33,9 +34,10 @@ h1.title {
 }
  
 #navigation {
+	height: 50%;
 	width: 50%;
 	float: bottom;
-	background-color: blue;
+	
 }
 
 h2.nav {
