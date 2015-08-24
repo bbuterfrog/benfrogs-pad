@@ -36,6 +36,7 @@ h1.title {
 #navigation {
 	width: 50%;
 	float: bottom;
+	align: left;
 	background-color: blue;
 }
 
@@ -49,11 +50,19 @@ h2.nav {
 
 #navcode {
 	float: left;
+	background-color: blue;
     
 }
 
 #navabout {
 	float: right;
+	background-color: blue;
+}
+
+#navfiller {
+	background-color: blue;
+	width: 50%;
+	align: right;
 }
 
 @media (max-width: 600px) {
