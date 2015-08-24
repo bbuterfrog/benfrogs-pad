@@ -1,9 +1,10 @@
 @CHARSET "UTF-8";
 
-#frog-picture {
+#logo {
 	float: left;
 	width: 10%;
-	margin-right: 2rem;
+	height: 10%;
+	background-color: blue;
 	
 }
 
