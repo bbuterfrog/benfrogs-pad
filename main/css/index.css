@@ -53,15 +53,21 @@ h2.nav {
 
 #navcode {
 	float: left;
-	
-    
+}
+
+#navcode:hover {
+	background-color: green;
+	cursor: default;
 }
 
 #navabout {
 	float: right;
-	
 }
 
+#navabout:hover {
+	background-color: green;
+	cursor: default;
+}
 
 @media (max-width: 600px) {
 #navigation {
