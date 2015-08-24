@@ -37,7 +37,7 @@ h1.title {
 	width: 50%;
 	float: bottom;
 	align: left;
-	background-color: blue;
+	color: blue;
 }
 
 h2.nav {
@@ -60,7 +60,7 @@ h2.nav {
 }
 
 #navfiller {
-	background-color: blue;
+	color: blue;
 	width: 50%;
 	align: right;
 }
