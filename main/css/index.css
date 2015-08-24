@@ -65,7 +65,7 @@ h2.nav {
 }
 
 #navfiller {
-	color: blue;
+	background-color: blue;
 	width: 50%;
 	align: right;
 }
@@ -73,6 +73,7 @@ h2.nav {
 @media (max-width: 600px) {
 #navigation {
 	width: 100%;
+	background-color: blue;
 }	
 #navcode {    
     float: center;
