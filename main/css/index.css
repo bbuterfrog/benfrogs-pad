@@ -2,6 +2,8 @@
 
 #frog-picture {
 	float: left;
+	width: 10%;
+
 	background-color: blue;
 	
 }
