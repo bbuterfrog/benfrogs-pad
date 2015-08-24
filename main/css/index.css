@@ -32,13 +32,8 @@ h1.title {
 	padding-left: 1em;
 } 
 #navigation {
-	width: 50%;
+	width: 100%;
 	background-color: blue;
-	float: bottom;
-}
-
-#nav-filler {
-	width: 50%;
 	float: bottom;
 }
 
@@ -49,13 +44,25 @@ h2.nav {
 	text-align: center;
 }
 
+<!--nav needs to be rearranged for mobile-->
 #nav-code {
 	float: left;
+    
 }
 
-#nav-code {
+#nav-about {
 	float: right;
 }
-div.nav:float {
+
+@media (max-width: 600px) {
+#nav-code {    
+    float: center;
+    }
+#nav-about {
+	float: center;
+}       
+}
+
+div.nav:hover {
 	background-color: green;
 }	
