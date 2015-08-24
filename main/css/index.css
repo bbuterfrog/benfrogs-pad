@@ -23,7 +23,7 @@ body: {
 	background-color: blue;
 }
 
-.title: {
+h1.title {
 	font-style: bold;
 	font-size: 2.5em; 
 	font-family: arial, sans-serif;
