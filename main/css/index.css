@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+body: {
+	padding: 0;
+}
+
+
 #frog-picture {
 	float: left;
 	width: 10%;
@@ -16,3 +21,4 @@
 h1.title: {
 	font: italic bold 20px arial, sans-serif;
 } 
+
