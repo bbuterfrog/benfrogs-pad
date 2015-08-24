@@ -9,7 +9,11 @@
 }
 
 #header {
-	height: 10%;
+	height: 15%;
 	width: 100%;
-	background-color: blue;	
+	background-color: blue;
 }
+
+h1.title: {
+	font: italic bold 20px arial, sans-serif;
+} 
