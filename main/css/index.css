@@ -12,14 +12,17 @@ body: {
 
 #frog-picture {
 	float: left;
-	width: 10%;
-	background-color: blue;	
+	width: 10%;	
 }
 
 #header {
-	height: 15%;
+	height: 30%;
 	width: 100%;
 	background-color: blue;
+}
+
+#title {
+	float: top;
 }
 
 h1.title {
@@ -29,14 +32,14 @@ h1.title {
 	padding-left: 1em;
 } 
 #navigation {
-	height: 15%;
 	width: 50%;
 	background-color: blue;
+	float: bottom;
 }
 
 #nav-filler {
 	width: 50%;
-	height: 15%;
+	float: bottom;
 }
 
 h2.nav {
