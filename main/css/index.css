@@ -46,12 +46,12 @@ h2.nav {
 
 <!--nav needs to be rearranged for mobile-->
 #nav-code {
-	float: left;
+	float: right;
     
 }
 
 #nav-about {
-	float: right;
+	float: left;
 }
 
 @media (max-width: 600px) {
