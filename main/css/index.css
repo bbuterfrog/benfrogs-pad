@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-body: {
+body {
 	font-size: 100%;
 }
 
@@ -35,7 +35,6 @@ h1.title {
 #navigation {
 	width: 50%;
 	float: bottom;
-	
 }
 
 h2.nav {
