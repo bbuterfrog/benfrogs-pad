@@ -30,7 +30,7 @@ h1.title {
 } 
 #navigation {
 	height: 15%;
-	width: 100%;
+	width: 50%;
 	background-color: blue;
 }
 
@@ -38,13 +38,16 @@ h2.nav {
 	font-style: bold;
 	font-size: 2.5em;
 	font-family: arial, sans-serif;
-	padding-left: 1em;
+	text-align: center;
 }
 
-div.nav {
-	width: 25%;
+#nav-code {
+	float: left;
 }
 
+#nav-code {
+	float: right;
+}
 div.nav:float {
 	background-color: green;
 }	
