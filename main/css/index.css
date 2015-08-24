@@ -39,7 +39,8 @@ h1.title {
 #navigation {
 	width: 50%;
 	float: bottom;
-	background-color: blue;
+	overflow: hidden;
+	
 }
 
 h2.nav {
