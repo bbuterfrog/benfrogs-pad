@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+body: {
+	font-size: 100%;
+}
+
 #frog-picture {
 	float: left;
 	width: 10%;
@@ -19,7 +23,9 @@
 }
 
 h1.title: {
-	font: bold 25px arial, sans-serif;
-	margin-left: 5em;
+	font-style: bold;
+	font-size: 2.5em; 
+	font-family: arial, sans-serif;
+	margin-left: 3em;
 } 
 
