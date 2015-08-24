@@ -54,13 +54,7 @@ h2.nav {
 	float: right;
 }
 
-@media (max-width: 600px) {
-#nav-code {    
-    float: center;
-    }
-#nav-about {
-	float: center;
-}       
+       
 }
 
 div.nav:hover {
