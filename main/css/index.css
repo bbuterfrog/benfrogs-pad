@@ -82,7 +82,7 @@ h2.nav {
 }
 
 #footer a:link {
-	color:black;
+	color:green;
 }
 
 #footer {
@@ -93,14 +93,22 @@ h2.nav {
 	width: 33%;
 	overflow: hidden;
 	float: left;
-	align: center;
+}
+
+#twitter .twitter-follow-button {
+   vertical-align: middle;
+   margin: auto;	
 }
 
 #linkedin {
 	width: 33%;
 	overflow: hidden;
 	float: left;
-	align: center;
+}
+
+#linkedin .linkedin-button {
+	vertical-align: middle;
+	margin: auto;
 }
 
 #email {
@@ -109,6 +117,11 @@ h2.nav {
 	font-family: arial, sans-serif;
 	float: left;
 	align: center;
+}
+
+#email .mail-footer {
+	vertical-align: middle;
+	margin: auto;
 }
 
 #emailicon {
