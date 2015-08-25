@@ -6,10 +6,13 @@
 }
 
 body {
-	font-size: 100%;
+	font-size: 100%;	
 }
 
-
+#container {
+	height: 100%;
+	overflow: hidden;
+}
 #frog-picture {
 	float: left;
 	width: 10%;	
