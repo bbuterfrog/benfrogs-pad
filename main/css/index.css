@@ -113,13 +113,13 @@ h2.nav {
 	width: 33%;
 	overflow: hidden;
 	font-family: arial, sans-serif;
-	font-size: 2em;
 	float: left;
 	align: center;
 }
 
 #emailicon {
 	height: 3.5em;
+	vertical-align: middle;
 }
 
 
