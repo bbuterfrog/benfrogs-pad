@@ -9,11 +9,11 @@ class contentServer {
 	 * a file_get_contents (simplest case for this class)
 	 * 
 	 * @arg page string: html filename (without .html on the end) of
-	 * web page you want (no path, must be in /html directory)
+	 * web page you want (no path)
 	 * @return: string (html), web page contents you want
 	 */
 	public function getHTML ( $page ) {
-        $filename = "../main/html/" . $page . ".html";
+        $filename = "../" . $page . ".html";
 		return file_get_contents ($filename);
 	}
 }
