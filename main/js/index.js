@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	getHTML ( 'header', 'header' );
+	getHTML ( 'footer', 'footer');
 });
 
 function getHTML (div, content){
