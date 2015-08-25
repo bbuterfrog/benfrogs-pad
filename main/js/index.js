@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function getHTML (div, content){
    $.ajax ({
-	   url: '../php/serverHTML.php?content=' + content,
+	   url: '../main/php/serverHTML.php?content=' + content,
 	   beforeSend: showLoadingImage (div),
 	   contentType : 'html',
 	   done: function ( html ) {
