@@ -97,7 +97,8 @@ h2.nav {
 
 .footer-element {
    vertical-align: middle;
-   margin: auto;	
+   margin: auto;
+   overflow: hidden;	
 }
 
 #linkedin {
