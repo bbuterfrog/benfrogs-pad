@@ -8,7 +8,7 @@ function getHTML (div, content){
 	   beforeSend: showLoadingImage (div),
 	   contentType : 'html',
 	   
-   });
+   })
    .done (function ( content ) {
 	   $('#'+div).html(content);
    }); 
