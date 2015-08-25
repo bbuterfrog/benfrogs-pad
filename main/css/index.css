@@ -82,19 +82,19 @@ h2.nav {
 
 
 #twitter {
-	width: 33%;
+	width: 32%;
 	overflow: hidden;
 	float: left;
 }
 
 #linkedin {
-	width: 33%;
+	width: 32%;
 	overflow: hidden;
 	float: center;
 }
 
 #email {
-	width: 33%;
+	width: 32%;
 	overflow: hidden;
 	font-family: arial, sans-serif;
 	a.color: black;
