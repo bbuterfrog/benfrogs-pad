@@ -95,7 +95,7 @@ h2.nav {
 	float: left;
 }
 
-#twitter .twitter-follow-button {
+.footer-element {
    vertical-align: middle;
    margin: auto;	
 }
@@ -106,10 +106,6 @@ h2.nav {
 	float: left;
 }
 
-#linkedin .linkedin-button {
-	vertical-align: middle;
-	margin: auto;
-}
 
 #email {
 	width: 33%;
@@ -117,11 +113,6 @@ h2.nav {
 	font-family: arial, sans-serif;
 	float: left;
 	align: center;
-}
-
-#email .mail-footer {
-	vertical-align: middle;
-	margin: auto;
 }
 
 #emailicon {
