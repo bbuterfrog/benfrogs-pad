@@ -5,18 +5,19 @@
     padding: 0;
 }
 
-body {
+html, body {
 	font-size: 100%;	
 }
 
-#container {
-	min-height: 100%;
-	margin-bottom: -20%;
+.wrapper {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   margin: 0 auto -4em;
 }
 
-#container:after {
-	content: "";
-	display: block;
+.footer, .push {
+   height: 4em;
 }
 
 #frog-picture {
@@ -78,11 +79,6 @@ h2.nav {
 	cursor: default;
 }
 
-#footer, #container:after  {
-	height: 20%;
-	width: 100%;
-	
-}
 
 #twitter {
 	width: 33%;
@@ -114,7 +110,7 @@ h2.nav {
 #navabout {
 	float: center;
 }
-#footer {
+.footer {
 	visibility: none;
 }       
 }
