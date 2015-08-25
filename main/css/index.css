@@ -133,7 +133,7 @@ h2.nav {
 #navabout {
 	float: center;
 }
-.footer {
-	visibility: none;
+#footer {
+	display: none;
 }       
 }
