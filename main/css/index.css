@@ -85,6 +85,12 @@ h2.nav {
 	color:green;
 }
 
+#footer a {
+	text-align: center;
+	display: block;
+	margin 0 auto;
+}
+
 #footer {
 	overflow: hidden;
 }
@@ -95,11 +101,6 @@ h2.nav {
 	float: left;
 }
 
-.footer-element {
-   vertical-align: middle;
-   margin: auto;
-   overflow: hidden;	
-}
 
 #linkedin {
 	width: 33%;
