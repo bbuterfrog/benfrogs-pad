@@ -13,7 +13,7 @@ class contentServer {
 	 * @return: string (html), web page contents you want
 	 */
 	public function getHTML ( $page ) {
-        $filename = "../html/" . $page . ".html";
+        $filename = "../main/html/" . $page . ".html";
 		return file_get_contents ($filename);
 	}
 }
