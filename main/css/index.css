@@ -93,12 +93,14 @@ h2.nav {
 	width: 33%;
 	overflow: hidden;
 	float: left;
+	align: center;
 }
 
 #linkedin {
 	width: 33%;
 	overflow: hidden;
 	float: left;
+	align: center;
 }
 
 #email {
@@ -106,6 +108,7 @@ h2.nav {
 	overflow: hidden;
 	font-family: arial, sans-serif;
 	float: left;
+	align: center;
 }
 
 #emailicon {
