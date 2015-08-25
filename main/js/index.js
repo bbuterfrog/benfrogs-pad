@@ -7,12 +7,12 @@ function getHTML (div, content){
 	   url: '../main/php/serverHTML.php?content=' + content,
 	   beforeSend: showLoadingImage (div),
 	   contentType : 'html',
-	   done: function ( html ) {
-		   $('#'+div).html(html);
+	   done: function ( content ) {
+		   $('#'+div).html(content);
 	   } 
    });
 }
 
 function showLoadingImage (div) {
-	$('#'+div).html('<center><img src="../img/loading.gif"></img></center>');
+	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
