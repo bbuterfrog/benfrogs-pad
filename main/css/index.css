@@ -48,37 +48,11 @@ h1.title {
 	padding-left: 1em;
 }
  
-#navigation {
+#head-navbar {
 	width: 50%;
 	float: bottom;
 	overflow: hidden;
 	
-}
-
-h2.nav {
-	font-style: bold;
-	font-size: 2.5em;
-	font-family: arial, sans-serif;
-	text-align: center;
-}
-
-
-#navcode {
-	float: left;
-}
-
-#navcode:hover {
-	background-color: green;
-	cursor: default;
-}
-
-#navabout {
-	float: right;
-}
-
-#navabout:hover {
-	background-color: green;
-	cursor: default;
 }
 
 #footer a:link {
@@ -124,15 +98,6 @@ h2.nav {
 
 
 @media (max-width: 600px) {
-#navigation {
-	width: 100%;
-}	
-#navcode {    
-    float: center;
-    }
-#navabout {
-	float: center;
-}
 #footer {
 	display: none;
 }       
