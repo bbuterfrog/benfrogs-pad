@@ -33,7 +33,7 @@ html, body {
 }
 
 .head {
-	background-color: blue;
+	background: blue;
 }
 
 .ui-tabs .ui-tabs-nav {
