@@ -5,7 +5,7 @@ $(document).ready(function() {
 	}
 	else {
 		getHTML ('head-navbar', 'head-navbar' );
-		('#head-navbar').tabs();
+		$('#head-navbar').tabs();
 	}
 	getHTML ( 'footer', 'footer');
 });
