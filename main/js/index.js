@@ -4,7 +4,7 @@ $(document).ready(function() {
 	    //getTabs ('head-navbar', 'mobile-head-navbar');	
 	}
 	else {
-		getTabs ('content', 'content' );
+		getTabs ('nav-header', 'nav-header' );
 	}
 	getHTML ( 'footer', 'footer');
 });
