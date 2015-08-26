@@ -1,5 +1,12 @@
 $(document).ready(function() {
 	getHTML ( 'header', 'header' );
+	if ( document.documentElement.clientWidth < 600 ) {
+	    getHTML ('head-navbar', 'mobile-head-navbar');	
+	}
+	else {
+		getHTML ('head-navbar', 'head-navbar' );
+		('#head-navbar').tabs();
+	}
 	getHTML ( 'footer', 'footer');
 });
 
@@ -17,4 +24,10 @@ function getHTML (div, content){
 
 function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
+}
+
+function makeNavClickable() {
+	('#navcode').click(function()) {
+		getHTML ('content', 'code');
+	});
 }
