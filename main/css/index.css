@@ -36,16 +36,13 @@ html, body {
 	background-color: blue;
 }
 
-.ui-tabs {
-	background-color: blue;
+.ui-tabs .ui-tabs-nav {
+	background: blue;
 }
 
-.ui-tabs-nav {
-	background-color: blue;
-}
 
 .ui-tabs-active {
-	background-color: green;
+	background: green;
 }
 
 #title {
