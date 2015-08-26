@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	getHTML ( 'header', 'header' );
 	if ( document.documentElement.clientWidth < 600 ) {
-	    getTabs ('head-navbar', 'mobile-head-navbar');	
+	    //getTabs ('head-navbar', 'mobile-head-navbar');	
 	}
 	else {
-		getTabs ('head-navbar', 'head-navbar' );
+		getTabs ('content', 'content' );
 	}
 	getHTML ( 'footer', 'footer');
 });
