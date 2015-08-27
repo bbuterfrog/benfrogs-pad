@@ -47,7 +47,6 @@ function getTabs ( ){
 			    		getHTML ( 'contact', 'contact');      		
 			    	}
 			    }
-			    }    
 			}); 
 	   }); 
 	}
