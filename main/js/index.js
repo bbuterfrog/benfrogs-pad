@@ -25,7 +25,7 @@ function getFooter ( ) {
 	   })
 	   .done (function ( content ) {
 		   $('#footer').html(content);
-		   if (document.documentElement.clientWidth < 600) {
+		   //if (document.documentElement.clientWidth < 600) {
 			   $.ajax ({
 				  url: '../main/php/serverHTML.php?content=contact',
 				  beforeSend: showLoadingImage ('contact'),
@@ -34,7 +34,7 @@ function getFooter ( ) {
 		      .done (function (contactContent) {
 			      $('#contact').html(contactContent);
 		      });
-   }
+   //}
 	   });
 		   
 }
