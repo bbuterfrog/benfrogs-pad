@@ -36,9 +36,9 @@ function getTabs ( ){
 		   
 	   })
 	   .done (function ( content ) {
-		   $('#'+div).html(content);
-		   $( '#'+div ).tabs();
-		   $('#'+div).tabs({
+		   $('#nav-header').html(content);
+		   $( '#nav-header' ).tabs();
+		   $('#nav-header').tabs({
 			    add: function(event, ui) {
 			        $(ui.panel).appendTo('content');
 			    }
