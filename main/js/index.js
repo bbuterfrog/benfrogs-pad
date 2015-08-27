@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	getHeader ( );
-	getHTML ( 'footer', 'footer');
+	getFooter ();
 });
 
 function getHeader ( ) {
@@ -9,23 +9,33 @@ function getHeader ( ) {
 		   beforeSend: showLoadingImage ('header'),
 		   contentType : 'html',
 		   
-	   })
+	   });
 	   .done (function ( content ) {
 		   $('#header').html(content);
-		   getTabs ( )
+		   getTabs ( );
 	   });
 }
 
-function getHTML (div, content){
-   $.ajax ({
-	   url: '../main/php/serverHTML.php?content=' + content,
-	   beforeSend: showLoadingImage (div),
-	   contentType : 'html',
-	   
-   })
-   .done (function ( content ) {
-	   $('#'+div).html(content);
-   }); 
+function getFooter ( ) {
+	$.ajax ({
+		   url: '../main/php/serverHTML.php?content=footer',
+		   beforeSend: showLoadingImage ('footer'),
+		   contentType : 'html',
+		   
+	   });
+	   .done (function ( content ) {
+		   $('#footer').html(content);
+		   if (document.documentElement.clientWidth < 600) {
+			   $.ajax ({
+				  url '../main/php/serverHTML.php?content=contact',
+				  beforeSend: showLoadingImage ('contact'),
+			      contentType: 'html',
+		      });
+		      .done (function) (contactContent) {
+			      $('#contact').html(contactContent);
+		      });
+           }
+		)};
 }
 
 function getTabs ( ){
@@ -34,7 +44,7 @@ function getTabs ( ){
 		   beforeSend: showLoadingImage ( 'nav-header' ),
 		   contentType : 'html',
 		   
-	   })
+	   });
 	   .done (function ( content ) {
 		   $('#nav-header').html(content);
 		   $( '#nav-header' ).tabs();
