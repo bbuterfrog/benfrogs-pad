@@ -83,7 +83,9 @@ h1.title {
 	
 }
 
-
+#footer a:link {
+	color:white;
+}
 
 #footer a {
 	text-align: center;
@@ -117,10 +119,6 @@ h1.title {
 
 }
 
-#email a:link {
-	color:white;
-	padding-left: 0.1em;
-}
 
 
 #emailicon {
