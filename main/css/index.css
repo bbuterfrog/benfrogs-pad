@@ -40,6 +40,7 @@ html, body {
 .ui-tabs .ui-tabs-nav {
 	background: blue;
 	border: none;
+	padding: 0;
 }
 
 .ui-tabs-active {
