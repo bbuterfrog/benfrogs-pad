@@ -25,7 +25,7 @@ html, body {
 #frog-picture {
 	float: left;
 	width: 10%;	
-	z-index: 999;
+	
 }
 
 #header {
@@ -39,15 +39,13 @@ html, body {
 
 .ui-tabs .ui-tabs-nav {
 	background: blue;
+	border: none;
 }
 
 .ui-tabs-active {
 	background: green;
 }
 
-#nav-header {
-	border: none;
-}
 
 #title {
 	float: top;
