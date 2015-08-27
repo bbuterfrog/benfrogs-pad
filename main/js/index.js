@@ -30,7 +30,7 @@ function getFooter ( ) {
 				  url: '../main/php/serverHTML.php?content=contact',
 				  beforeSend: showLoadingImage ('contact'),
 			      contentType: 'html',
-		      });
+		      })
 		      .done (function (contactContent) {
 			      $('#contact').html(contactContent);
 		      });
