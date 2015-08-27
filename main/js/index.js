@@ -45,10 +45,10 @@ function getTabs ( ){
 		   });
 		   $('#nav-header').tabs({
 		   load: function(event, ui ) {
-			    	if (document.documentElement.clientWidth < 600) {
+			    //	if (document.documentElement.clientWidth < 600) {
 			    		getHTML ( 'contact', 'contact');      		
 			    	}
-			    }
+			   // }
 			}); 
 	   }); 
 	}
