@@ -37,6 +37,13 @@ html, body {
 	background: blue;
 }
 
+.content {
+	font-family: arial, sans-serif;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	line-spacing: 0.1em;
+}
+
 #nav-header { 
     padding: 0px; 
     background: none; 
@@ -53,7 +60,7 @@ html, body {
 } 
 
 #nav-header .ui-tabs-panel { 
-    background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% bottom; 
+    background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top; 
     border-width: 0px 1px 1px 1px; 
 }
 
