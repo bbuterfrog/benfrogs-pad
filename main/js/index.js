@@ -30,7 +30,7 @@ function getHTML (div, content){
 
 function getTabs ( ){
 	   $.ajax ({
-		   url: '../main/php/serverHTML.php?content=nav-header,
+		   url: '../main/php/serverHTML.php?content=nav-header',
 		   beforeSend: showLoadingImage ( 'nav-header' ),
 		   contentType : 'html',
 		   
