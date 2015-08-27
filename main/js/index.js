@@ -9,7 +9,7 @@ function getHeader ( ) {
 		   beforeSend: showLoadingImage ('header'),
 		   contentType : 'html',
 		   
-	   });
+	   })
 	   .done (function ( content ) {
 		   $('#header').html(content);
 		   getTabs ( );
@@ -22,7 +22,7 @@ function getFooter ( ) {
 		   beforeSend: showLoadingImage ('footer'),
 		   contentType : 'html',
 		   
-	   });
+	   })
 	   .done (function ( content ) {
 		   $('#footer').html(content);
 		   if (document.documentElement.clientWidth < 600) {
@@ -44,7 +44,7 @@ function getTabs ( ){
 		   beforeSend: showLoadingImage ( 'nav-header' ),
 		   contentType : 'html',
 		   
-	   });
+	   })
 	   .done (function ( content ) {
 		   $('#nav-header').html(content);
 		   $( '#nav-header' ).tabs();
