@@ -27,11 +27,11 @@ function getFooter ( ) {
 		   $('#footer').html(content);
 		   if (document.documentElement.clientWidth < 600) {
 			   $.ajax ({
-				  url: '../main/php/serverHTML.php?content=contact',
+				  url '../main/php/serverHTML.php?content=contact',
 				  beforeSend: showLoadingImage ('contact'),
 			      contentType: 'html',
-		      })
-		      .done (function) (contactContent) {
+		      });
+		      .done (function (contactContent) {
 			      $('#contact').html(contactContent);
 		      });
            }
