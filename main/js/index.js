@@ -12,7 +12,7 @@ function getHeader ( ) {
 	   })
 	   .done (function ( content ) {
 		   $('#header').html(content);
-		   getTabs ('nav-header', 'content')
+		   getTabs ( )
 	   });
 }
 
@@ -28,10 +28,10 @@ function getHTML (div, content){
    }); 
 }
 
-function getTabs (div, content){
+function getTabs ( ){
 	   $.ajax ({
-		   url: '../main/php/serverHTML.php?content=' + content,
-		   beforeSend: showLoadingImage (div),
+		   url: '../main/php/serverHTML.php?content=nav-header,
+		   beforeSend: showLoadingImage ( 'nav-header' ),
 		   contentType : 'html',
 		   
 	   })
