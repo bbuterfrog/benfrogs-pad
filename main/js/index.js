@@ -41,8 +41,10 @@ function getTabs ( ){
 		   $('#nav-header').tabs({
 			    add: function(event, ui) {
 			        $(ui.panel).appendTo('content');
-			    }    
-			    load: function(event, ui ) {
+			    }
+		   });
+		   $('#nav-header').tabs({
+		   load: function(event, ui ) {
 			    	if (document.documentElement.clientWidth < 600) {
 			    		getHTML ( 'contact', 'contact');      		
 			    	}
