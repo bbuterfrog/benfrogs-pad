@@ -6,7 +6,7 @@ $(document).ready(function() {
 function getHeader ( ) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?content=header',
-		   beforeSend: showLoadingImage (div),
+		   beforeSend: showLoadingImage ('header'),
 		   contentType : 'html',
 		   
 	   })
