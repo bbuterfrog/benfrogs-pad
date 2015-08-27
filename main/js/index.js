@@ -31,7 +31,7 @@ function getTabs (div, content){
 	   .done (function ( content ) {
 		   $('#'+div).html(content);
 		   $( '#'+div ).tabs();
-		   $('#').tabs({
+		   $('#'+div).tabs({
 			    add: function(event, ui) {
 			        $(ui.panel).appendTo('content');
 			    }
