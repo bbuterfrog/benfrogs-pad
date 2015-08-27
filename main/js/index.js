@@ -31,6 +31,11 @@ function getTabs (div, content){
 	   .done (function ( content ) {
 		   $('#'+div).html(content);
 		   $( '#'+div ).tabs();
+		   $('#').tabs({
+			    add: function(event, ui) {
+			        $(ui.panel).appendTo('content');
+			    }
+			}); 
 	   }); 
 	}
 
