@@ -34,8 +34,9 @@ function getFooter ( ) {
 		      .done (function (contactContent) {
 			      $('#contact').html(contactContent);
 		      });
-           }
-		)};
+   }
+	   });
+		   
 }
 
 function getTabs ( ){
