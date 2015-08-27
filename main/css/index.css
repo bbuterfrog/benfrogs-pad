@@ -85,6 +85,7 @@ h1.title {
 
 #footer a:link {
 	color:white;
+	padding-left: 0.1em;
 }
 
 #footer a {
@@ -119,9 +120,7 @@ h1.title {
 
 }
 
-a.email {
-	padding-left: 0.1em;
-}
+
 
 #emailicon {
 	height: 3.5em;
