@@ -38,7 +38,9 @@ html, body {
 }
 
 #nav-header { 
-     
+    padding: 0px; 
+    background: none; 
+    border-width: 0px; 
 } 
 
 #nav-header .ui-tabs-nav { 
