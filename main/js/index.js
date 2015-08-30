@@ -64,12 +64,12 @@ function showLoadingImage (div) {
 
 function initDeptTable () {
 	$('#employee-dept').DataTable({
-		"ajax" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
+		"ajax" : { '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
-            "contentType": "application/json; charset=utf-8",
+            "contentType": "application/json; charset=utf-8"
+		},
         "aoColumns" :  [
 				         {'mData': 'dept_no', 'sType': 'string', "bVisible": true},
-				         {'mData': 'dept_name', 'sType': 'string', 'bVisible': true}];    
-	}
+				         {'mData': 'dept_name', 'sType': 'string', 'bVisible': true}];   
 	});
 }
