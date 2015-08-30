@@ -14,8 +14,10 @@ Instead, let's go a bit further by putting all 300,000+ employees in one place. 
 and forcing the poor user to search and scroll all day?  
 Well, we have departments, and a table to join together employees and their department.  Let's see what happens when we do these
 JOINs and a GROUP BY:
+<pre class="prettyprint">
 SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
+</pre>
 <br>
 <table>
 <thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
