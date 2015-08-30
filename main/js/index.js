@@ -62,8 +62,8 @@ function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
-function initDataTable ( tableName, dataName ) {
+/*function initDataTable ( tableName, dataName ) {
 	('#'+tableName).DataTable({
 		"ajax" : '../main/php/serverJSON.php?type=JSON&content=' + dataName
 	});
-}
+}*/
