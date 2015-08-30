@@ -1,0 +1,34 @@
+<div id="exploding" class="content">
+<p>Boom!  Okay, now that we have that out of the way, not long after I first started using 
+<a href="https://www.datatables.net">jQuery DataTables</a> I Googled for a way to "explode" rows.  
+I finally found something like <a href="https://www.datatables.net/examples/api/row_details.html">this</a>
+example, which has been expanded upon quite a bit since those days.  It now mentions the possiblity of exactly what I
+decided to do, which was to not use static data in each row like it does, but to put a placeholder in each "exploded"
+(expanded) row and then AJAX in the content (this keeps the DOM lightweight by not loading all of the "child" content, regardless
+of how large it may be, for each row before the user actually requests it).  Let's explore a working example of that method, which I've
+used many times in a production enviornment.
+<br>
+I'm using the <a href="https://github.com/datacharmer/test_db">Employees Sample Database</a> for this and other examples.  
+This happens to appear to be the same example database they are using at least a part of in the above example, but I'm not going to repeat it.  
+Instead, let's go a bit further by putting all 300,000+ employees in one place.  How the heck do we do that without using server-side DataTables
+and forcing the poor user to search and scroll all day?  
+Well, we have departments, and a table to join together employees and their department.  Let's see what happens when we do these
+JOINs and a GROUP BY:
+<pre><code>
+SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
+INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
+</code></pre>
+<br>
+<table>
+<thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
+<tr><td>20211</td>	<td>d001</td>	<td>Marketing</td></tr>
+<tr><td>17346</td>	<td>d002</td>	<td>Finance</td></tr>
+<tr><td>17786</td>	<td>d003</td>	<td>Human Resources</td></tr>
+<tr><td>73485</td>	<td>d004</td>	<td>Production</td></tr>
+<tr><td>85707</td>	<td>d005</td>	<td>Development</td></tr>
+<tr><td>20117</td>	<td>d006</td>	<td>Quality Management</td></tr>
+<tr><td>52245</td>	<td>d007</td>	<td>Sales</td></tr>
+<tr><td>21126</td>	<td>d008</td>	<td>Research</td></tr>
+<tr><td>23580</td>	<td>d009</td>	<td>Customer Service</td></tr>
+</table>      
+</div>
