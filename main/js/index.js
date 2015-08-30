@@ -47,7 +47,11 @@ function getTabs ( ){
 		   load: function(event, ui ) {
 			   var $activeTab = $('#nav-header').tabs('option', 'active');
 			   if ( $activeTab == 0 ){
-				   initDataTable ( 'employee-dept', 'employee-dept');
+				   var columns =  
+					   "aoColumns": [
+				         {'mData': 'id', 'sType': 'string', "bVisible": true, "bSearchable": false},
+				         {'mData': 'fabric_name', 'sType': 'string', 'bVisible': true}];
+				   initDataTable ( 'employee-dept', 'employee-dept', );
 			   }
 			   else if ($activeTab == 2) {
 			    	if (document.documentElement.clientWidth < 600) {
@@ -62,8 +66,10 @@ function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
-function initDataTable ( tableName, dataName ) {
+function initDataTable ( tableName, dataName, columns ) {
 	$('#'+tableName).DataTable({
-		"ajax" : '../main/php/serverHTML.php?type=JSON&content=' + dataName
+		"ajax" : '../main/php/serverHTML.php?type=JSON&content=' + dataName,
+	        "cache": false,
+            "contentType": "application/json; charset=utf-8"
 	});
 }
