@@ -54,6 +54,7 @@ function getTabs ( ){
 			    		getHTML ( 'contact', 'contact');      		
 			    	}
 			    }
+		   } 
 	   }); 
 	}
 function showLoadingImage (div) {
