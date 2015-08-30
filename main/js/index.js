@@ -62,8 +62,8 @@ function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
-function initDeptTable ) {
-	$('#employee-dept).DataTable({
+function initDeptTable () {
+	$('#employee-dept').DataTable({
 		"ajax" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
             "contentType": "application/json; charset=utf-8"},
