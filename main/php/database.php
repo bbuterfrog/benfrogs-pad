@@ -26,6 +26,6 @@ class database {
 	public function query ( $sql ) {
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
-		$sth->fetchAll(PDO::FETCH_ASSOC);
+		return $sth->fetchAll(PDO::FETCH_ASSOC);
 	}
 }
