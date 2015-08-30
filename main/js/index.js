@@ -64,6 +64,6 @@ function showLoadingImage (div) {
 
 function initDataTable ( tableName, dataName ) {
 	('#'+tableName).DataTable({
-		"ajax" : '../main/php/serverJSON.php?type=JSON&content=' + dataName;
+		"ajax" : '../main/php/serverJSON.php?type=JSON&content=' + dataName
 	});
 }
