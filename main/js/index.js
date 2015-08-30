@@ -64,7 +64,8 @@ function showLoadingImage (div) {
 
 function initDeptTable () {
 	$('#employee-dept').DataTable({
-		"ajax" : { '../main/php/serverHTML.php?type=JSON&content=employee-dept',
+		"ajax" : { 
+			"url" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
             "contentType": "application/json; charset=utf-8"
 		},
