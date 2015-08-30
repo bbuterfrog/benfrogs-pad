@@ -47,10 +47,7 @@ function getTabs ( ){
 		   load: function(event, ui ) {
 			   var $activeTab = $('#nav-header').tabs('option', 'active');
 			   if ( $activeTab == 0 ){
-				   var columns =  [
-				         {'mData': 'dept_no', 'sType': 'string', "bVisible": true},
-				         {'mData': 'dept_name', 'sType': 'string', 'bVisible': true}];
-				   initDataTable ( 'employee-dept', 'employee-dept', columns);
+				   initDeptTable();
 			   }
 			   else if ($activeTab == 2) {
 			    	if (document.documentElement.clientWidth < 600) {
@@ -65,11 +62,13 @@ function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
-function initDataTable ( tableName, dataName, columns ) {
-	$('#'+tableName).DataTable({
-		"ajax" : '../main/php/serverHTML.php?type=JSON&content=' + dataName,
+function initDeptTable ) {
+	$('#employee-dept).DataTable({
+		"ajax" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
             "contentType": "application/json; charset=utf-8"},
-        "aoColumns" : columns    
+        "aoColumns" :  [
+				         {'mData': 'dept_no', 'sType': 'string', "bVisible": true},
+				         {'mData': 'dept_name', 'sType': 'string', 'bVisible': true}];    
 	});
 }
