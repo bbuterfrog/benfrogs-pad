@@ -29,8 +29,10 @@ class contentServer {
 	 */
 	public function getJSON ( $sql ){
 		$resultArray = $this->database->query($sql);
-		$resultValues = array_values($resultArray);
-		$resultArray = array ('data' => $resultValues);
-		die (json_encode($resultValues));
+		$result = array();
+		array_walk_recursive($resultArray, function ($value, $key) use (& $result) {
+			$result[] = $value;
+		});
+		die (json_encode($result));
 	}
 }
