@@ -44,7 +44,7 @@ function getTabs ( ){
 			    }
 		   });
 		   $('#nav-header').tabs({
-		   load: function(event, ui ) {
+		   activate: function(event, ui ) {
 			   var $activeTab = $('#nav-header').tabs('option', 'active');
 			   if ( $activeTab == 0 ){
 				   initDataTable ( 'employee-dept', 'employee-dept');
