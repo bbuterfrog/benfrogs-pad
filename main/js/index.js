@@ -56,7 +56,7 @@ function getTabs ( ){
 			    }
 		   } 
 	   }); 
-	}
+	});
 }	   
 function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
