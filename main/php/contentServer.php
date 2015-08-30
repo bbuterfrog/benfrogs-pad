@@ -33,6 +33,7 @@ class contentServer {
 		array_walk_recursive($resultArray, function ($value, $key) use (& $result) {
 			$result[] = $value;
 		});
+		$result = array ( 'data' => $result);
 		die (json_encode($result));
 	}
 }
