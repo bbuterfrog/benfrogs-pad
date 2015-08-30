@@ -130,6 +130,12 @@ h1.title {
 	horizontal-align: middle;
 }
 
+table .grid {
+	border 0.5 em solid black;
+}
+
+
+
 @media (max-width: 600px) {
 #footer {
 	display: none;

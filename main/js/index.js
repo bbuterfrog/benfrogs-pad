@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 function getHeader ( ) {
 	$.ajax ({
-		   url: '../main/php/serverHTML.php?content=header',
+		   url: '../main/php/serverHTML.php?type=HTML&content=header',
 		   beforeSend: showLoadingImage ('header'),
 		   contentType : 'html',
 		   
@@ -18,7 +18,7 @@ function getHeader ( ) {
 
 function getHTML (div, content){
    $.ajax ({
-	   url: '../main/php/serverHTML.php?content=' + content,
+	   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
 	   beforeSend: showLoadingImage (div),
 	   contentType : 'html',
 	   
@@ -30,7 +30,7 @@ function getHTML (div, content){
 
 function getTabs ( ){
 	   $.ajax ({
-		   url: '../main/php/serverHTML.php?content=nav-header',
+		   url: '../main/php/serverHTML.php?type=HTML&content=nav-header',
 		   beforeSend: showLoadingImage ( 'nav-header' ),
 		   contentType : 'html',
 		   
@@ -45,15 +45,25 @@ function getTabs ( ){
 		   });
 		   $('#nav-header').tabs({
 		   load: function(event, ui ) {
+			   var $activeTab = $('#nav-header').tabs('option', 'active');
+			   if ( $activeTab == 0 ){
+				   initDataTable ( 'employee-dept', 'employee-dept');
+			   }
+			   else if ($activeTab == 2) {
 			    	if (document.documentElement.clientWidth < 600) {
 			    		getHTML ( 'contact', 'contact');      		
 			    	}
 			    }
+		   }); 
 			}); 
 	   }); 
 	}
-
 function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
+function initDataTable ( tableName, dataName ) {
+	('#'+tableName).DataTable({
+		"ajax" : '../main/php/serverJSON.php?type=JSON&content=' + dataName;
+	});
+}
