@@ -29,7 +29,7 @@ class contentServer {
 	 */
 	public function getJSON ( $sql ){
 		$resultArray = $this->database->query($sql);
-		$result = (array_reduce($resultArray, 'data'));
+		$result = (array_reduce($resultArray, 'array_merge'));
 		$result = array ( 'data' => $result);
 		die (json_encode($result));
 	}
