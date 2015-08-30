@@ -3,7 +3,7 @@ class database {
 	private $dbh;
 	
 	public function __construct() {
-		$parameters = parse_ini_file( '/config/db.ini');
+		$parameters = parse_ini_file( 'config/db.ini');
 		$user = $parameters['DB_USER'];
 		$password = $parameters['DB_PASS'];
 		$database = $parameters['DB_NAME'];
