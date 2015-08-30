@@ -5,7 +5,7 @@ class database {
 	public function __construct() {
 		$parameters = parse_ini_file( '../config/db.ini');
 		$user = $parameters['DB_USER'];
-		$password = $parameters['DB_PASS'];
+		$password = $parameters['DB_PASSWD'];
 		$database = $parameters['DB_NAME'];
 		$server = $parameters['DB_SERVER'];
 		$dsn = "mysql:dbname=$database;host=$server";
