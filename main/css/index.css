@@ -131,6 +131,7 @@ h1.title {
 }
 
 #dept-table td, th{
+	border: border-collapse;
 	border: 0.2em solid black;
 }
 
