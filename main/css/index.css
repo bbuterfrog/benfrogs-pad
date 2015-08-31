@@ -135,12 +135,12 @@ table .grid {
 }
 
 #exploding td.details-control {
-    background: url('../img/Orb-plus-icon.png') no-repeat;
+    background: url('../img/Orb-plus-icon.png') no-repeat center center;
     cursor: pointer;
 }
 
 #exploding tr.shown td.details-control {
-    background: url('../img/Orb-minus-icon.png') no-repeat;
+    background: url('../img/Orb-minus-icon.png') no-repeat center center;
 }
 
 

@@ -72,8 +72,7 @@ function initDeptTable () {
                           "data":           null,
                           "defaultContent": ''
                          },
-				         { "className" : 'all',
-                        	 'data': 'dept_no', 'sType': 'string', 'bVisible': true },
+				         {'data': 'dept_no', 'sType': 'string', 'bVisible': false },
 				         { "className" : 'all',
                         		 'data': 'dept_name', 'sType': 'string', 'bVisible': true}],
 		"responsive" : {
