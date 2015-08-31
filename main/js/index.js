@@ -37,13 +37,10 @@ function getTabs ( ){
 	   })
 	   .done (function ( content ) {
 		   $('#nav-header').html(content);
-		   $( '#nav-header' ).tabs();
 		   $('#nav-header').tabs({
 			    add: function(event, ui) {
 			        $(ui.panel).appendTo('content');
-			    }
-		   });
-		   $('#nav-header').tabs({
+			    },
 		   load: function(event, ui ) {
 			   var $activeTab = $('#nav-header').tabs('option', 'active');
 			   if ( $activeTab == 0 ){
@@ -67,11 +64,13 @@ function initDeptTable () {
 		"ajax" : { 
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
-            "contentType": "application/json; charset=utf-8",
+            "contentType": "application/json",
 		},
         "aoColumns" :  [
 				         {'mData': 'dept_no', 'sType': 'string', "bVisible": true},
 				         {'mData': 'dept_name', 'sType': 'string', 'bVisible': true}],
 		"responsive" : true		         
 	});
+	
+	 
 }
