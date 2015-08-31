@@ -74,7 +74,9 @@ function initDeptTable () {
                          },
 				         {'data': 'dept_no', 'sType': 'string', 'bVisible': true},
 				         {'data': 'dept_name', 'sType': 'string', 'bVisible': true}],
-		"responsive" : true,
+		"responsive" : {
+			details : false
+		},
 		"searching": false,
 		"lengthChange": false
 	});
