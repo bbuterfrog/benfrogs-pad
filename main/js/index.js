@@ -79,7 +79,9 @@ function initDeptTable () {
 		},
 		"searching": false,
 		"lengthChange": false
-	});
+		
+	})
+	.columns.adjust();
 	
 	 
 }
