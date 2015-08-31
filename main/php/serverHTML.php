@@ -1,7 +1,12 @@
 <?php
 require_once 'contentServer.php';
 $content = $_GET['content'];
-$type = $_GET['type'];
+if (isset( $_GET['type'] )) {
+	$type = $_GET['type'];
+}
+else {
+	$type = 'HTML';
+}
 $server = new ContentServer;
 if ( $type == 'HTML') {
    die ( $server->getHTML($content));
