@@ -18,17 +18,17 @@ JOINs and a GROUP BY:
 SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
 <br>
-<table id="dept" class="compact stripe">
+<table id="dept" class="compact">
 <thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
-<tr><td>20211</td>	<td>d001</td>	<td>Marketing</td></tr>
-<tr><td>17346</td>	<td>d002</td>	<td>Finance</td></tr>
-<tr><td>17786</td>	<td>d003</td>	<td>Human Resources</td></tr>
-<tr><td>73485</td>	<td>d004</td>	<td>Production</td></tr>
-<tr><td>85707</td>	<td>d005</td>	<td>Development</td></tr>
-<tr><td>20117</td>	<td>d006</td>	<td>Quality Management</td></tr>
-<tr><td>52245</td>	<td>d007</td>	<td>Sales</td></tr>
-<tr><td>21126</td>	<td>d008</td>	<td>Research</td></tr>
-<tr><td>23580</td>	<td>d009</td>	<td>Customer Service</td></tr>
+<tr><td>20211</td>		<td>Marketing</td></tr>
+<tr><td>17346</td>		<td>Finance</td></tr>
+<tr><td>17786</td>		<td>Human Resources</td></tr>
+<tr><td>73485</td>		<td>Production</td></tr>
+<tr><td>85707</td>		<td>Development</td></tr>
+<tr><td>20117</td>		<td>Quality Management</td></tr>
+<tr><td>52245</td>		<td>Sales</td></tr>
+<tr><td>21126</td>		<td>Research</td></tr>
+<tr><td>23580</td>		<td>Customer Service</td></tr>
 </table>      
 <br>
 Not too bad, but how do we display those individual tables?  That's not too bad either.  You can put any content inside of the child row, even 
