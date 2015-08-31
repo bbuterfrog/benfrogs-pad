@@ -130,7 +130,7 @@ h1.title {
 	horizontal-align: middle;
 }
 
-#exploding table .grid {
+#exploding table.grid {
     border-collapse: collapse;
 	border: 1em solid black;
 }
