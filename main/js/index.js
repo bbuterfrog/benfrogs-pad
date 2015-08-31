@@ -44,6 +44,7 @@ function getTabs ( ){
 		   load: function(event, ui ) {
 			   var $activeTab = $('#nav-header').tabs('option', 'active');
 			   if ( $activeTab == 0 ){
+				   initStaticDeptTable();
 				   initDeptTable();
 			   }
 			   else if ($activeTab == 2) {

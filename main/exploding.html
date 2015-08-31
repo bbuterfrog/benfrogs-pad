@@ -18,7 +18,7 @@ JOINs and a GROUP BY:
 SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
 <br>
-<table id="dept" class="compact">
+<table id="dept" class="compact stripe">
 <thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
 <tr><td>20211</td>	<td>d001</td>	<td>Marketing</td></tr>
 <tr><td>17346</td>	<td>d002</td>	<td>Finance</td></tr>
@@ -34,7 +34,7 @@ INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
 Not too bad, but how do we display those individual tables?  That's not too bad either.  You can put any content inside of the child row, even 
 another table.  Here's how we would nest the employees inside their departments:
 <br>
-<table id="employee-dept" class="compact">
+<table id="employee-dept" class="compact hover stripe">
 <thead>
 <tr><td></td><th></th><th>Department Name</th></tr>
 </thead>
