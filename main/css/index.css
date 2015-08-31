@@ -130,13 +130,7 @@ h1.title {
 	horizontal-align: middle;
 }
 
-#dept-table table {
-	border-collapse: collapse;
-}
 
-#dept-table table, td, th{
-	border: 0.2em solid black;
-}
 
 #exploding td.details-control {
     background: url('../img/Orb-plus-icon.png') no-repeat center center;
