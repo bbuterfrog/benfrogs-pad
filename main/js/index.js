@@ -59,6 +59,16 @@ function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
+function initStaticDeptTable () {
+	$('#dept').DataTable({
+	"responsive" : {
+		details : false
+	},
+	"searching": false,
+	"lengthChange": false
+	});
+}
+
 function initDeptTable () {
 	$('#employee-dept').DataTable({
 		"ajax" : { 
@@ -81,8 +91,7 @@ function initDeptTable () {
 		"searching": false,
 		"lengthChange": false
 		
-	})
-	.columns.adjust();
+	});
 	
 	 
 }
