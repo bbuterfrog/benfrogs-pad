@@ -66,13 +66,13 @@ function initDeptTable () {
 	        "cache": false,
             "contentType": "application/json",
 		},
-        "columns" :  [
+        "columns" :  [  {'data': 'dept_no', 'sType': 'string', 'visible': false },
                         { "className":      'details-control all',
                           "orderable":      false,
                           "data":           null,
                           "defaultContent": ''
                          },
-				         {'data': 'dept_no', 'sType': 'string', 'visible': false },
+				         
 				         { "className" : 'all',
                         		 'data': 'dept_name', 'sType': 'string', 'visible': true}],
 		"responsive" : {
