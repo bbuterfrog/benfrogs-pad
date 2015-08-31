@@ -19,7 +19,7 @@ SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN de
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
 <br>
 <table id="dept" class="compact">
-<thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
+<thead><tr><td>count(de.emp_no)</td><td>dept_name</td></tr></thead>
 <tr><td>20211</td>		<td>Marketing</td></tr>
 <tr><td>17346</td>		<td>Finance</td></tr>
 <tr><td>17786</td>		<td>Human Resources</td></tr>
