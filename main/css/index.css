@@ -134,7 +134,7 @@ h1.title {
 	border: border-collapse;
 }
 
-#dept-table td, th{
+#dept-table table, td, th{
 	border: 0.2em solid black;
 }
 
