@@ -106,7 +106,7 @@ function initDeptTable () {
 	        else {
 	            // Open this row
 	        	//get dept no
-	        	var deptNO = $(tr).find("td:first").html();
+	        	var deptNO = $(row).find("td:first").html();
 	        	alert (deptNO);
 	            //row.child( showEmployees(deptNo) ).show();
 	            tr.addClass('shown');
