@@ -130,8 +130,8 @@ h1.title {
 	horizontal-align: middle;
 }
 
-#exploding table.grid, th.grid, td.grid {
-	border: 0.5em solid black;
+#dept-table td, th{
+	border: 0.2em solid black;
 }
 
 #exploding td.details-control {
