@@ -131,8 +131,7 @@ h1.title {
 }
 
 #exploding table.grid {
-    border-collapse: collapse;
-	border: 1em solid black;
+	border: 0.5em solid black;
 }
 
 #exploding td.details-control {
