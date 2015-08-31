@@ -66,7 +66,7 @@ function initDeptTable () {
 	        "cache": false,
             "contentType": "application/json",
 		},
-        "columns" :  [  { 'visible': false },
+        "columns" :  [  {"data": 'dept_no', "visible": false },
                         { "className":      'details-control',
                           "orderable":      false,
                           "data":           null,
