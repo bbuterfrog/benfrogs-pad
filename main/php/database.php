@@ -1,6 +1,6 @@
 <?php
 class database {
-	private $dbh;
+	protected $dbh;
 	
 	public function __construct() {
 		$parameters = parse_ini_file( '../config/db.ini');

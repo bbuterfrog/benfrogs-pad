@@ -1,10 +1,8 @@
 <?php
 require_once 'database.php';
-class contentServer {
+class contentServer extends database {
 	
-	private $database;
 	public function __construct(  ) {
-	$this->database = new database();
 	}
 	
 	/* This function simply gets static html from a given file via
@@ -28,7 +26,7 @@ class contentServer {
 	 * 
 	 */
 	public function getJSON ( $sql ){
-		$resultArray = $this->database->query($sql);
+		$resultArray = parent::query($sql);
 		$result = array ( 'data' => $resultArray);
 		die (json_encode($result));
 	}
