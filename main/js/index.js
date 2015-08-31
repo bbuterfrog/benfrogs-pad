@@ -112,7 +112,6 @@ function initDeptTable () {
 	            tr.addClass('shown');
 	        }
 	    } );
-	} );
 	 
 }
 
