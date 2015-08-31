@@ -1,10 +1,8 @@
 <?php
 require_once 'database.php';
-class contentServer implements database {
+class contentServer extends database {
 	
-	public function __construct(  ) {
-	}
-	
+		
 	/* This function simply gets static html from a given file via
 	 * a file_get_contents (simplest case for this class)
 	 * 
