@@ -1,6 +1,6 @@
 <?php
 require_once 'database.php';
-class contentServer extends database {
+class contentServer implements database {
 	
 	public function __construct(  ) {
 	}
