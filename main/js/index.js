@@ -107,8 +107,8 @@ function initDeptTable () {
 	            // Open this row
 	        	//get dept no
 	        	var data = row.data();
-	        	console.log (data);
-	            //row.child( showEmployees(deptNo) ).show();
+	        	var deptNo = data['dept_no'];
+	        	console.log(deptNo);
 	            tr.addClass('shown');
 	        }
 	    } );
