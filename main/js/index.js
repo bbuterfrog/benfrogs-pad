@@ -71,7 +71,7 @@ function initStaticDeptTable () {
 }
 
 function initDeptTable () {
-	$('#employee-dept').DataTable({
+	var table = $('#employee-dept').DataTable({
 		"ajax" : { 
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
