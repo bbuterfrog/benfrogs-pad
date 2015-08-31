@@ -66,9 +66,14 @@ function initDeptTable () {
 	        "cache": false,
             "contentType": "application/json",
 		},
-        "aoColumns" :  [
-				         {'mData': 'dept_no', 'sType': 'string', "bVisible": true},
-				         {'mData': 'dept_name', 'sType': 'string', 'bVisible': true}],
+        "columns" :  [
+                        { "className":      'details-control',
+                          "orderable":      false,
+                          "data":           null,
+                          "defaultContent": ''
+                         }
+				         {'data': 'dept_no', 'sType': 'string', 'bVisible': true},
+				         {'data': 'dept_name', 'sType': 'string', 'bVisible': true}],
 		"responsive" : true,
 		"searching": false,
 		"lengthChange": false

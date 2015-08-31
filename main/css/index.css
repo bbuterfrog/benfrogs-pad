@@ -131,9 +131,17 @@ h1.title {
 }
 
 table .grid {
-	border 0.5 em solid black;
+	border: 0.5 em solid black;
 }
 
+#exploding td.details-control {
+    background: url('../main/img/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+#exploding tr.shown td.details-control {
+    background: url('../main/img/details_close.png') no-repeat center center;
+}
 
 
 @media (max-width: 600px) {
