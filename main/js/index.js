@@ -67,14 +67,18 @@ function initDeptTable () {
             "contentType": "application/json",
 		},
         "columns" :  [
-                        { "className":      'details-control',
+                        { "className":      'details-control all',
                           "orderable":      false,
                           "data":           null,
                           "defaultContent": ''
                          },
-				         {'data': 'dept_no', 'sType': 'string', 'bVisible': true},
-				         {'data': 'dept_name', 'sType': 'string', 'bVisible': true}],
-		
+				         { "className" : 'all',
+                        	 'data': 'dept_no', 'sType': 'string', 'bVisible': true },
+				         { "className" : 'all',
+                        		 'data': 'dept_name', 'sType': 'string', 'bVisible': true}],
+		"responsive" : {
+			details : false
+		},
 		"searching": false,
 		"lengthChange": false
 		
