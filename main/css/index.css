@@ -1,2 +1,19 @@
 @CHARSET "UTF-8";
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    margin-bottom: 60px;
+}
+.footer {
+    background-color: #0033CC;
+    bottom: 0;
+    height: 60px;
+    position: absolute;
+    width: 100%;
+}
+body > .container {
+    padding: 60px 15px 0;
+}
