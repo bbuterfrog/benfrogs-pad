@@ -19,5 +19,6 @@ body > .container {
 }
 
 #frog-picture {
-	max-height: 40px;
+	max-height: 45px;
+	vert-align: center;
 }
