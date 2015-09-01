@@ -1,3 +1,10 @@
+$(document).ready(function() {
+	getHeader ( );
+	getHTML ( 'footer', 'footer');
+	initStaticDeptTable();
+	initDeptTable();
+	
+});
 function getHeader ( ) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=header',
