@@ -145,7 +145,9 @@ function initEmployeeTable (deptNo) {
 	                 "responsive" : {
 	             		details : true
 	             	},
-   });
+    
+	});
+	return table;
 	   });
 	return table;
 }
