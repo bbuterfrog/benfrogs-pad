@@ -110,7 +110,7 @@ function initDeptTable () {
 	        	var data = row.data();
 	        	var deptNo = data['dept_no'];
 	        	row.child( format(row.data()) ).show();
-	        	getHTML(d.dept_no, 'employee-table');
+	        	getHTML(deptNo, 'employee-table');
 	            tr.addClass('shown');
 	        }
 	    } );
