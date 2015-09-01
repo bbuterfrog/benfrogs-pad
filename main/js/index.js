@@ -141,7 +141,9 @@ function initEmployeeTable (deptNo) {
                         {'data': 'title'},
                         {'data': 'salary'}
 	                 ],
-		"responsive" : true
+	                 "responsive" : {
+	             		details : true
+	             	},
    });
 	   });
 }
