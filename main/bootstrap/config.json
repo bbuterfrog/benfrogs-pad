@@ -146,11 +146,11 @@
     "@navbar-padding-horizontal": "floor((@grid-gutter-width / 2))",
     "@navbar-padding-vertical": "((@navbar-height - @line-height-computed) / 2)",
     "@navbar-collapse-max-height": "340px",
-    "@navbar-default-color": "#009900",
-    "@navbar-default-bg": "#f8f8f8",
+    "@navbar-default-color": "#fff",
+    "@navbar-default-bg": "#0033CC",
     "@navbar-default-border": "darken(@navbar-default-bg, 6.5%)",
-    "@navbar-default-link-color": "#009900",
-    "@navbar-default-link-hover-color": "#009900",
+    "@navbar-default-link-color": "#fff",
+    "@navbar-default-link-hover-color": "#fff",
     "@navbar-default-link-hover-bg": "transparent",
     "@navbar-default-link-active-color": "#00FF00",
     "@navbar-default-link-active-bg": "darken(@navbar-default-bg, 6.5%)",
@@ -160,7 +160,7 @@
     "@navbar-default-brand-hover-color": "darken(@navbar-default-brand-color, 10%)",
     "@navbar-default-brand-hover-bg": "transparent",
     "@navbar-default-toggle-hover-bg": "#ddd",
-    "@navbar-default-toggle-icon-bar-bg": "#f8f8f8",
+    "@navbar-default-toggle-icon-bar-bg": "#009900",
     "@navbar-default-toggle-border-color": "#ddd",
     "@navbar-inverse-color": "lighten(@gray-light, 15%)",
     "@navbar-inverse-bg": "#009900",
@@ -430,5 +430,5 @@
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=a9da8767273981cfebc2"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=fcb7f68b8d79735a70c6"
 }
