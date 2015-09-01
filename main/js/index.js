@@ -128,7 +128,8 @@ function initEmployeeTable (deptNo) {
 		   contentType : 'html',
 		   
 	   })
-	   .done (function ( ) {
+	   .done (function (content ) {
+	   $('#employee-table').html(content);	   
 	var table = $('#employees').DataTable({
 		"ajax" : { 
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
