@@ -110,7 +110,7 @@ function initDeptTable () {
 	        	var data = row.data();
 	        	var deptNo = data['dept_no'];
 	        	row.child( format(row.data()) ).show();
-	        	var table = initEmployeeTable (deptNo);
+	        	var empTable = initEmployeeTable (deptNo);
 	        	table.responsive.recalc();
 	            tr.addClass('shown');
 	        }
