@@ -12,8 +12,6 @@ function getHeader ( ) {
 	   })
 	   .done (function ( content ) {
 		   $('#header').html(content);
-		   getTabs ( )
-	   });
 }
 
 function getHTML (div, content){
@@ -28,7 +26,7 @@ function getHTML (div, content){
    }); 
 }
 
-function getTabs ( ){
+/*function getTabs ( ){
 	   $.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=nav-header',
 		   beforeSend: showLoadingImage ( 'nav-header' ),
@@ -55,7 +53,7 @@ function getTabs ( ){
 		   } 
 	   }); 
 	});
-}	   
+}*/	   
 function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
