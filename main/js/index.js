@@ -70,6 +70,7 @@ function initStaticDeptTable () {
 	});
 }
 
+
 function initDeptTable () {
 	var table = $('#employee-dept').DataTable({
 		"ajax" : { 
@@ -106,12 +107,14 @@ function initDeptTable () {
 	        else {
 	            // Open this row
 	        	//get dept no
-	        	var data = row.data();
-	        	var deptNo = data['dept_no'];
-	        	console.log(deptNo);
+	        	row.child( format(row.data()) ).show();
 	            tr.addClass('shown');
 	        }
 	    } );
 	 
 }
 
+function addEmployeeTable (d) {
+	return '<div id=\"' +d.dept_no+'\"></div>'
+	
+}
