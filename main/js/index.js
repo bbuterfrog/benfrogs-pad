@@ -111,6 +111,7 @@ function initDeptTable () {
 	        	var deptNo = data['dept_no'];
 	        	row.child( format(row.data()) ).show();
 	        	getHTML(deptNo, 'employee-table');
+	        	initEmployeeTable(deptNo);
 	            tr.addClass('shown');
 	        }
 	    } );
@@ -120,4 +121,19 @@ function initDeptTable () {
 function format (d) {
 	return '<div id=\"'+d.dept_no+'\"></div>';
 		  
+}
+function initEmployeeTable (deptNo) {
+	var table = $('#employees').DataTable({
+		"ajax" : { 
+			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
+	        "cache": false,
+            "contentType": "application/json",
+		},
+        "columns" :  [  {"data": 'emp_no' },
+                        {'data': 'name'},
+                        {'data': 'title'},
+                        {'data': 'salary'}
+	                 ],
+		"responsive" : true
+   });
 }
