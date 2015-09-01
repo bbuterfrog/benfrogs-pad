@@ -107,7 +107,10 @@ function initDeptTable () {
 	        else {
 	            // Open this row
 	        	//get dept no
+	        	var data = row.data();
+	        	var deptNo = data['dept_no'];
 	        	row.child( format(row.data()) ).show();
+	        	getHTML(d.dept_no, 'employee-table');
 	            tr.addClass('shown');
 	        }
 	    } );
@@ -115,6 +118,6 @@ function initDeptTable () {
 }
 
 function format (d) {
-	return '<div id=\"' +d.dept_no+'\"></div>'
-	
+	return '<div id=\"'+d.dept_no+'\"></div>';
+		  
 }
