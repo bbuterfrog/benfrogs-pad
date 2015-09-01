@@ -114,7 +114,7 @@ function initDeptTable () {
 	 
 }
 
-function addEmployeeTable (d) {
+function format (d) {
 	return '<div id=\"' +d.dept_no+'\"></div>'
 	
 }
