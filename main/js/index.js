@@ -85,9 +85,7 @@ function initDeptTable () {
 				         
 				         { "className" : 'all',
                         		 'data': 'dept_name', 'sType': 'string', 'visible': true}],
-		"responsive" : {
-			details : false
-		},
+		"scrollX" : true,
 		"searching": false,
 		"lengthChange": false
 		
