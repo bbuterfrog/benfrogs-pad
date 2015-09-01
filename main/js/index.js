@@ -112,6 +112,7 @@ function initDeptTable () {
 	        	row.child( format(row.data()) ).show();
 	        	var empTable = initEmployeeTable (deptNo);
 	            tr.addClass('shown');
+	            table.responsive.recalc();
 	        }
 	    } );
 	 
