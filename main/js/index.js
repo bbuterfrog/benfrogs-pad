@@ -61,10 +61,8 @@ function showLoadingImage (div) {
 }
 
 function initStaticDeptTable () {
-	$('#dept').DataTable({
-	"responsive" : {
-		details : false
-	},
+	$('#dept-table').DataTable({
+	"scrollX": true,
 	"searching": false,
 	"lengthChange": false
 	});
