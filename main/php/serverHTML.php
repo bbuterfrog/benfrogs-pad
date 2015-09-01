@@ -22,7 +22,7 @@ else if ( $type == 'JSON') {
 		$sql = "SELECT e.emp_no, concat(first_name, ' ', last_name ) AS name, title, max(salary) AS salary FROM 
                employees e INNER JOIN salaries s ON e.emp_no = s.emp_no INNER JOIN titles t 
                ON e.emp_no = t.emp_no INNER JOIN dept_emp de ON e.emp_no = de.emp_no WHERE
-               de.dept_no = $deptNo GROUP BY s.emp_no";
+               de.dept_no = '$deptNo' GROUP BY s.emp_no";
 		die($server->getJSON($sql));
 	}
 }
