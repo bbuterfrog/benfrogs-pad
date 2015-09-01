@@ -12,6 +12,7 @@ function getHeader ( ) {
 	   })
 	   .done (function ( content ) {
 		   $('#header').html(content);
+});
 }
 
 function getHTML (div, content){
