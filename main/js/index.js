@@ -111,7 +111,6 @@ function initDeptTable () {
 	        	var deptNo = data['dept_no'];
 	        	row.child( format(row.data()) ).show();
 	        	var empTable = initEmployeeTable (deptNo);
-	        	table.responsive.recalc();
 	            tr.addClass('shown');
 	        }
 	    } );
@@ -146,8 +145,6 @@ function initEmployeeTable (deptNo) {
 	             		details : true
 	             	},
     
-	             	return table;
 	});
 	   });
-	return table;
 }
