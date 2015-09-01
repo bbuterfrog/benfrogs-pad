@@ -17,7 +17,7 @@ else if ( $type == 'JSON') {
                 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no";
 		die($server->getJSON($sql));
 	}
-	if ($content == 'employees') {
+	else if ($content == 'employees') {
 		$deptNo = $_GET['dept'];
 		$sql = "SELECT e.emp_no, concat(first_name, ' ', last_name ) AS name, title, max(salary) AS salary FROM 
                employees e INNER JOIN salaries s ON e.emp_no = s.emp_no INNER JOIN titles t 
