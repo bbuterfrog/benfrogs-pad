@@ -109,7 +109,7 @@ function initDeptTable () {
 	        	//get dept no
 	        	var data = row.data();
 	        	var deptNo = data['dept_no'];
-	        	row.child( format(row.data()) ).show();
+	        	row.child(  ).show();
 	        	getHTML(deptNo, 'employee-table');
 	        	initEmployeeTable(deptNo);
 	            tr.addClass('shown');
