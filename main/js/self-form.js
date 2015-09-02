@@ -10,9 +10,9 @@ function populateOptions () {
    $.ajax ({ 
 		"url" : '../main/php/serverHTML.php?type=JSON&content=departments',
    })	
-		.done (function ( item ) {
-        $.each(content, function() {
-           options.append($("<option />").val(this.ImageFolderID).text(this.Name));
+		.done (function ( result ) {
+        $.each(result, function() {
+           options.append($("<option />").val(this.dept_no).text(this.dept_name));
         });
    });     
         
