@@ -8,8 +8,9 @@ $(document).ready(function() {
 function populateOptions () {
 	$.getJSON("../main/php/serverHTML.php?type=JSON&content=departments", function(result) {
 	    var options = $("#options");
-	    $.each(result, function() {
-	        options.append($("<option />").val(this.dept_no).text(this.dept_name));
-	    });
-	});
+	    //iterate over the data and append a select option
+	    $.each(data.person, function(key, val){
+	      $select.append('<option id="' + val.id + '">' + val.name '</option>');
+	    })
+	  });
 }
