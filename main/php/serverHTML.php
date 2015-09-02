@@ -27,6 +27,6 @@ else if ( $type == 'JSON') {
 	}
 	else if ( $content == 'departments') {
 		$sql = "SELECT dept_no, dept_name FROM departments";
-		die ($server->getJSON($sql));
+		die ($server->getSimpleJSON($sql));
 	}
 }
