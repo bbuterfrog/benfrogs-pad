@@ -12,7 +12,7 @@ function populateOptions () {
    })	
 		.done (function ( item ) {
         $.each(content, function() {
-           options.append($("<option />").val(this.ImageFolderID).text(this.Name));
+           options.append($("<option />").val(this.dept_no).text(this.dept_name));
         });
    });     
         
