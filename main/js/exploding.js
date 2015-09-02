@@ -95,8 +95,7 @@ function initEmployeeTable (deptNo) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=employee-table',
 		   beforeSend: showLoadingImage (deptNo),
-		   contentType : 'html',
-		   
+		   contentType : 'html'
 	   })
 	   .done (function (content ) {
 	   $('#'+deptNo).html(content);	   
