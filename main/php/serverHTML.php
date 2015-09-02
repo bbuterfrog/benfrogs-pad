@@ -1,5 +1,6 @@
 <?php
 require_once 'contentServer.php';
+header('Content-Type: application/json');
 $content = $_GET['content'];
 if (isset( $_GET['type'] )) {
 	$type = $_GET['type'];
