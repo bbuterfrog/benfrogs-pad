@@ -25,7 +25,6 @@ class contentServer extends database {
 	 */
 	public function getJSON ( $sql ){
 		$resultArray = parent::query($sql);
-		$result = array ( 'data' => $resultArray);
-		die (json_encode($result));
+		die (json_encode($resultArray));
 	}
 }
