@@ -8,8 +8,8 @@ $(document).ready(function() {
 function populateOptions () {
 	$.getJSON("../main/php/serverHTML.php?type=JSON&content=departments", function(result) {
 		var options = $("#departments");
-		$.each(result, function() {
-		    options.append($("<option />").val(this.emp_no).text(this.dept_name));
-		});
+		for (var i = 0; i < result.length; i++) {
+	    	options += '<option value="' + result[i].dept_no + '">' + result[i].dept_name + '</option>';
+	    }
 	});     
 }
