@@ -10,7 +10,7 @@ function populateOptions () {
 	    var options = $("#options");
 	    //iterate over the data and append a select option
 	    $.each(data.person, function(key, val){
-	      options.append('<option id="' + val.id + '">' + val.name '</option>');
+	      options.append('<option id="' + val.id + '">' + val.name + '</option>');
 	    })
 	  });
 }
