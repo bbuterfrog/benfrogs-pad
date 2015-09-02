@@ -123,7 +123,7 @@ function getEmptyTable () {
 	$.ajax ({
 		   url: '/main/php/serverHTML.php?type=HTML&content=emptyTable',
 		   //force to plain text
-		   dataType : 'text',
+		   dataType : 'text'
     })
     .done (function ( content ) {
 		   $('#emptyTable').html(content);
