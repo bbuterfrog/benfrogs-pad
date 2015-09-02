@@ -103,7 +103,7 @@ function initEmployeeTable (deptNo) {
 		"ajax" : { 
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
 	        "cache": false,
-            "dataType": "application/json",
+            "contentType": "application/json",
 		},
         "columns" :  [  {"data": 'emp_no' },
                         {'data': 'name'},
