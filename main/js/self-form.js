@@ -6,11 +6,14 @@ $(document).ready(function() {
 });
 
 function populateOptions () {
-	$.getJSON("../main/php/serverHTML.php?type=JSON&content=departments", function(result) {
-	    var options = $("#options");
-	    //iterate over the data and append a select option
-	    $.each(result, function(val){
-	      options.append('<option id="' + val.dept_num + '">' + val.dept_name + '</option>');
+	 $.getJSON("../main/php/serverHTML.php?type=JSON&content=departments",{id: $(this).val(), ajax: 'true'}, function(j){
+	      var options = '';
+	      for (var i = 0; i < j.length; i++) {
+	        options += '<option value="' + j[i].dept_no + '">' + j[i].dept_name + '</option>';
+	      }
+	      $("select#department").html(options);
 	    })
-	  });
+	  })
+	})
+
 }
