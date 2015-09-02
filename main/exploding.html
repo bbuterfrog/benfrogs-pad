@@ -65,7 +65,13 @@ another table.  Here's how we would nest the employees inside their departments:
 </thead>
 </table>
 <p>There's a lot going on behind the scenes here.  First, we are starting out with a completely empty table:</p>
-<div id="emptyTable"></div>
+<pre class="prettyprint">
+&lt;table id="employees" class="compact hover stripe"&gt;
+&lt;thead&gt;
+&lt;tr&gt;&lt;th&gt;Employee #&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Title&lt;
+&lt;/thead&gt;
+&lt;/table&gt;
+</pre>
 <p>Then, we are initializing it as a DataTable from the Document Ready Function:</p>
 <pre class="prettyprint">
 var table = $('#employee-dept').DataTable({
