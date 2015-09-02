@@ -24,5 +24,30 @@ body > .container {
 }
 
 #twitter {
+	width: 33%;
+	overflow: hidden;
+	float: left;
+}
+
+
+#linkedin {
+	width: 33%;
+	overflow: hidden;
+	float: left;
+}
+
+
+#email {
+	width: 33%;
+	overflow: hidden;
+	font-family: arial, sans-serif;
+	float: left;
+
+}
+
+
+
+#emailicon {
+	height: 3.5em;
 	vertical-align: middle;
 }
