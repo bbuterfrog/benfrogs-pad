@@ -1,11 +1,36 @@
-<div id="self-form" class="content">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>benfrog's pad</title>
+<link rel="stylesheet" href="/main/bootstrap/css/bootstrap.min.css">
+<link rel='shortcut icon' type='/main/img/png' href='../favicon.png' />
+<script src="../main/js/jquery-1.11.3.min.js"></script>
+<script src="../main/bootstrap/js/bootstrap.min.js"></script>
+<script src="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"></script>
+<link rel="stylesheet" href="/main/prettify/loader/prettify.css">
+<script src="/main/prettify/loader/prettify.js"></script>
+<script src="/main/js/common.js"></script>
+<script src="/main/js/self-form.js"></script>
+<link rel="stylesheet" type="text/css" href="/main/css/index.css">
+<link rel="stylesheet" type="text/css" href="/main/css/exploding.css">
+</head>
+<body>
+<div class="container">
+         <div id="header">
+         </div>
+         
 <p>Self-submitting forms have nearly always been possible with PHP, but back 
 "in the day" (when we were all using static HTML, native JavaScript, and PHP 4), they were messy to
 say the least.  Luckily, things have greatly evolved.  Many would say they have evolved past the point I
 prefer to do them (many frameworks and the like have ways of putting them together), but I prefer to do new things
 by hand-coding them myself.  It gives me more control, and a performance advantage.  
 </p>
-<br>
 <p>
 That being said, there is no rational reason not to use jQuery and dynamic elements to make your forms and submit them,
 particularly in the common case of a search form.  That's the example I'm using 
@@ -13,4 +38,34 @@ here.  I've used it many times in production.  It's annoying not to show search 
 produced them, thus not giving users an idea of what they searched for.  Making this form resubmit in real-time also 
 allows users to narrow or widen their search.  
 </p>
+<p>So, take a look at an "advanced search" form that shows results right below it 
+(using the <a href="https://github.com/datacharmer/test_db">Employees Sample Database</a>), then we'll pick apart
+how it happens.</p>
+<form>
+   <div class="form-group">
+      <label for="department">Department:</label> 
+      <select class="form-control" id="department">
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="empNo">Employee #:</label> 
+      <input type="text" class="form-control" id="empNo">
+   </div>
+   <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" class="form-control" id="firstName">
+   </div>
+   <div class="form-group">
+      <label for="firstName">Last Name:</label>
+      <input type="text" class="form-control" id="firstName">
+   </div>
+</form>
 </div>
+ <footer class="footer">
+      <div class="container">
+         <div id="footer">
+         </div>
+      </div>
+    </footer>
+
+</body>

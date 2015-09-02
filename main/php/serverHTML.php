@@ -25,4 +25,8 @@ else if ( $type == 'JSON') {
                de.dept_no = '$deptNo' GROUP BY s.emp_no";
 		die($server->getJSON($sql));
 	}
+	else if ( $content == 'departments') {
+		$sql = "SELECT dept_no, dept_name FROM departments";
+		die ($server->getJSON($sql));
+	}
 }
