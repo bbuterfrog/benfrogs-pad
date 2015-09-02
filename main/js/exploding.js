@@ -99,7 +99,7 @@ function initEmployeeTable (deptNo) {
 	   })
 	   .done (function (content ) {
 	   $('#'+deptNo).html(content);	   
-	var table = $('#employees').DataTable({
+	   var table = $('#employees').DataTable({
 		"ajax" : { 
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
 	        "cache": false,
@@ -112,8 +112,8 @@ function initEmployeeTable (deptNo) {
 	                 ],
 	                 "scrollX": true
     
-	});
 	   });
+    });
 }
 
 

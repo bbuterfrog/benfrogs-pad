@@ -31,19 +31,17 @@ example, which has been expanded upon quite a bit since those days.  It now ment
 decided to do, which was to not use static data in each row like it does, but to put a placeholder in each "exploded"
 (expanded) row and then AJAX in the content (this keeps the DOM lightweight by not loading all of the "child" content, regardless
 of how large it may be, for each row before the user actually requests it).  Let's explore a working example of that method, which I've
-used many times in a production enviornment.
-<br>
-I'm using the <a href="https://github.com/datacharmer/test_db">Employees Sample Database</a> for this and other examples.  
+used many times in a production enviornment.</p>
+
+<p>I'm using the <a href="https://github.com/datacharmer/test_db">Employees Sample Database</a> for this and other examples.  
 This happens to appear to be the same example database they are using at least a part of in the above example, but I'm not going to repeat it.  
 Instead, let's go a bit further by putting all 300,000+ employees in one place.  How the heck do we do that without using server-side DataTables
 and forcing the poor user to search and scroll all day?  
 Well, we have departments, and a table to join together employees and their department.  Let's see what happens when we do these
-JOINs and a GROUP BY:
-<br>
+JOINs and a GROUP BY:</p>
 <pre class="prettyprint lang-sql">SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
 </pre>
-<br>
 <table id="dept-table" class="compact hover stripe">
 <thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
 <tr><td>20211</td>	<td>d001</td>	<td>Marketing</td></tr>
@@ -108,7 +106,7 @@ tr.shown td.details-control {
     background: url('/main/img/Orb-minus-icon.png') no-repeat center center;
 }
 </pre>
-<p>We are also competely following that example, until we get to expanding the row:</p>
+<p>We are also completely following that example, until we get to expanding the row:</p>
 <pre class="prettyprint">
        else {
 	            // Open this row
@@ -120,8 +118,49 @@ tr.shown td.details-control {
 	            tr.addClass('shown');
 	        }
 </pre> 
+<p>At that point, we deviate from it in that we get the dept_no for later use and then use a much simpler format function:</p>
+<pre class="prettyprint">
+function format (d) {
+	return '&lt;div id=\"'+d.dept_no+'\"&gt;&lt;/div&gt;';
+		  
+}
+</pre>
+<p>All that does is add a placeholder div for the content we are going to AJAX in for the internal table, which keeps the DOM more lightweight than using
+static content for the interal table.  This really isn't vital with only nine rows in the
+external table, but gets really important with a large number of rows in that table.  Next, we call the initEmployeeTable function with the deptNo we just
+got to fill in that table:</p>
+<pre class="prettyprint">
+function initEmployeeTable (deptNo) {
+	$.ajax ({
+		   url: '../main/php/serverHTML.php?type=HTML&content=employee-table',
+		   beforeSend: showLoadingImage (deptNo),
+		   contentType : 'html'
+	   })
+	   .done (function (content ) {
+	   $('#'+deptNo).html(content);	   
+	   var table = $('#employees').DataTable({
+		"ajax" : { 
+			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
+	        "cache": false,
+            "dataType": "application/json",
+		},
+        "columns" :  [  {"data": 'emp_no' },
+                        {'data': 'name'},
+                        {'data': 'title'},
+                        {'data': 'salary'}
+	                 ],
+	                 "scrollX": true
+    
+	   });
+    });
+}
+</pre>
+<p>All we did in that long function was just AJAX in the HTML for the table itself and (when the AJAX was .done) init the DataTable and get the
+JSON content for it, all in one pass.  Then, boom, you're done (sorry, couldn't resist).</p>
+<p>It's likely obvious, but worth pointing out that you really can get and use almost any content that looks and works decently inside of each row.  I've used 
+anything from row details to forms inside of DataTables, and it's all quite functional and a good user experience.  Play around with it and see what works for 
+you!</p>  
 </div>
-
     <footer class="footer">
       <div class="container">
          <div id="footer">
