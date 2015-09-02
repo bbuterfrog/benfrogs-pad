@@ -3,7 +3,6 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	initStaticDeptTable();
 	initDeptTable();
-	getEmptyTable ();
 	prettyPrint();
 	
 });
@@ -118,14 +117,3 @@ function initEmployeeTable (deptNo) {
 	   });
 }
 
-
-function getEmptyTable () {
-	$.ajax ({
-		   url: '/main/php/serverHTML.php?type=HTML&content=emptyTable',
-		   //force to plain text
-		   dataType : 'text'
-    })
-    .done (function ( content ) {
-		   $('#emptyTable').html(content);
-    });
-}
