@@ -127,6 +127,6 @@ function getEmptyTable () {
     })
     .done (function ( content ) {
 		   $('#emptyTable').html(content);
+    }
     });
-});
 }
