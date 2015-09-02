@@ -11,7 +11,7 @@ function populateOptions () {
 		var i = 0;
 		$.each(result, function() {
 		    options.append($("<option />").val(result.data[i].emp_no).text(result.data[i].dept_name));
-		    $i++;
+		    i++;
 		});
 	});     
 }
