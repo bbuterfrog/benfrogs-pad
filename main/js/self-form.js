@@ -12,8 +12,5 @@ function populateOptions () {
 	        options += '<option value="' + j[i].dept_no + '">' + j[i].dept_name + '</option>';
 	      }
 	      $("select#department").html(options);
-	    })
-	  })
-	})
-
+	    });
 }
