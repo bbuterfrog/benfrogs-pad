@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+td.details-control {
+    background: url('/main/img/Orb-plus-icon.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('/main/img/Orb-minus-icon.png') no-repeat center center;
+}
