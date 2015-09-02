@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=fcb7f68b8d79735a70c6)
- * Config saved to config.json and https://gist.github.com/fcb7f68b8d79735a70c6
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=e91c776deb8af8d5ca28)
+ * Config saved to config.json and https://gist.github.com/e91c776deb8af8d5ca28
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -1091,7 +1091,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #009900;
+  color: #003300;
   background-color: #ffffff;
 }
 input,
@@ -1103,12 +1103,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #2cb12c;
+  color: #33cc33;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #1d741d;
+  color: #248f24;
   text-decoration: underline;
 }
 a:focus {
@@ -2914,7 +2914,7 @@ select[multiple].input-lg {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #1aff1a;
+  color: #00b300;
 }
 @media (min-width: 768px) {
   .form-inline .form-group {
@@ -3458,7 +3458,7 @@ fieldset[disabled] .btn-danger.active {
   background-color: #ffffff;
 }
 .btn-link {
-  color: #2cb12c;
+  color: #33cc33;
   font-weight: normal;
   border-radius: 0;
 }
@@ -3479,7 +3479,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #1d741d;
+  color: #248f24;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4058,7 +4058,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #ffffff;
-  border-color: #2cb12c;
+  border-color: #33cc33;
 }
 .nav .nav-divider {
   height: 1px;
@@ -4778,7 +4778,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #2cb12c;
+  color: #33cc33;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -4799,7 +4799,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   z-index: 3;
-  color: #1d741d;
+  color: #248f24;
   background-color: #ffffff;
   border-color: #dddddd;
 }
@@ -4997,7 +4997,7 @@ a.badge:focus {
 }
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #2cb12c;
+  color: #33cc33;
   background-color: #ffffff;
 }
 .list-group-item > .badge {
@@ -5070,11 +5070,11 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #2cb12c;
+  border-color: #33cc33;
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #009900;
+  color: #003300;
 }
 .alert {
   padding: 15px;
