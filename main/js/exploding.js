@@ -3,7 +3,6 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	initStaticDeptTable();
 	initDeptTable();
-	getEmptyTable ();
 	prettyPrint();
 	
 });
