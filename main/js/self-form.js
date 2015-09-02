@@ -9,7 +9,7 @@ function populateOptions () {
 	$.getJSON("../main/php/serverHTML.php?type=JSON&content=departments", function(result) {
 		var options = $("#departments");
 		$.each(result, function() {
-		    options.append($("<option />").val(this.ImageFolderID).text(this.Name));
+		    options.append($("<option />").val(this.data.emp_no).text(this.data.dept_name));
 		});
 	});     
 }
