@@ -20,5 +20,9 @@ body > .container {
 
 #frog-picture {
 	max-height: 45px;
-	vert-align: center;
+	vertical-align: middle;
+}
+
+#twitter {
+	vertical-align: middle;
 }
