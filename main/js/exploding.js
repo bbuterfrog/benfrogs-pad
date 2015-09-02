@@ -3,6 +3,7 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	initStaticDeptTable();
 	initDeptTable();
+	prettyPrint();
 	
 });
 function getHeader ( ) {

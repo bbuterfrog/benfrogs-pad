@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"></script>
+<link rel="stylesheet" href="/main/prettify/loader/prettify.css">
+<script src="/main/prettify/loader/prettify.js"></script>
 <script src="/main/js/common.js"></script>
 <script src="/main/js/exploding.js"></script>
 <link rel="stylesheet" type="text/css" href="/main/css/index.css">
@@ -40,8 +42,9 @@ and forcing the poor user to search and scroll all day?
 Well, we have departments, and a table to join together employees and their department.  Let's see what happens when we do these
 JOINs and a GROUP BY:
 <br>
-SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
+<pre class="prettyprint">SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
+</pre>
 <br>
 <table id="dept-table" class="compact hover stripe">
 <thead><tr><td>count(de.emp_no)</td><td>dept_no</td><td>dept_name</td></tr></thead>
