@@ -7,9 +7,9 @@ $(document).ready(function() {
 
 function populateOptions () {
 	$.getJSON("../main/php/serverHTML.php?type=JSON&content=departments", function(result) {
-		var options = $("#department");
-		for (var i = 0; i < result.length; i++) {
-	    	options += '<option value="' + result[i].dept_no + '">' + result[i].dept_name + '</option>';
-	    }
-	});     
+	    var options = $("#options");
+	    $.each(result, function() {
+	        options.append($("<option />").val(this.dept_no).text(this.dept_name));
+	    });
+	});
 }
