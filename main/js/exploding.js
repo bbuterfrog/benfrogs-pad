@@ -3,14 +3,15 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	initStaticDeptTable();
 	initDeptTable();
+	getEmptyTable ();
 	prettyPrint();
 	
 });
 function getHeader ( ) {
 	$.ajax ({
-		   url: '../main/php/serverHTML.php?type=HTML&content=header',
+		   url: '/main/php/serverHTML.php?type=HTML&content=header',
 		   beforeSend: showLoadingImage ('header'),
-		   contentType : 'html',
+		   dataType : 'html',
 		   
 	   })
 	   .done (function ( content ) {
@@ -20,9 +21,9 @@ function getHeader ( ) {
 
 function getHTML (div, content){
    $.ajax ({
-	   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
+	   url: '/main/php/serverHTML.php?type=HTML&content=' + content,
 	   beforeSend: showLoadingImage (div),
-	   contentType : 'html',
+	   dataType : 'html',
 	   
    })
    .done (function ( content ) {
@@ -46,9 +47,9 @@ function initStaticDeptTable () {
 function initDeptTable () {
 	var table = $('#employee-dept').DataTable({
 		"ajax" : { 
-			"url" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
+			"url" : '/main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
-            "contentType": "application/json",
+            "dataType": "application/json",
 		},
         "columns" :  [  
                         { "className":      'details-control',
@@ -102,9 +103,9 @@ function initEmployeeTable (deptNo) {
 	   $('#'+deptNo).html(content);	   
 	var table = $('#employees').DataTable({
 		"ajax" : { 
-			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
+			"url" : '/main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
 	        "cache": false,
-            "contentType": "application/json",
+            "dataType": "application/json",
 		},
         "columns" :  [  {"data": 'emp_no' },
                         {'data': 'name'},
@@ -115,4 +116,17 @@ function initEmployeeTable (deptNo) {
     
 	});
 	   });
+}
+
+
+function getEmptyTable () {
+	$.ajax ({
+		   url: '/main/php/serverHTML.php?type=HTML&content=emptyTable',
+		   //force to plain text
+		   dataType : 'text',
+    })
+    .done (function ( content ) {
+		   $('#emptyTable').html(content);
+    });
+});
 }
