@@ -36,9 +36,6 @@ class database {
 	 * @return: (array) all results of query
 	 */
 	public function boundQuery ( $sql, $params ) {
-		print_r($params);
-		print_r($sql);
-		die();
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute($params);
 		return $sth->fetchAll(PDO::FETCH_ASSOC);
