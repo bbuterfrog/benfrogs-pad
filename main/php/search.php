@@ -78,7 +78,8 @@ class searchEmployees extends database {
 		
 		else if ( $this->searchParams['firstHire'] != '') {
 			if ($this->searchParams['lastHire'] != '') {
-				$where .= "AND e.hire_date BETWEEN CAST(:firstHire AS date) AND CAST(:lastHire AS date) ";
+				$where .= "AND e.hire_date >= :firstHire AND 
+						   e.hire.date <= :lastHire ";
 				$params[':firstHire'] = $this->searchParams['firstHire'];
 				$params[':lastHire'] = $this->searchParams['lastHire'];
 			}
@@ -88,7 +89,8 @@ class searchEmployees extends database {
 		}
 		else if ( $this->searchParams['lastHire'] != '') {
 			if ($this->searchParams['firstHire'] != '') {
-				$where .= "AND e.hire_date BETWEEN CAST(:firstHire AS DATE) AND CAST(:lastHire AS DATE)";
+				$where .= "AND e.hire_date >= :firstHire AND 
+						   e.hire.date <= :lastHire ";
 				$params[':firstHire'] = $this->searchParams['lastHire'];
 				$params[':lastHire'] = $this->searchParams['lastHire'];
 			}
