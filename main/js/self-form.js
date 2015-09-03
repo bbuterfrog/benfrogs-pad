@@ -16,7 +16,7 @@ function submitSearch() {
 	   })
 	.done (function (content ) {
 		$('#searchResults').html(content);
-		var params = { dept_no : $('#dept_no').val(),
+		var params = { deptNo : $('#dept_no').val(),
 			       empNo : $('#empNo').val(),
 			       firstName : $('#firstName').val(),
 			       lastName : $('#lastName').val(),
