@@ -37,6 +37,8 @@ class database {
 	 */
 	public function boundQuery ( $sql, $params ) {
 		$sth = $this->dbh->prepare($sql);
+		print_r ($params);
+		die();
 		$sth->execute($params);
 		return $sth->fetchAll(PDO::FETCH_ASSOC);
 	}
