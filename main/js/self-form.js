@@ -14,6 +14,7 @@ $(document).ready(function() {
 			   event.preventDefault();
 			   submitSearch();
 		  }
+	});	  
 	$('#search').click(function() {
 	   submitSearch();
 	});
