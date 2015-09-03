@@ -36,7 +36,7 @@ function submitSearch() {
 			       title : $('#title').val(),
 			       firstHire : $('#firstHire').val(),
 			       lastHire : $('#lastHire').val()};
-	    var table = $('#searchTable').DataTable({  
+	   var table = $('#searchTable').DataTable({  
 	   "ajax" : { 
 		   "url" : '../main/php/searchServer.php',
 		   "method": 'POST',
