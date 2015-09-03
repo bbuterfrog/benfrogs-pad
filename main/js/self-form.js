@@ -10,22 +10,38 @@ $(document).ready(function() {
 });
 
 function submitSearch() {
-	var params = { department : $('#department').val(),
+	.ajax ({
+		  url: '../main/php/contentServer.php?type=HTML&content=searchTable',
+		  beforeSend: showLoadingImage (deptNo),
+		  contentType : 'html',
+	   })
+	.done (function (content ) {   
+	    var table = $('#employees').DataTable({  
+	    var params = { department : $('#department').val(),
 			       empNo : $('#empNo').val(),
 			       firstName : $('#firstName').val(),
 			       lastName : $('#lastName').val(),
 			       lowSalary : $('#lowSalary').val(),
 			       highSalary : $('#highSalary').val(),
 			       title : $('#title').val(),
-			       firstHire : $('firstHire').val(),
-			       lastHire : $('lastHire').val()};
-	$.ajax ({
-		   url: '../main/php/searchServer.php',
-		   method: 'POST',
-		   data: params,
-	})
-	.done ({
-		
-	})
-		   
+			       firstHire : $('#firstHire').val(),
+			       lastHire : $('#lastHire').val()};
+	   "ajax" : { 
+		   "url" : '../main/php/searchServer.php',
+		   "method": 'POST',
+           "contentType": "application/json",
+           "data" : params
+	    },
+	    "columns" :  [  {"data": 'emp_no' },
+                        {'data': 'name'},
+                        {'data': 'title'},
+                        {'data': 'dept_name'},
+                        {'data': 'salary'},
+                        {'data': 'hire_date'}
+	                 ],
+	                 "scrollX": true
+
+	   });
+    });
 }
+
