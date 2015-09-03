@@ -35,9 +35,9 @@ class searchEmployees extends database {
 		$where = "WHERE de2.emp_no IS NULL AND s2.emp_no IS NULL 
                  AND t2.emp_no IS NULL ";
 		$params = array();
-		if ($this->searchParams['department'] != '' ) {
-			$where .= "AND department = :department ";
-			$params[':department'] = $this->searchParams['department'];
+		if ($this->searchParams['dept_no'] != '' ) {
+			$where .= "AND dept_no = :dept_no ";
+			$params[':dept_no'] = $this->searchParams['dept_no'];
 		}
 		else if ($this->searchParams['empNo'] != '' ) {
 			$where .= "AND empNo = :empNo ";
