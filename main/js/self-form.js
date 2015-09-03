@@ -10,7 +10,7 @@ $(document).ready(function() {
 });
 
 function submitSearch() {
-	.ajax ({
+	$.ajax ({
 		  url: '../main/php/contentServer.php?type=HTML&content=searchTable',
 		  beforeSend: showLoadingImage (deptNo),
 		  contentType : 'html',
