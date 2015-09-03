@@ -15,9 +15,8 @@ function submitSearch() {
 		  beforeSend: showLoadingImage (deptNo),
 		  contentType : 'html',
 	   })
-	.done (function (content ) {   
-	    var table = $('#employees').DataTable({  
-	    var params = { department : $('#department').val(),
+	.done (function (content ) {
+		var params = { department : $('#department').val(),
 			       empNo : $('#empNo').val(),
 			       firstName : $('#firstName').val(),
 			       lastName : $('#lastName').val(),
@@ -26,6 +25,8 @@ function submitSearch() {
 			       title : $('#title').val(),
 			       firstHire : $('#firstHire').val(),
 			       lastHire : $('#lastHire').val()};
+	    var table = $('#employees').DataTable({  
+	    
 	   "ajax" : { 
 		   "url" : '../main/php/searchServer.php',
 		   "method": 'POST',
