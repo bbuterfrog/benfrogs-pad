@@ -6,7 +6,7 @@ $(document).ready(function() {
 	});
 	$( "#lastHire" ).datepicker ({
 		dateFormat : "yy-mm-dd"
-	)};
+	});
 	prettyPrint();
 	$('#search').click(function() {
 	   submitSearch();
