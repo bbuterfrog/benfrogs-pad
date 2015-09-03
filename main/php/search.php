@@ -37,8 +37,7 @@ class searchEmployees extends database {
 		$params = array();
 		if ($this->searchParams['department'] != '' ) {
 			$where .= "AND department = :department ";
-			$deptRow = [':department' => $this->searchParams['department']];
-			$params[] = $deptRow;
+			$params[':department'] = $this->searchParams['department'];
 		}
 		else if ($this->searchParams['empNo'] != '' ) {
 			$where .= "AND empNo = :empNo ";
