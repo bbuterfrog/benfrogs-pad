@@ -14,7 +14,8 @@ function submitSearch() {
 		  url: '../main/php/serverHTML.php?type=HTML&content=searchTable',
 		  contentType : 'html',
 	   })
-	.done (function ( ) {
+	.done (function (content ) {
+		('#searchResults').html(content);
 		var params = { department : $('#department').val(),
 			       empNo : $('#empNo').val(),
 			       firstName : $('#firstName').val(),
