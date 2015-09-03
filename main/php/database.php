@@ -28,4 +28,16 @@ class database {
 		$sth->execute();
 		return $sth->fetchAll(PDO::FETCH_ASSOC);
 	}
+	
+	/*
+	 * This function executes a bound query (with parameters passed in via an array)
+	 * @param: $sql (string) sql query to be execueted (with parameters as :param)
+	 * @param $params (array) array of parameters, need to be named as ':param' =>$param
+	 * @return: (array) all results of query
+	 */
+	public function boundQuery ( $sql, $params ) {
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute($params);
+		return $sth->fetchAll(PDO::FETCH_ASSOC);
+	}
 }
