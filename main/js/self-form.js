@@ -9,7 +9,7 @@ $(document).ready(function() {
 	});
 	prettyPrint();
 	//"submit" search form when enter key is hit
-	$( "#search" ).keydown(function( event ) {
+	$( ".form-group" ).keydown(function( event ) {
 		  if ( event.which == 13 ) {
 			   event.preventDefault();
 			   submitSearch();
