@@ -31,14 +31,15 @@ function submitSearch() {
 		   "method": 'POST',
            "data" : params,
 	    },
-	    "columns" :  [  {"data": 'emp_no' },
+	    "columns" :  [  {'data': 'emp_no' },
                         {'data': 'name'},
                         {'data': 'title'},
                         {'data': 'dept_name'},
                         {'data': 'salary'},
                         {'data': 'hire_date'}
 	                 ],
-	                 "scrollX": true
+	                 "scrollX": true,
+	                 'searchable' : false
 
 	   });
     });
