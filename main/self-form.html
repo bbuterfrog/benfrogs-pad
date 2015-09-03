@@ -141,7 +141,8 @@ var params = { deptNo : $('#dept_no').val(),
 			       lastHire : $('#lastHire').val()};
 </pre>
 <p>Then we are are going to actually make our empty table a DataTable with JSON via a back-end search function with those parameters (I won't get into
-how to make a dynamic SQL query here, you can look at the complete code if you'd like to see how I did it).  This is where that object is really useful.  
+how to make a dynamic SQL query here, you can look at the 
+<a href="https://github.com/bbutlerfrog/benfrogs-pad">complete code</a> if you'd like to see how I did it).  This is where that object is really useful.  
 jQuery (in version 1.9 and newer) serializes objects in a form that PHP can recover as an associative array without decoding.  So, we just POST over the
 object via AJAX:</p>
 <pre class="prettyprint">
