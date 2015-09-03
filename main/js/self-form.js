@@ -3,7 +3,7 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	$( "#firstHire" ).datepicker({
 		dateFormat : "yy-mm-dd"
-	)};
+	});
 	$( "#lastHire" ).datepicker ({
 		dateFormat : "yy-mm-dd"
 	)};
