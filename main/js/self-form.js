@@ -8,6 +8,12 @@ $(document).ready(function() {
 		dateFormat : "yy-mm-dd"
 	});
 	prettyPrint();
+	//"submit" search form when enter key is hit
+	$( "#search" ).keydown(function( event ) {
+		  if ( event.which == 13 ) {
+			   event.preventDefault();
+			   submitSearch();
+		  }
 	$('#search').click(function() {
 	   submitSearch();
 	});

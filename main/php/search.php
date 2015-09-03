@@ -62,7 +62,8 @@ class searchEmployees extends database {
 				$params[':highSalary'] = $this->searchParams['highSalary'];
 			}
 			else {
-			   return ("You must give both a high and low salary");
+				$where .= "AND s.salary >= :lowSalary ";
+			    $params[':lowSalary'] = $this->searchParams['lowSalary'];
 			}
 		}
 		else if ( $this->searchParams['highSalary'] != '') {
@@ -72,7 +73,8 @@ class searchEmployees extends database {
 				$params[':highSalary'] = $this->searchParams['highSalary'];
 			}
 			else {
-				return ("You must provide a range of salaries");
+				$where .= "AND s.salary <= :highSalary ";
+				$params[':highSalary'] = $this->searchParams['highSalary'];
 			}
 		}
 		
@@ -84,7 +86,8 @@ class searchEmployees extends database {
 				$params[':lastHire'] = $this->searchParams['lastHire'];
 			}
 			else {
-				return ("You must provide a range of hire dates");
+				$where .= "AND e.hire_date >= :firstHire ";
+				$params[':firstHire'] = $this->searchParams['firstHire'];
 			}
 		}
 		else if ( $this->searchParams['lastHire'] != '') {
@@ -94,12 +97,10 @@ class searchEmployees extends database {
 				$params[':firstHire'] = $this->searchParams['lastHire'];
 				$params[':lastHire'] = $this->searchParams['lastHire'];
 			}
-			else {
-				return ("You must provide a range of hire dates");
+				else {
+				$where .= "AND e.hire_date <= :lastHire ";
+				$params[':lastHire'] = $this->searchParams['lastHire'];
 			}
-		}
-		else {
-			return ("You must provide at least one search parameter");
 		}
 		$sql = $select . $where;
 		return parent::boundQuery($sql, $params);
