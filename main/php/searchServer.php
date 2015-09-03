@@ -1,4 +1,4 @@
 <?php
 require_once 'search.php';
-print_r ($_POST);
-die();
+$employeeSearch = new searchEmployees ($_POST);
+die (json_encode($employeeSearch->advancedSearch()));
