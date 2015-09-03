@@ -112,6 +112,8 @@ class searchEmployees extends database {
 			return ("You must provide at least one search parameter");
 		}
 		$sql = $select . $where;
+		print_r ($sql);
+		die();
 		return parent::boundQuery($sql, $params);
 	}
 }
