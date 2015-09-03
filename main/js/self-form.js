@@ -1,8 +1,12 @@
 $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
-	$( "#firstHire" ).datepicker();
-	$( "#lastHire" ).datepicker();
+	$( "#firstHire" ).datepicker({
+		dateFormat : "yy-mm-dd";
+	)};
+	$( "#lastHire" ).datepicker ({
+		dateFormat : "yy-mm-dd";
+	)};
 	prettyPrint();
 	$('#search').click(function() {
 	   submitSearch();
