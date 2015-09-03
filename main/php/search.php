@@ -19,7 +19,7 @@ class searchEmployees extends database {
 		$where = "WHERE de2.emp_no IS NULL AND s2.emp_no IS NULL 
                  AND t2.emp_no IS NULL ";
 		$params = array();
-		if ($searchParams['department'] != '' ) {
+		if ($this->searchParams['department'] != '' ) {
 			$where .= "AND department = :department";
 			$deptRow = ['department' => $this->searchParams['department']];
 			$params[] = $deptRow;
