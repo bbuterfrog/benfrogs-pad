@@ -14,7 +14,7 @@ function submitSearch() {
 		  url: '../main/php/serverHTML.php?type=HTML&content=searchTable',
 		  contentType : 'html',
 	   })
-	.done (function (content ) {
+	.done (function ( ) {
 		var params = { department : $('#department').val(),
 			       empNo : $('#empNo').val(),
 			       firstName : $('#firstName').val(),
@@ -25,12 +25,10 @@ function submitSearch() {
 			       firstHire : $('#firstHire').val(),
 			       lastHire : $('#lastHire').val()};
 	    var table = $('#searchTable').DataTable({  
-	    
 	   "ajax" : { 
 		   "url" : '../main/php/searchServer.php',
 		   "method": 'POST',
-           "contentType": "application/json",
-           "data" : params
+           "data" : params,
 	    },
 	    "columns" :  [  {"data": 'emp_no' },
                         {'data': 'name'},
