@@ -2,10 +2,10 @@ $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
 	$( "#firstHire" ).datepicker({
-		dateFormat : "yy-mm-dd";
+		dateFormat : "yy-mm-dd"
 	)};
 	$( "#lastHire" ).datepicker ({
-		dateFormat : "yy-mm-dd";
+		dateFormat : "yy-mm-dd"
 	)};
 	prettyPrint();
 	$('#search').click(function() {
