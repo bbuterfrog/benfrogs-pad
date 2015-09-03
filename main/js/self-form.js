@@ -43,7 +43,7 @@ function submitSearch() {
                         {'data': 'hire_date'}
 	                 ],
 	                 "scrollX": true,
-	                 'searchable' : false
+	                 'searching' : false
 
 	   });
     });
