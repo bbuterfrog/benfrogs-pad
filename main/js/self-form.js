@@ -12,7 +12,7 @@ $(document).ready(function() {
 function submitSearch() {
 	$.ajax ({
 		  url: '../main/php/contentServer.php?type=HTML&content=searchTable',
-		  beforeSend: showLoadingImage (deptNo),
+		  beforeSend: showLoadingImage (searchTable),
 		  contentType : 'html',
 	   })
 	.done (function (content ) {
