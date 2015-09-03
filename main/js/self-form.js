@@ -21,4 +21,5 @@ function submitSearch() {
 	var lastHire = $('lastHire').val();*/
 	
 	var params = { department : $('#department').val() };
+	console.log(params);
 }
