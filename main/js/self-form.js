@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 function submitSearch() {
 	$.ajax ({
-		  url: '../main/php/contentServer.php?type=HTML&content=searchTable',
+		  url: '../main/php/serverHTML.php?type=HTML&content=searchTable',
 		  contentType : 'html',
 	   })
 	.done (function (content ) {
@@ -24,7 +24,7 @@ function submitSearch() {
 			       title : $('#title').val(),
 			       firstHire : $('#firstHire').val(),
 			       lastHire : $('#lastHire').val()};
-	    var table = $('#employees').DataTable({  
+	    var table = $('#searchTable').DataTable({  
 	    
 	   "ajax" : { 
 		   "url" : '../main/php/searchServer.php',
