@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Source Code -- benfrog's pad</title>
+<link rel="stylesheet" href="/main/bootstrap/css/bootstrap.min.css">
+<link rel='shortcut icon' type='/main/img/png' href='../favicon.png' />
+<script src="../main/js/jquery-1.11.3.min.js"></script>
+<script src="../main/bootstrap/js/bootstrap.min.js"></script>
+<script src="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"></script>
+<script src="/main/prettify/loader/prettify.js"></script>
+<link rel="stylesheet" type="text/css" href="/main/css/index.css">
+</head>
+<body>
+<pre class="prettyprint">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta content="IE=edge" http-equiv="X-UA-Compatible"&gt;
+&lt;meta content="width=device-width, initial-scale=1" name="viewport"&gt;
+&lt;title&gt;Dymanic Content and Google -- benfrog's pad&lt;/title&gt;
+&lt;link rel="stylesheet" href="/main/bootstrap/css/bootstrap.min.css"&gt;
+&lt;link rel='shortcut icon' type='/main/img/png' href='../favicon.png' /&gt;
+&lt;script src="../main/js/jquery-1.11.3.min.js"&gt;&lt;/script&gt;
+&lt;script src="../main/bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css"&gt;
+&lt;script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"&gt;&lt;/script&gt;
+&lt;script src="/main/prettify/loader/prettify.js"&gt;&lt;/script&gt;
+&lt;script src="/main/js/common.js"&gt;&lt;/script&gt;
+&lt;script src="/main/js/crawl-dynamic.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="/main/css/index.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- Fixed navbar --&gt;
+&lt;div id="header"&gt;
+&lt;nav class="navbar navbar-default navbar-fixed-top" role="navigation"&gt;
+   &lt;div class="navbar-header"&gt;
+          &lt;button type="button" class="navbar-toggle" data-toggle="collapse" 
+         data-target="#navbar-collapse"&gt;
+         &lt;span class="icon-bar"&gt;&lt;/span&gt;
+         &lt;span class="icon-bar"&gt;&lt;/span&gt;
+         &lt;span class="icon-bar"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+        &lt;a href="/index.html" class="pull-left"&gt;&lt;img src="/main/img/cartoon-frog-on-lily-pad.png" id="frog-picture"&gt;&lt;/a&gt;
+          &lt;a class="navbar-brand" href="/index.html"&gt;benfrog's pad&lt;/a&gt;
+    &lt;/div&gt;
+     &lt;div class="collapse navbar-collapse" id="navbar-collapse"&gt;
+          &lt;ul class="nav navbar-nav"&gt;
+                &lt;li&gt;&lt;a href="/main/exploding.html"&gt;Exploding Tables&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/main/self-form.html"&gt;Self-Submitting Forms&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="/main/about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+&lt;div id="dynamic-body"&gt;
+&lt;div class="container"&gt;
+&lt;p class="lead"&gt;Google and Dynamic Content--Does it Work?!&lt;/p&gt;
+&lt;p&gt;Ever since Google &lt;a href="http://googlewebmastercentral.blogspot.com/2015/10/deprecating-our-ajax-crawling-scheme.html"&gt;
+quietly announced&lt;/a&gt; their intention to index dynamic content without the previous hassle, there has been a great deal of conversation 
+and controversy about whether
+they actually meant what they said, and if it is even possible to begin with.  I decided the best method to settle this in my own mind 
+was to just try and see if it all worked on this very site, where I have little to lose in terms of traffic and thus actual money.&lt;/p&gt;  
+&lt;p&gt;The body of this very article started out on the server as this:  
+&lt;pre class="prettyprint"&gt;
+&lt;body&gt;
+&lt;div id="header"&gt;
+         &lt;/div&gt;
+         &lt;div id="dymnamic-body"&gt;&lt;/div&gt;
+         &lt;footer class="footer"&gt;
+      &lt;div class="container"&gt;
+         &lt;div id="footer"&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/pre&gt;
+&lt;p&gt;I didn't bother to do anything else to it on the server, I delivered it to the client as literally a blank collection of div's to see 
+if our friends at Google meant what they said about indexing it that way.  I'm using my normal set of tools (in case anyone's interested) 
+to fetch all of the HTML client-side as individual files.  This might not be a perfect method, but it keeps the files as "pure" HTML.  Here's
+the JS:
+&lt;pre class="prettyprint"&gt;
+function getHeader ( ) {
+	$.ajax ({
+		   url: '../main/php/serverHTML.php?type=HTML&content=header',
+		   beforeSend: showLoadingImage ('header'),
+		   contentType : 'html',
+		   
+	   })
+	   .done (function ( content ) {
+		   $('#header').html(content);
+});
+}
+
+function getHTML (div, content){
+   $.ajax ({
+	   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
+	   beforeSend: showLoadingImage (div),
+	   contentType : 'html',
+	   
+   })
+   .done (function ( content ) {
+	   $('#'+div).html(content);
+   }); 
+}
+
+function showLoadingImage (div) {
+	$('#'+div).html('&lt;center&gt;&lt;img src="../main/img/loading.gif"&gt;&lt;/img&gt;&lt;/center&gt;');
+}
+&lt;/pre&gt;
+And here's the PHP function that serves up the content to the client:
+&lt;pre class="prettyprint"&gt;
+		
+	/** This function simply gets static html from a given file via
+	 * a file_get_contents (simplest case for this class)
+	 * 
+	 * @param $page (string): html filename (without .html on the end) of
+	 * web page you want (no path)
+	 * @return: (html), web page contents you want
+	 */
+	public function getHTML ( $page ) {
+        $filename = "../" . $page . ".html";
+		return file_get_contents ($filename);
+	}
+&lt;/pre&gt;
+It all cries out for a micro-framework to do what really amounts to the work I'm doing here myself, but anyway...
+&lt;p&gt;So, getting back to the larger picture here, let's submit what we have in this page so far to Google's latest version of their "Fetch
+As Googlebot" tool:&lt;/p&gt;
+&lt;img src="img/googlebot-benfrog-net.PNG" alt="Googlebot's View of benfrog.net"&gt;&lt;/img&gt;
+&lt;p&gt;Wow! That looks just like Google said it would!  It's precisely like the view from, well, a modern browser.  I guess it's time for the
+conspiracy theroists to put away their tinfoil hats again.&lt;/p&gt;
+&lt;p&gt;There's also the "why bother" question here.  What does anyone buy with these silly blank pages?  Well, let's compare speed between 
+this dynamic page and this same page rendered with a "traditional" static method.  
+&lt;a href="crawl-dynamic-static.php"&gt;Here's&lt;/a&gt; that page (and here's a link
+to all of the server-side code).  
+&lt;p&gt;This still begs the other practical question of how in the heck you'd make a crawlable, say, search page from this.  This really isn't 
+impossible if you take in HTML and do subsititutions client-side in JS from JSON.  Yes, you can do this from requests.  Stay tuned to this
+space...&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body>
+</html>
