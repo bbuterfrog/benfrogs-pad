@@ -1,4 +1,4 @@
-function getHeader ( title ) {
+function getHeader ( title, script ) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=header',
 		   beforeSend: showLoadingImage ('header'),
@@ -6,7 +6,7 @@ function getHeader ( title ) {
 		   
 	   })
 	   .done (function ( content ) {
-		   content = headerSub(content, title);
+		   content = headerSub(content, title, script);
 		   $('#header').html(content);
 });
 }
@@ -27,6 +27,7 @@ function showLoadingImage (div) {
 	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
 }
 
-function headerSub ( content, title ) {
-	$(content#page-title).(html) = title;
+function headerSub ( content, title, script ) {
+	$(content).('div.page-title') = title;
+	$(content).('div.page-script') = script;
 }
