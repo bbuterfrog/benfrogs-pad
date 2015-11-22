@@ -1,11 +1,12 @@
 <div id="dynamic-body">
 <div class="container">
-<p class="lead">Dynamic Content and Google--does it work?!</p>
+<p class="lead">Google and Dynamic Content--Does it Work?!</p>
 <p>Ever since Google <a href="http://googlewebmastercentral.blogspot.com/2015/10/deprecating-our-ajax-crawling-scheme.html">
-quietly announced</a> their intention to index dynamic content, their has been a great deal of conversation and controversy about whether
+quietly announced</a> their intention to index dynamic content without the previous hassle, there has been a great deal of conversation 
+and controversy about whether
 they actually meant what they said, and if it is even possible to begin with.  I decided the best method to settle this in my own mind 
 was to just try and see if it all worked on this very site, where I have little to lose in terms of traffic and thus actual money.</p>  
-<p>The body of this very article "started out" on the server as this:  
+<p>The body of this very article started out on the server as this:  
 <pre class="prettyprint">
 &lt;body&gt;
 &lt;div id="header"&gt;
@@ -69,6 +70,12 @@ And here's the PHP function that serves up the content to the client:
 </pre>
 It all cries out for a micro-framework to do what really amounts to the work I'm doing here myself, but anyway...
 <p>So, getting back to the larger picture here, let's submit what we have in this page so far to Google's latest version of their "Fetch
-As Googlebot" tool:
+As Googlebot" tool:</p>
+<img src="../img/googlebot-benfrog-net.png" alt="Googlebot's View of benfrog.net"></img>
+<p>Wow! That looks just like Google said it would!  It's precisely like the view from, well, a modern browser.  I guess it's time for the
+conspiracy theroists to put away their tinfoil hats again.</p>
+<p>This still begs the other practical question of how in the heck you'd make a crawlable, say, search page from this.  This really isn't 
+impossible if you take in HTML and do subsititutions client-side in JS from JSON.  Yes, you can do this from requests.  Stay tuned to this
+space...</p>
 </div>
 </div>
