@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	getHeader ( );
+	var title = index;
+	getHeader ( title );
 	getHTML ( 'footer', 'footer');
 });
 

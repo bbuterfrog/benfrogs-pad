@@ -3,7 +3,7 @@ require_once 'database.php';
 class contentServer extends database {
 	
 		
-	/* This function simply gets static html from a given file via
+	/** This function simply gets static html from a given file via
 	 * a file_get_contents (simplest case for this class)
 	 * 
 	 * @param $page (string): html filename (without .html on the end) of
@@ -29,7 +29,7 @@ class contentServer extends database {
 		return (json_encode($result));
 	}
 	
-	/*
+	/**
 	 * This function returns JSON NOT formatted for a DataTable by querying the database
 	 * (using the database class) with the provided $sql string (no bound
 	 * parameters allowed in SQL)
