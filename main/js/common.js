@@ -28,6 +28,6 @@ function showLoadingImage (div) {
 }
 
 function headerSub ( content, title, script ) {
-	$(content).('div.page-title').html(title);
-	$(content).('div.page-script').(script);
+	$(content).('#page-title').html(title);
+	$(content).('#page-script').(script);
 }
