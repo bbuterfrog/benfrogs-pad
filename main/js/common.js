@@ -28,5 +28,5 @@ function showLoadingImage (div) {
 }
 
 function headerSub ( content, title ) {
-	$(content('#page-title')).(html) = title;
+	$(content#page-title).(html) = title;
 }
