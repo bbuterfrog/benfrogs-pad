@@ -1,6 +1,6 @@
 function getHeader ( title, script ) {
 	$.ajax ({
-		   url: '../main/php/serverHTML.php?type=HTML&content=header',
+		   url: '../main/php/serverHTML.php?type=HTML&content=headers',
 		   beforeSend: showLoadingImage ('header'),
 		   contentType : 'html',
 		   
