@@ -29,5 +29,5 @@ function showLoadingImage (div) {
 
 function headerSub ( content, title, script ) {
 	$(content).('#page-title').html(title);
-	$(content).('#page-script').(script);
+	$(content).('#page-script').html(script);
 }
