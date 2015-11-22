@@ -121,5 +121,32 @@ to all of the server-side code).
 impossible if you take in HTML and do subsititutions client-side in JS from JSON.  Yes, you can do this from requests.  Stay tuned to this
 space...</p>
 </div>
-</div></body>
+</div>
+<div id="footer" class="container-fluid">
+<div id="twitter-dt" class="hidden-xs col-md-4">
+<a href="https://twitter.com/bbutlerfrog" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @bbutlerfrog</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</div>
+<div id="twitter-xs" class="hidden-md hidden-lg col-xs-4">
+<a href="https://twitter.com/bbutlerfrog"><img src="/main/img/twitter.png"></a> 
+</div>
+<div id="linkedin-dt" class="hidden-xs col-md-4">
+<a href="https://www.linkedin.com/pub/ben-butler/51/72/675">
+          <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Ben Butler's profile on LinkedIn">
+    </a>
+ </div>
+ <div id="linkedin-xs" class="hidden-md hidden-lg col-xs-4">
+ <a href="https://www.linkedin.com/pub/ben-butler/51/72/675"> <img src="/main/img/linkedin-icon-40x40.png"></a>
+ </div> 
+<div id="email-dt" class="hidden-xs col-md-4">   
+   <a href="mailto:benfrog@benfrog.net"><img src="/main/img/Email-icon.png" id="emailicon">benfrog@benfrog.net</a>
+</div>
+<div id="email-xs" class="hidden-md hidden-lg col-xs-4">   
+   <a href="mailto:benfrog@benfrog.net"><img src="/main/img/small-mail-icon.png"></a>
+</div>
+</div>
+
+
+
+</body>
 </html>
