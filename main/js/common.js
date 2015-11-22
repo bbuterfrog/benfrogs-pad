@@ -6,7 +6,7 @@ function getHeader ( title, script ) {
 		   
 	   })
 	   .done (function ( content ) {
-		   content = headerSub(content, title, script);
+		   headerSub(content, title, script);
 		   $('#header').html(content);
 });
 }
@@ -28,6 +28,6 @@ function showLoadingImage (div) {
 }
 
 function headerSub ( content, title, script ) {
-	$(content).('#page-title').html(title);
-	$(content).('#page-script').html(script);
+	$($.parseHTML(content)).filter("#title").html(title);
+	$($.parseHTML(content)).filter("#script").html(script);
 }
