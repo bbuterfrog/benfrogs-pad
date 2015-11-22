@@ -11,11 +11,7 @@
 <script src="../main/bootstrap/js/bootstrap.min.js"></script>
 <script src="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css">
-<script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"></script>
 <script src="/main/prettify/loader/prettify.js"></script>
-<script src="/main/js/common.js"></script>
-<script src="/main/js/crawl-dynamic.js"></script>
 <link rel="stylesheet" type="text/css" href="/main/css/index.css">
 </head>
 <body>
