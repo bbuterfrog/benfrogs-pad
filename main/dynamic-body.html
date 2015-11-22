@@ -1,14 +1,11 @@
 <div id="dymnamic-body">
 <div class="container">
-<p class="lead">Crawlable "Dynamic" Content--How does that work?!</p>
+<p class="lead">Dynamic Content and Google--does it work?!</p>
 <p>Ever since Google <a href="http://googlewebmastercentral.blogspot.com/2015/10/deprecating-our-ajax-crawling-scheme.html">
 quietly announced</a> their intention to index dynamic content, their has been a great deal of conversation and controversy about whether
-they actually meant what they said, and if it is even possible to begin with.  Whether they actually intend to start seeing pages
-"like a modern browser," the fact is that making "dynamic" content appear in source code has been possible essentially since the introduction
-of the DOM model, and certainly easier since the introduction of the jQuery wrapper for said model, largely through leveraging the
-<a href="https://api.jquery.com/ready/">jQuery's document ready() function.</a>
-I'll explore some of those methods in this article.</p>
-<p>First off, let's start with this very page and site.  The body of this very article "started out" on the server as this:  
+they actually meant what they said, and if it is even possible to begin with.  I decided the best method to settle this in my own mind 
+was to just try and see if it all worked on this very site, where I have little to lose in terms of traffic and thus actual money.</p>  
+<p>The body of this very article "started out" on the server as this:  
 <pre class="prettyprint">
 &lt;body&gt;
 &lt;div id="header"&gt;
@@ -22,8 +19,56 @@ I'll explore some of those methods in this article.</p>
     &lt;/footer&gt;
 &lt;/body&gt;
 </pre>
-This was even after PHP was done pre-processsing it.  It was actually delivered to the client this way.  So what happened to get this
-text, headers, and footer in place?  After all, if you view the source code of this page (go ahead, try it) you'll see that they are 
-actually there.  They don't look like they were ajax'ed in.  Where's the magic?  
+<p>I didn't bother to do anything else to it on the server, I delivered it to the client as literally a blank collection of div's to see 
+if our friends at Google meant what they said about indexing it that way.  I'm using my normal set of tools (in case anyone's interested) 
+to fetch all of the HTML client-side as individual files.  This might not be a perfect method, but it keeps the files as "pure" HTML.  Here's
+the JS:
+<pre class="prettyprint">
+function getHeader ( ) {
+	$.ajax ({
+		   url: '../main/php/serverHTML.php?type=HTML&content=header',
+		   beforeSend: showLoadingImage ('header'),
+		   contentType : 'html',
+		   
+	   })
+	   .done (function ( content ) {
+		   $('#header').html(content);
+});
+}
+
+function getHTML (div, content){
+   $.ajax ({
+	   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
+	   beforeSend: showLoadingImage (div),
+	   contentType : 'html',
+	   
+   })
+   .done (function ( content ) {
+	   $('#'+div).html(content);
+   }); 
+}
+
+function showLoadingImage (div) {
+	$('#'+div).html('&lt;center&gt;&lt;img src="../main/img/loading.gif"&gt;&lt;/img&gt;&lt;/center&gt;');
+}
+</pre>
+And here's the PHP function that serves up the content to the client:
+<pre class="prettyprint">
+		
+	/** This function simply gets static html from a given file via
+	 * a file_get_contents (simplest case for this class)
+	 * 
+	 * @param $page (string): html filename (without .html on the end) of
+	 * web page you want (no path)
+	 * @return: (html), web page contents you want
+	 */
+	public function getHTML ( $page ) {
+        $filename = "../" . $page . ".html";
+		return file_get_contents ($filename);
+	}
+</pre>
+It all cries out for a micro-framework to do what really amounts to the work I'm doing here myself, but anyway...
+<p>So, getting back to the larger picture here, let's submit what we have in this page so far to Google's latest version of their "Fetch
+As Googlebot" tool:
 </div>
 </div>
