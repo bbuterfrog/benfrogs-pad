@@ -9,7 +9,7 @@ class searchEmployees extends database {
 		$this->searchParams = $searchParams;
 	}
 	
-	/*
+	/**
 	 * This function puts together a query based upon the parameters provided in $searchParams
 	 * @return (array) query results or (string) error message
 	 */
@@ -57,7 +57,7 @@ class searchEmployees extends database {
 		}
 		else if ( $this->searchParams['lowSalary'] != '') {
 			if ($this->searchParams['highSalary'] != '') {
-				$where .= "AND s.salary BETWEEN :lowSalary AND :highSalary ";
+				$where .= "AND s.salary >= :lowSalary <= :highSalary ";
 				$params[':lowSalary'] = $this->searchParams['lowSalary'];
 				$params[':highSalary'] = $this->searchParams['highSalary'];
 			}
