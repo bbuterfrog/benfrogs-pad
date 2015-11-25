@@ -3,7 +3,7 @@ $(document).ready(function() {
 	if ($('#small').is(":hidden")) { 
 	    getHTML ('medium', 'medium');
 	}
-	if ( $('#medium').is(":hiddem")) {
+	if ( $('#medium').is(":hidden")) {
 	   getHTML ('small', 'small');
 	}
 
