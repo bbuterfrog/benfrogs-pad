@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	getHTML ( 'test2', 'footer');
-	if ($('#medium').is(":visible") { 
+	if ($('#medium').is(":visible")) { 
 	    getHTML ('medium', 'medium');
 	}
-	if ( $('#small').is(":visible") {
+	if ( $('#small').is(":visible")) {
 	   getHTML ('small', 'small');
 	}
 
