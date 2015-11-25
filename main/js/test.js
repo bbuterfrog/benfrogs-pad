@@ -1,7 +1,12 @@
 $(document).ready(function() {
 	getHTML ( 'test2', 'footer');
-	getHTML ('test3', 'medium');
-	getHTML ('test4', 'small');
+	if ($('#medium').is(":visible") { 
+	    getHTML ('medium', 'medium');
+	}
+	if ( $('#small').is(":visible") {
+	   getHTML ('small', 'small');
+	}
+
 });
 
 function getHTML (div, content){
