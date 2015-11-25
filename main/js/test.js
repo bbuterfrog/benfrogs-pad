@@ -35,6 +35,5 @@ function getDiv ( div, content ) {
 		   })
 		   .done (function ( content ) {
 			   $('#'+div).html(content);
-		   }
 });
 }
