@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	getHTML ( 'footer', 'test2');
-	//if ($('#medium').is(":visible")) { 
+	if ($('#small').is(":hidden")) { 
 	    getHTML ('medium', 'medium');
-	//}
-	//if ( $('#small').is(":visible")) {
+	}
+	if ( $('#medium').is(":hiddem")) {
 	   getHTML ('small', 'small');
-	//}
+	}
 
 });
 
