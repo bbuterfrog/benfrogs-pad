@@ -1,4 +1,4 @@
-function getHeader ( ) {
+function getFooter ( ) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=header',
 		   beforeSend: showLoadingImage ('header'),
