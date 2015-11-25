@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	getHTML ( 'test2', 'footer');
 	getHTML ('test3', 'medium');
-	getHTML ('test4', 'medium');
+	getHTML ('test4', 'small');
 });
 
 function getHTML (div, content){
