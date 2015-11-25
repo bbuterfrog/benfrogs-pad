@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	getHTML ( 'test2', 'footer');
+	getHTML ( 'footer', 'test2');
 	if ($('#medium').is(":visible")) { 
 	    getHTML ('medium', 'medium');
 	}
