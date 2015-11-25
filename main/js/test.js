@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	getHeader ( );
 	getHTML ( 'test2', 'footer');
 	getHTML ('test3', 'medium');
 	getHTML ('test4', 'medium');
