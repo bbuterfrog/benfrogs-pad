@@ -1,11 +1,6 @@
 $(document).ready(function() {
 	getHTML ( 'footer', 'test2');
-	if ($('#small').is(":hidden")) { 
-	    getHTML ('medium', 'medium');
-	}
-	if ( $('#medium').is(":hidden")) {
-	   getHTML ('small', 'small');
-	}
+	
 
 });
 
@@ -18,6 +13,12 @@ function getHTML (div, content){
    })
    .done (function ( content ) {
 	   $('#'+div).html(content);
+	   if ($('#small').is(":hidden")) { 
+		    getHTML ('medium', 'medium');
+		}
+		if ( $('#medium').is(":hidden")) {
+		   getHTML ('small', 'small');
+		}
    }); 
 }
 
