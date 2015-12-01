@@ -1,4 +1,4 @@
-function getFooter ( ) {
+function getHeader ( ) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=header',
 		   beforeSend: showLoadingImage ('header'),
@@ -7,6 +7,17 @@ function getFooter ( ) {
 	   })
 	   .done (function ( content ) {
 		   $('#header').html(content);
+});
+}
+function getFooter ( ) {
+	$.ajax ({
+		   url: '../main/php/serverHTML.php?type=HTML&content=header',
+		   beforeSend: showLoadingImage ('header'),
+		   contentType : 'html',
+		   
+	   })
+	   .done (function ( content ) {
+		   $('#footer').html(content);
 });
 }
 
