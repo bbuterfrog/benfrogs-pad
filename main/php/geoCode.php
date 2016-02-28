@@ -19,7 +19,7 @@ class geoCode extends database {
 		$addressArray = parent::query($sql);
 		//implode address array line-by-line and feed it to Google Geocoder web service
 		foreach ( $addressArray as $key => $row ){ 
-		   $address = $row['address'] . "+" . $row['city'] . "+" . $row['postal_code'] . "+" . $row['country'];
+		   $address = str_replace(' ', '+', $row['address']) . "+" . $row['city'] . "+" . $row['postal_code'] . "+" . $row['country'];
 		   $geoCoderRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . '&key=' .
 		      $this->geoKey;
 		   //get result, json_decode it
