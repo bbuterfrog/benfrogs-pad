@@ -20,8 +20,9 @@ class geoCode extends database {
 		//implode address array line-by-line and feed it to Google Geocoder web service
 		foreach ( $addressArray as $key => $row ){ 
 		   $address = str_replace(' ', '+', $row['address']) . "+" . str_replace(' ', '+', $row['city']) . "+" . 
-		   $row['postal_code'] . "+" . str_replace(' ', '+', $row['country']);
-		   $geoCoderRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . '&key=' .
+		   $row['postal_code'];
+		   $geoCoderRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . 
+				   '&components=country:' .  str_replace(' ', '+', $row['country']) . '&key=' .
 		      $this->geoKey;
 		   //get result, json_decode it
 		   $geoCoderResult = json_decode(file_get_contents($geoCoderRequest), true);
@@ -30,9 +31,10 @@ class geoCode extends database {
 		      $sql = "INSERT INTO lat_lng (address_id, lat, lon) VALUES (:address_id, :lat, :lng) ON DUPLICATE KEY UPDATE
 		   		   SET lat = :lat, lng = :lng";
 		      $params[':address_id'] = $row['address_id'];
-		      $params[':lat'] = $geoCoderResult['results']['geometry']['location']['lat'];
-		      $params[':lng'] = $geoCoderResult['results']['geometry']['location']['lng'];
-		      parent::boundQuery($sql, $params);
+		      print_r ($geoCoderResult);
+		      //$params[':lat'] = $geoCoderResult['results']['geometry']['location']['lat'];
+		      //$params[':lng'] = $geoCoderResult['results']['geometry']['location']['lng'];
+		      //parent::boundQuery($sql, $params);
 		   }
 		 else { 
 		 	print ( "$geoCoderRequest \n" );
