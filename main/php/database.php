@@ -3,7 +3,7 @@ ini_set ('memory_limit', '512M');
 class database {
 	private $dbh;
 	
-	function __construct($database) {
+	function __construct($database = 'employees') {
 		$parameters = parse_ini_file( '../config/db.ini');
 		$user = $parameters['DB_USER'];
 		$password = $parameters['DB_PASSWD'];
