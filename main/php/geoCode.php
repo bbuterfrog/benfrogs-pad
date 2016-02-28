@@ -31,13 +31,11 @@ class geoCode extends database {
 		      $sql = "INSERT INTO lat_lng (address_id, lat, lon) VALUES (:address_id, :lat, :lng) ON DUPLICATE KEY UPDATE
 		   		   SET lat = :lat, lng = :lng";
 		      $params[':address_id'] = $row['address_id'];
-		      print_r ($geoCoderResult);
-		      //$params[':lat'] = $geoCoderResult['results']['geometry']['location']['lat'];
-		      //$params[':lng'] = $geoCoderResult['results']['geometry']['location']['lng'];
-		      //parent::boundQuery($sql, $params);
+		      $params[':lat'] = $geoCoderResult['results'][0]['geometry']['location']['lat'];
+		      $params[':lng'] = $geoCoderResult['results'][0]['geometry']['location']['lng'];
+		      parent::boundQuery($sql, $params);
 		   }
 		 else { 
-		 	print ( "$geoCoderRequest \n" );
 		 	print ("GeoCoder Error: {$geoCoderResult['status']}\n");
 		 }	
 		 }
