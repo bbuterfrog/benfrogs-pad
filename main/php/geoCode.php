@@ -35,7 +35,8 @@ class geoCode extends database {
 		      parent::boundQuery($sql, $params);
 		   }
 		 else { 
-		 	print ("GeoCoder Error: {$geoCoderResult['status']}");
+		 	print ( "$geoCoderRequest \n" );
+		 	print ("GeoCoder Error: {$geoCoderResult['status']}\n");
 		 }	
 		 }
 	}
