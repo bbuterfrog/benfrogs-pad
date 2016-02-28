@@ -4,8 +4,8 @@ class searchEmployees extends database {
 	
 	private $searchParams;
 	
-	public function __construct($searchParams) {
-		parent::__construct();
+	function __construct($searchParams) {
+		parent::__construct('employees');
 		$this->searchParams = $searchParams;
 	}
 	
