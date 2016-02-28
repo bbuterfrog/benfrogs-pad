@@ -1,11 +1,12 @@
 <?php
 require_once 'database.php';
 class geoCode extends database {
+	private $geoKey;
 	function __construct() {
 		parent::__construct('sakila');
 		//parse ini file to get key to Google geocoder API
 		$parameters = parse_ini_file( '../config/geocode.ini');
-		$geoKey = $parameters['geoKey']; 
+		$this->geoKey = $parameters['geoKey']; 
 	}
     /**
      * This function gets all addresses from a table in the database (joins address with a city table, 
@@ -20,7 +21,7 @@ class geoCode extends database {
 		foreach ( $addressArray as $key => $row ){ 
 		   $address = $row['address'] . "+" . $row['city'] . "+" . $row['postal_code'] . "+" . $row['country'];
 		   $geoCoderRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . '&key=' .
-		      $geoKey;
+		      $this->geoKey;
 		   //get result, json_decode it
 		   $geoCoderResult = json_decode(file_get_contents($geoCoderRequest), true);
 		   //insert lat,lon into table from results
