@@ -15,7 +15,7 @@ class geoCode extends database {
      */
 	public function geoCoder () {
 		$sql = "SELECT address_id, address, postal_code, city, country FROM address a INNER JOIN city c ON a.city_id
-               = c.city_id INNER JOIN country co ON c.country_id = co.country_id LIMIT 0,1";
+               = c.city_id INNER JOIN country co ON c.country_id = co.country_id";
 		$addressArray = parent::query($sql);
 		//implode address array line-by-line and feed it to Google Geocoder web service
 		foreach ( $addressArray as $key => $row ){ 
