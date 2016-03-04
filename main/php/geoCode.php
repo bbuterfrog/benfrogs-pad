@@ -26,8 +26,6 @@ class geoCode extends database {
 		      $this->geoKey;
 		   //get result, json_decode it
 		   $geoCoderResult = json_decode(file_get_contents($geoCoderRequest), true);
-		   print_r($geoCoderResult);
-		   die();
 		   if ($geoCoderResult['status'] == 'OK') {
    		      //insert lat,lon into table from results
 		      $sql = "INSERT INTO lat_lng (address_id, lat, lon) VALUES (:address_id, :lat, :lng) ON DUPLICATE KEY UPDATE
