@@ -29,7 +29,7 @@ class geoCode extends database {
 		   if ($geoCoderResult['status'] == 'OK') {
    		      //insert lat,lon into table from results
 		      $sql = "INSERT INTO lat_lng (address_id, lat, lon) VALUES (:address_id, :lat, :lng) ON DUPLICATE KEY UPDATE
-		   		   SET lat = :lat, lng = :lng";
+		   		   lat = :lat, lng = :lng";
 		      $params[':address_id'] = $row['address_id'];
 		      $params[':lat'] = $geoCoderResult['results'][0]['geometry']['location']['lat'];
 		      $params[':lng'] = $geoCoderResult['results'][0]['geometry']['location']['lng'];
