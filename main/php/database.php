@@ -33,11 +33,15 @@ class database {
 	 * This function executes a bound query (with parameters passed in via an array)
 	 * @param: $sql (string) sql query to be execueted (with parameters as :param)
 	 * @param $params (array) array of parameters, need to be named as ':param' =>$param
+	 * @param $fetch (bool) if we are fetching anything from the db (defaults to true)
 	 * @return: (array) all results of query
 	 */
-	protected function boundQuery ( $sql, $params ) {
+	protected function boundQuery ( $sql, $params, $fetch=true ) {
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute($params);
-		return $sth->fetchAll(PDO::FETCH_ASSOC);
+		print_r($sth->errorInfo());
+		if ($fetch == true) {
+		   return $sth->fetchAll(PDO::FETCH_ASSOC);
+		}
 	}
 }
