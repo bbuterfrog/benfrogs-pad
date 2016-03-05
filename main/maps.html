@@ -27,35 +27,27 @@ start-to-finish walkthrough that includes how to build a full page/application u
 that incorporates the somewhat-complicated process of <a href="https://developers.google.com/maps/documentation/geocoding/intro">geocoding</a>.  
 This is an attempt to create something like that.  To make the page more readable,
 I've broken it into "Example" and "How it works" accordians.  As always, I'd appreciate feedback using the links in the footer.</p>
-<div class="panel-group" id="accordian" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="mapsExample">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" href="#mapsExample" aria-expanded="true" aria-controls="mapsExample">
-         Example
-        </a>
-      </h4>
+<div class="accordion" id="accordion">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" href="#example">
+        Example
+      </a>
+
     </div>
-    <div id="mapsExample" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="mapsExample">
-      <div class="panel-body">
-       </div>
+    <div id="example" class="accordion-body collapse in">
+      <div class="accordion-inner">example</div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="howItWorks">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" href="#howItWorks" aria-expanded="true" aria-controls="howItWorks">
-          How It Works
-        </a>
-      </h4>
+  <div class="accordion-group">
+    <div class="accordion-heading"> 
+      <a class="accordion-toggle" data-toggle="collapse" href="#howItWorks">
+        How It Works
+      </a>
     </div>
-    <div id="howItWorks" class="panel-collapse collapse in" role="tabpanel" aria-expanded="true" aria-labelledby="howItWorks">
-      <div class="panel-body">
-      <div id="example"></div>
-          </div>
-   
-  </div>
-  </div>
+    <div id="howItWorks" class="accordion-body collapse">
+      <div class="accordion-inner" id="howItWorks"></div>
+    </div>
   </div>
 </div>
     <footer class="footer">
