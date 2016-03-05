@@ -23,5 +23,5 @@ function getHTML (div, content){
 }
 
 function showLoadingImage (div) {
-	$('#'+div).html('<center><img src="../main/img/loading.gif"></img></center>');
+	$('#'+div).html('<center><i class="fa fa-spinner fa-pulse fa-3x"></i></center>');
 }
