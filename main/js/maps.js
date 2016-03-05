@@ -2,8 +2,8 @@ $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
 	getHTML ('example', 'mapsHowItWorks');
-	$('#mapsExample').on('shown.bs.collapse', function () {
-		getHTML ('example', 'howItWorks');
+	$('#howItWorks').on('shown.bs.collapse', function () {
+		getHTML ('innerHowItWorks', 'howItWorks');
 	});
 	prettyPrint();
 });
