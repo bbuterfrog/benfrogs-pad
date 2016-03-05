@@ -1,0 +1,21 @@
+<h3>Geocoding</h3>
+<p>Let's start at the beginning, with your address/location data.  If you already have coordinates (latitude and longitude) for your addresses (as I did in my first
+production project), you are in a reasonably decent place for now.  You'll basically be able to skip server-side geocoding, which is what it sounds like (getting coordinates for all of
+the addresses in your database).  I decided to include this step in this example, using the <a href="https://dev.mysql.com/doc/sakila/en/">Sakila Sample Database</a>.  I'm 
+actually using customer addresses for this example, so maybe we're making house calls?  Anyway, I used the 
+<a href="https://developers.google.com/maps/documentation/geocoding/intro#Geocoding"> Google Maps Geocoding API</a> for this example, which I recommend, obviously 
+for applications that are later going to make use of Google Maps.  There are other Geocoding API's out there, but I've generally found them to be less reliable and
+less fast.  It's worth noting, though, that you are restricted with this server-side version to 2500 requests per day unless you or your organization is willing to start
+paying, so you basically can just try it out for an example like this.  I wrote a <em>very</em> simple script using Sakila's schema to insert coordinates into a new table, it's
+<a href="https://github.com/bbutlerfrog/benfrogs-pad/blob/master/main/php/geoCode.php">here</a>.  Note that while the call for Google's server-side geocoder is more-or-less
+standard (it takes parameters with '+' signs instead of spaces as per the RFC for a URI, etc.) there are some quirks, such as the fact that if you have addresses all over 
+the world (Salika does), the easiest way to override <a href="https://developers.google.com/maps/documentation/geocoding/intro#RegionCodes">Region Biasing</a> and find what
+you want is to "Component Filtering", like this:</p>
+<pre class="prettyprint">
+$geoCoderRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . 
+				   '&components=country:' .  str_replace(' ', '+', $row['country']) . '&key='
+				   $this->geoKey;
+</pre>
+<p>In other words, you need to put the country in as a "component", not as part of the address.</p>
+<p>Regardless of whether you have coordinates in your database or not, you'll likely want to use <em>dynamic</em> or <em>client-side</em> geocoding to help users find points 
+in the part of the world they want on your map.
