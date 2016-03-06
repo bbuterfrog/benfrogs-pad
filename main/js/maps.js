@@ -34,7 +34,9 @@ function initalize (){
 	google.maps.event.addListener(map, 'tilesloaded', function(evt) {
 	 var mapBounds = map.getBounds();
 	 var NEBounds = mapBounds.getNorthEast();
+	 console.log (NEBounds);
      var SWBounds = mapBounds.getSouthWest();
+     console.log(SWBounds);
 	 var rectangle = new google.maps.Polygon({
 	     paths : [
 	       NEBounds,
