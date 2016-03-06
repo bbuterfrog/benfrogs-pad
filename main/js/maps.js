@@ -13,8 +13,8 @@ $(document).ready(function() {
 		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
-	 var mapBounds = map.getBounds();
 	 var rectangle = new google.maps.Polygon({
+		 var mapBounds = map.getBounds();
 	     paths : [
 	       mapBounds.getNorthEast,
 	       mapBounds.getSouthWest
