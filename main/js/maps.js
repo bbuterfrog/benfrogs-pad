@@ -29,6 +29,7 @@ function initalize (){
 	});
 	//once the bounds have changed
 	google.maps.event.addListener(map, 'bounds_changed', function() {
+		var mapBounds = map.getBounds();
 	      var lat1 = mapBounds.getNorthEast.lat;
 	      var lat2 = mapBounds.getNorthEast.lat;
 	      var lng1 = mapBounds.getSouthWest.lng;
