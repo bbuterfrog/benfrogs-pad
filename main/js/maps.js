@@ -25,7 +25,7 @@ function mapClicks () {
 	var mapBounds = map.getBounds();
 var rectangle = new google.maps.Polygon({
     paths : [
-      mapBounds;
+      mapBounds
     ],
    strokeOpacity: 0,
    fillOpacity : 0,
