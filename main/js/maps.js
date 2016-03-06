@@ -27,7 +27,8 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
-	      var lat1 = -72;
+	google.maps.event.addListener(map, 'tilesloaded', function() {      
+	    var lat1 = -72;
 	      var lat2 = 72;
 	      var lng1 = -180;
 	      var lng2 = 180;  
