@@ -10,7 +10,7 @@ $(document).ready(function() {
 	prettyPrint();
 	 mapOptions = {
 		        center: new google.maps.LatLng(0,0),
-		        zoom: 1
+		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
 });
