@@ -27,7 +27,7 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
-	google.maps.event.addListener(map, 'tilesloaded', function() {
+	google.maps.event.addListener(map, 'bounds_changed', function() {
 		  var mapBounds = map.getBounds();
 	      var lat1 = mapBounds.getNorthEast.lat;
 	      console.log(lat1);
