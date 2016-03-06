@@ -8,28 +8,11 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
 	prettyPrint();
-	 mapOptions = {
+	mapOptions = {
 		        center: new google.maps.LatLng(0,0),
 		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
-	 initalize();
-	 console.log(map.getBounds());
-	 var mapBounds = map.getBounds();
-	 var NEBounds = mapBounds.getNorthEast();
-     var SWBounds = mapBounds.getSouthWest();
-	 var rectangle = new google.maps.Polygon({
-	     paths : [
-	       NEBounds,
-	       SWBounds
-	     ],
-	    strokeOpacity: 0,
-	    fillOpacity : 0,
-	    map : map
-	  });
-	  google.maps.event.addListener(rectangle, 'click', function(args) {  
-	     console.log('latlng', args.latLng);
-	  });
 		    
 });
 
@@ -47,4 +30,19 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
+	 var mapBounds = map.getBounds();
+	 var NEBounds = mapBounds.getNorthEast();
+     var SWBounds = mapBounds.getSouthWest();
+	 var rectangle = new google.maps.Polygon({
+	     paths : [
+	       NEBounds,
+	       SWBounds
+	     ],
+	    strokeOpacity: 0,
+	    fillOpacity : 0,
+	    map : map
+	  });
+	  google.maps.event.addListener(rectangle, 'click', function(args) {  
+	     console.log('latlng', args.latLng);
+	  });
 }
