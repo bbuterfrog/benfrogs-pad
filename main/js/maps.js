@@ -29,12 +29,11 @@ function initalize (){
 	});
 	google.maps.event.addListener(map, 'bounds_changed', function() {
 		  var mapBounds = map.getBounds();
-		  console.log(mapBounds);
-	      var lat1 = mapBounds.getNorthEast.lat;
+	      var lat1 = mapBounds.getNorthEast().lat;
 	      console.log(lat1);
-	      var lat2 = mapBounds.getSouthWest.lat;
-	      var lng1 = mapBounds.getNorthEast.lng;
-	      var lng2 = mapBounds.getSouthWest.lng;  
+	      var lat2 = mapBounds.getSouthWest().lat;
+	      var lng1 = mapBounds.getNorthEast().lng;
+	      var lng2 = mapBounds.getSouthWest().lng;  
 
 	      var rectangle = new google.maps.Polygon({
 	         paths : [
