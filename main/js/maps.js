@@ -30,6 +30,8 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
+	//once the tiles have loaded
+	google.maps.event.addListener(map, 'tilesloaded', function(evt) {
 	 var mapBounds = map.getBounds();
 	 var NEBounds = mapBounds.getNorthEast();
      var SWBounds = mapBounds.getSouthWest();
@@ -45,4 +47,5 @@ function initalize (){
 	  google.maps.event.addListener(rectangle, 'click', function(args) {  
 	     console.log('latlng', args.latLng);
 	  });
+	});
 }
