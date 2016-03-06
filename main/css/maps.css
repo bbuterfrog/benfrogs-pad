@@ -1,9 +1,9 @@
 @CHARSET "utf-8";
 
 #map_container{
+  height: 600px;
   position: fixed;
 }
 #map{
-    height: 600px;
     position: fixed;
 }
