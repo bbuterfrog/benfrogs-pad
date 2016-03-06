@@ -3,7 +3,7 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
 	$('#howItWorks').on('shown.bs.collapse', function () {
-		getHTML ('innerHowItWorks', 'howItWorks');
+		getHTML ('innerHowItWorks', 'mapsHowItWorks');
 	});
 	prettyPrint();
 });
