@@ -35,7 +35,6 @@ function initalize (){
 	 var mapBounds = map.getBounds();
 	 var NELat = mapBounds.getNorthEast.lat;
 	 var NELng = mapBounds.getNorthEast.lng;
-	 console.log (NEBounds);
      var SWLat = mapBounds.getSouthWest.lat;
      var SWLng = mapBounds.getSouthWest.lng;
      console.log(SWBounds);
