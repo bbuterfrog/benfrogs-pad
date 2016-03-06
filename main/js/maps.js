@@ -13,6 +13,8 @@ $(document).ready(function() {
 		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
+	 initalize();
+	 console.log(map.getBounds());
 	 var mapBounds = map.getBounds();
 	 var NEBounds = mapBounds.getNorthEast();
      var SWBounds = mapBounds.getSouthWest();
