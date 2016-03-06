@@ -1,9 +1,12 @@
 @CHARSET "utf-8";
 
 #map_container{
+	position: relative;
 	height: 600px;
 }
 #map{
+	height: 0;
     overflow: hidden;
-    position: fixed;
+    position: relative;
+     
 }
