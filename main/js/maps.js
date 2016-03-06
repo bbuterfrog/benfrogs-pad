@@ -27,11 +27,12 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
-	google.maps.event.addListener(map, 'tilesloaded', function() {      
-	    var lat1 = -72;
-	      var lat2 = 72;
-	      var lng1 = -180;
-	      var lng2 = 180;  
+	google.maps.event.addListener(map, 'tilesloaded', function() {
+		  var mapBounds = map.getBounds();
+	      var lat1 = mapBounds.getNorthEast.lat;
+	      var lat2 = mapBounds.getSouthWest.lat;
+	      var lng1 = mapBounds.getNorthEast.lng;
+	      var lng2 = mapBounds.getSouthWest.lng;  
 
 	      var rectangle = new google.maps.Polygon({
 	         paths : [
