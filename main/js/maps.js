@@ -33,15 +33,8 @@ function initalize (){
 	});
 	google.maps.event.addListener(map, 'bounds_changed', function() {
 		  var mapBounds = map.getBounds();
-	      var lat1 = mapBounds.getNorthEast().lat();
-	      var lat2 = mapBounds.getSouthWest().lat();
-	      var lng1 = mapBounds.getNorthEast().lng();
-	      var lng2 = mapBounds.getSouthWest().lng();  
 	      rectangle = new google.maps.Rectangle({
-	        north: lng1,
-	        south: lng2,
-	        east: lat1,
-	        west: lat2,
+	        bounds: map.getBounds(),
 	        strokeOpacity: 0,
 	        fillOpacity : 0,
 	        map : map
