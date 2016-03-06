@@ -30,18 +30,14 @@ function initalize (){
 	google.maps.event.addListener(map, 'bounds_changed', function() {
 		  var mapBounds = map.getBounds();
 	      var lat1 = mapBounds.getNorthEast().lat();
-	      console.log(lat1);
 	      var lat2 = mapBounds.getSouthWest().lat();
 	      var lng1 = mapBounds.getNorthEast().lng();
 	      var lng2 = mapBounds.getSouthWest().lng();  
-
-	      var rectangle = new google.maps.Polygon({
-	         paths : [
-	           new google.maps.LatLng(lat1, lng1),
-	           new google.maps.LatLng(lat2, lng1),
-	           new google.maps.LatLng(lat2, lng2),
-	           new google.maps.LatLng(lat1, lng2)
-	         ],
+	      var rectangle = new google.maps.Rectangle({
+	        north: lng1,
+	        south: lng2,
+	        east: lat1,
+	        west: lat2,
 	        strokeOpacity: 0,
 	        fillOpacity : 0,
 	        map : map
