@@ -27,29 +27,37 @@ start-to-finish walkthrough that includes how to build a full page/application u
 that incorporates the somewhat-complicated process of <a href="https://developers.google.com/maps/documentation/geocoding/intro">geocoding</a>.  
 This is an attempt to create something like that.  To make the page more readable,
 I've broken it into "Example" and "How it works" accordians.  As always, I'd appreciate feedback using the links in the footer.</p>
-<div class="accordion" id="accordion">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" href="#example">
-        Example
-      </a>
-
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" href="#example">
+          Example
+        </a>
+      </h4>
     </div>
-    <div id="example" class="accordion-body collapse in">
-      <div class="accordion-inner">example</div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading"> 
-      <a class="accordion-toggle" data-toggle="collapse" href="#howItWorks">
-        How It Works
-      </a>
-    </div>
-    <div id="howItWorks" class="accordion-body collapse">
-      <div class="accordion-inner" id="innerHowItWorks"></div>
+    <div id="example" class="panel-collapse collapse in">
+      <div class="panel-body">
+      <div id="innerExample"></div>
+      </div>
     </div>
   </div>
-</div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" href="#howItWorks">
+          How It Works
+        </a>
+      </h4>
+    </div>
+    <div id="howItWorks" class="panel-collapse collapse">
+      <div class="panel-body">
+      <div id="innerHowItWorks"></div>
+    </div>
+  </div>
+    </div>
+  </div>
+  </div>
     <footer class="footer">
       <div class="container">
          <div id="footer">
