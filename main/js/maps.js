@@ -2,6 +2,9 @@
 var map;
 //universal variable for mapOptions
 var mapOptions;
+//universal rectangle to listen for clicks
+var rectangle;
+
 
 $(document).ready(function() {
 	getHeader ( );
@@ -13,6 +16,7 @@ $(document).ready(function() {
 		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
+	 
 		    
 });
 
@@ -33,7 +37,7 @@ function initalize (){
 	      var lat2 = mapBounds.getSouthWest().lat();
 	      var lng1 = mapBounds.getNorthEast().lng();
 	      var lng2 = mapBounds.getSouthWest().lng();  
-	      var rectangle = new google.maps.Rectangle({
+	      rectangle = new google.maps.Rectangle({
 	        north: lng1,
 	        south: lng2,
 	        east: lat1,
@@ -42,9 +46,8 @@ function initalize (){
 	        fillOpacity : 0,
 	        map : map
 	      });
-	      console.log (rectangle);
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
-	         console.log('latlng', args.latLng);
-	      });
+	          console.log('latlng', args.latLng);
+	       });    
 	  });
 	}
