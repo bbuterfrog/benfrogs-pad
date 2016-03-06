@@ -48,6 +48,7 @@ function initalize (){
 	    fillOpacity : 0,
 	    map : map
 	  });
+	 console.log(rectangle);
 	  google.maps.event.addListener(rectangle, 'click', function(args) {  
 	     console.log('latlng', args.latLng);
 	  });
