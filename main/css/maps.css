@@ -2,10 +2,9 @@
 
 #map_container{
   position: relative;
-  height: 600px;
 }
 #map{
-    height: 0;
+    height: 600px;
     overflow: hidden;
     padding-bottom: 22.25%;
     padding-top: 30px;
