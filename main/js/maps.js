@@ -30,6 +30,7 @@ function initalize (){
 	google.maps.event.addListener(map, 'tilesloaded', function() {
 		  var mapBounds = map.getBounds();
 	      var lat1 = mapBounds.getNorthEast.lat;
+	      console.log(lat1);
 	      var lat2 = mapBounds.getSouthWest.lat;
 	      var lng1 = mapBounds.getNorthEast.lng;
 	      var lng2 = mapBounds.getSouthWest.lng;  
