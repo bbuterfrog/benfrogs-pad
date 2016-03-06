@@ -12,7 +12,7 @@ $(document).ready(function() {
 		        center: new google.maps.LatLng(0,0),
 		        zoom: 1
 		    };
-	 google.maps.event.addDomListener(window, 'load', initialize);
+	 google.maps.event.addDomListener(window, 'load', initialize());
 });
 
 /**
