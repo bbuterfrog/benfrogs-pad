@@ -13,7 +13,28 @@ $(document).ready(function() {
 		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
+	//add click listener for any point on the map
+	 google.maps.event.addListener(marker, "click", function (event) {
+		    var latitude = event.latLng.lat();
+		    var longitude = event.latLng.lng();
+		    console.log( latitude + ', ' + longitude );
+	 });	    
 });
+
+function mapClicks () {
+	var mapBounds = map.getBounds();
+var rectangle = new google.maps.Polygon({
+    paths : [
+      mapBounds;
+    ],
+   strokeOpacity: 0,
+   fillOpacity : 0,
+   map : map
+ });
+ google.maps.event.addListener(rectangle, 'click', function(args) {  
+    console.log('latlng', args.latLng);
+ });
+}
 
 /**
  * This function initalizes the Google Map
