@@ -16,7 +16,8 @@ $(document).ready(function() {
 	 var mapBounds = map.getBounds();
 	 var rectangle = new google.maps.Polygon({
 	     paths : [
-	       mapBounds
+	       mapBounds.getNorthEast,
+	       mapBounds.getSouthWest
 	     ],
 	    strokeOpacity: 0,
 	    fillOpacity : 0,
