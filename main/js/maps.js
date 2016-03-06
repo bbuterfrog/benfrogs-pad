@@ -33,14 +33,18 @@ function initalize (){
 	//once the tiles have loaded
 	google.maps.event.addListener(map, 'tilesloaded', function(evt) {
 	 var mapBounds = map.getBounds();
-	 var NEBounds = mapBounds.getNorthEast();
+	 var NELat = mapBounds.getNorthEast.lat();
+	 var NELng = mapBounds.getNorthEast.lng();
 	 console.log (NEBounds);
-     var SWBounds = mapBounds.getSouthWest();
+     var SWLat = mapBounds.getSouthWest.lat();
+     var SWLng = mapBounds.getSouthWest.lng();
      console.log(SWBounds);
 	 var rectangle = new google.maps.Polygon({
 	     paths : [
-	       NEBounds,
-	       SWBounds
+	       new google.maps.LatLng(NELat, NELng),
+           new google.maps.LatLng(SWLat, NELng),
+           new google.maps.LatLng(SWLat, SWLng),
+           new google.maps.LatLng(NELat, SWLng),
 	     ],
 	    strokeOpacity: 0,
 	    fillOpacity : 0,
