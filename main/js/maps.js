@@ -27,13 +27,10 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
-	//once the bounds have changed
-	google.maps.event.addListener(map, 'bounds_changed', function() {
-		var mapBounds = map.getBounds();
-	      var lat1 = mapBounds.getNorthEast.lat;
-	      var lat2 = mapBounds.getNorthEast.lat;
-	      var lng1 = mapBounds.getSouthWest.lng;
-	      var lng2 = mapBounds.getSouthWest.lat;  
+	      var lat1 = -72;
+	      var lat2 = 72;
+	      var lng1 = -180;
+	      var lng2 = 180;  
 
 	      var rectangle = new google.maps.Polygon({
 	         paths : [
