@@ -37,7 +37,6 @@ function initalize (){
 	 var NELng = mapBounds.getNorthEast.lng;
      var SWLat = mapBounds.getSouthWest.lat;
      var SWLng = mapBounds.getSouthWest.lng;
-     console.log(SWBounds);
 	 var rectangle = new google.maps.Polygon({
 	     paths : [
 	       new google.maps.LatLng(NELat, NELng),
