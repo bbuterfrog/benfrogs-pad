@@ -53,7 +53,7 @@ function initalize (){
  * @param string type Google Maps type of the address component to return
  * @return string the name of the address component (long_name) 
  */
-function reverseGeocodeZoom (latLng, type) {
+function reverseGeocode (latLng, type) {
 	 geocoder.geocode( { 'location': latLng}, function(results, status) {
 	      if (status === google.maps.GeocoderStatus.OK) {
 	      $.each (results[0].address_components, function( key, value ) {
