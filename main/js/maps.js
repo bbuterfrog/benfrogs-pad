@@ -48,15 +48,20 @@ function initalize (){
 	}
 
 /**
- * This function reverse geocodes a set of coordinates to an address
+ * This function reverse geocodes a set of coordinates to an address and returns the viewport of 
+ * that address, based on a provided type
  * @param object latLng lat/lng of the coordinates to geocode
+ * @param string type Google Maps type of the address component to return the viewport of
  */
-function reverseGeocode (latLng) {
+function reverseGeocode (latLng, type) {
 	 geocoder.geocode( { 'location': latLng}, function(results, status) {
 	      if (status === google.maps.GeocoderStatus.OK) {
-	      if ( results[0] ) {
-	    	console.log (results[0]);
-	      }
+	      $.each (results[0].address_components, function( key, value ) {
+	      //run an each loop to find the type we want over results
+	    	  if ( address_components[key].types[0] == type) {
+	    		  console.log(value);
+	    	  }
+	      });
 	      else {
 	    	  console.log('No Country Found');
 	      }
