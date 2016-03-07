@@ -25,7 +25,7 @@ function initalize (){
 	        zoom: 2
 	    };
   geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById('map'), mapOptions); 
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	//Resize Function
 	google.maps.event.addDomListener(window, "resize", function() {
 		var center = map.getCenter();
@@ -45,6 +45,32 @@ function initalize (){
 	    	  countryName = reverseGeocode (args.latLng, 'country');
 	       });    
 	  });
+	// Create the search box and link it to the UI element.
+    var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+    searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+        if (places.length == 0) {
+          return;
+        }
+        if (place.geometry.viewport) {
+            // Only geocodes have viewport.
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+        map.fitBounds(bounds);
+      });
+    }
+
+
 	}
 
 
