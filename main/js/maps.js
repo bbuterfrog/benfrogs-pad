@@ -39,7 +39,6 @@ function initalize (){
 	        fillOpacity : 0,
 	        map : map
 	      });
-	      console.log(rectangle);
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
 	          //zoom to country with reverse geocoding
 	    	  reverseGeocode (args.latLng);
@@ -62,11 +61,8 @@ function reverseGeocode (latLng, type) {
 	    		  console.log(value);
 	    	  }
 	      });
-	      else {
-	    	  console.log('No Country Found');
 	      }
-	   }
-	 else {
+	    else {
 	      console.log('Geocoder failed due to: ' + status);
 	    }
 	  });
