@@ -58,15 +58,19 @@ function initalize (){
     searchBox.addListener('places_changed', function() {
     	var bounds = new google.maps.LatLngBounds();
         var places = searchBox.getPlaces();
+        
         if (places.length == 0) {
           return;
         }
+        places.forEach(function(place) {
+
         if (place.geometry.viewport) {
             // Only geocodes have viewport.
             bounds.union(place.geometry.viewport);
           } else {
             bounds.extend(place.geometry.location);
           }
+        });  
         map.fitBounds(bounds);
         });
 }
