@@ -42,7 +42,7 @@ function initalize (){
 	      console.log(rectangle);
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
 	          //zoom to country with reverse geocoding
-	    	  reverseGeocode (args.latLng());
+	    	  reverseGeocode (args.latLng);
 	       });    
 	  });
 	}
