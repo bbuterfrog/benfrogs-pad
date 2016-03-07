@@ -42,19 +42,17 @@ function initalize (){
 	      console.log(rectangle);
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
 	          //zoom to country with reverse geocoding
-	    	  reverseGeocode (args.lat(), args.lng())
+	    	  reverseGeocode (args.latLng());
 	       });    
 	  });
 	}
 
 /**
  * This function reverse geocodes a set of coordinates to an address
- * @param lat latitude of the point to reverse geocode
- * @param lng longitude of the point to reverse geocode
+ * @param object latLng lat/lng of the coordinates to geocode
  */
-function reverseGeocode (lat, lng) {
-	var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
-	 geocoder.geocode( { 'location': latlng}, function(results, status) {
+function reverseGeocode (latLng) {
+	 geocoder.geocode( { 'location': latLng}, function(results, status) {
 	      if (status === google.maps.GeocoderStatus.OK) {
 	      if ( results[0] ) {
 	    	if (results[0].address_components.types.country) {
