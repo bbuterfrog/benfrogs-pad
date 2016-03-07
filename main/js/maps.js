@@ -54,7 +54,9 @@ function initalize (){
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
+    
     searchBox.addListener('places_changed', function() {
+    	var bounds = new google.maps.LatLngBounds();
         var places = searchBox.getPlaces();
         if (places.length == 0) {
           return;
@@ -65,15 +67,9 @@ function initalize (){
           } else {
             bounds.extend(place.geometry.location);
           }
-        });
         map.fitBounds(bounds);
-      });
-    }
-
-
-	}
-
-
+        });
+}
 /**
  * This function reverse geocodes a set of coordinates to an address 
  * then zooms to its viewport
