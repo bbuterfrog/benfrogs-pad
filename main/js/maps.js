@@ -41,24 +41,25 @@ function initalize (){
 	      });
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
 	          //zoom to country with reverse, then forward geocoding
-	    	  countryName = reverseGeocode (args.latLng, 'country');
+	    	  countryName = reverseGeocodeZoom (args.latLng, 'country');
 	       });    
 	  });
 	}
 
 /**
  * This function reverse geocodes a set of coordinates to an address 
+ * then zooms to its viewport
  * @param object latLng lat/lng of the coordinates to geocode
  * @param string type Google Maps type of the address component to return
  * @return string the name of the address component (long_name) 
  */
-function reverseGeocode (latLng, type) {
+function reverseGeocodeZoom (latLng, type) {
 	 geocoder.geocode( { 'location': latLng}, function(results, status) {
 	      if (status === google.maps.GeocoderStatus.OK) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
 	    	  if ( value.types[0] == type) {
-	    		  zoomToViewport(value.types[0]);
+	    		  console.log(results);
 	    	  }
 	      });
 	      }
@@ -68,20 +69,3 @@ function reverseGeocode (latLng, type) {
 	  });
 }
 
-/**
- * This functions zooms to the Google-supplied recommended viewport for the
- * provided area, finding it by geocoding
- * @param string area
- */
-function zoomToViewport (area) {
-	geocoder.geocode ({'address' : area}, function(results, status) {
-	   if (status === google.maps.GeocoderStatus.OK) {
-	      map.setCenter (results[0].geometry.location);
-	      map.fitBounds(results[0].geometry.viewport);
-	   }
-	   else {
-	      console.log('Could not find viewport due to: ' + status);
-	      console.log (area);
-	   }
-	});
-}
