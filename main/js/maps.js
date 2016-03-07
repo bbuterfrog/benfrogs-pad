@@ -55,12 +55,7 @@ function reverseGeocode (latLng) {
 	 geocoder.geocode( { 'location': latLng}, function(results, status) {
 	      if (status === google.maps.GeocoderStatus.OK) {
 	      if ( results[0] ) {
-	    	if (results[0].address_components.types.country) {
-	    		console.log(results[0].address_components.types.country);
-	    	}
-	    	else {
-		    	  console.log('No Country Found');
-	    	}
+	    	console.log (results[0]);
 	      }
 	      else {
 	    	  console.log('No Country Found');
