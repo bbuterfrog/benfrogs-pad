@@ -75,15 +75,15 @@ function reverseGeocode (latLng, type) {
  * @param string area
  */
 function zoomToViewport (area) {
-	geocoder.geocode ({'address' : area}, function(forwardResults, status) {
+	geocoder.geocode ({'address' : area}, function(results, status) {
 	   if (status === google.maps.GeocoderStatus.OK) {
-		  console.log (forwardResults);
-	      map.setCenter (forwardResults[0].geometry.location);
-	      map.fitBounds(forwardResults[0].geometry.viewport);
+	      map.setCenter (results[0].geometry.location);
+	      map.fitBounds(results[0].geometry.viewport);
+	      rectangle = null;
+	      google.maps.event.removeEventListener(map, 'bounds_changed');
 	   }
 	   else {
 	      console.log('Could not find viewport due to: ' + status);
-	      console.log (area);
 	   }
 	});
 }
