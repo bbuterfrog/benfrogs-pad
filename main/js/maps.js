@@ -12,6 +12,7 @@ $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
+	getHTML ('addressSearch', 'addressSearch');
 	prettyPrint();
 });
 
@@ -52,7 +53,6 @@ function initalize (){
  * then zooms to its viewport
  * @param object latLng lat/lng of the coordinates to geocode
  * @param string type Google Maps type of the address component to return
- * @return string the name of the address component (long_name) 
  */
 function reverseGeocode (latLng, type) {
 	 geocoder.geocode( { 'location': latLng}, function(results, status) {
@@ -65,7 +65,7 @@ function reverseGeocode (latLng, type) {
 	      });
 	      }
 	    else {
-	      console.log('Could not find country due to: ' + status);
+	      console.log('Could not find ' + type + ' due to: ' + status);
 	    }
 	  });
 }
