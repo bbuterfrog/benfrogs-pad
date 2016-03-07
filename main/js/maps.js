@@ -4,7 +4,8 @@ var map;
 var mapOptions;
 //universal rectangle to listen for clicks
 var rectangle;
-
+//geocoder object
+var geocoder;
 
 $(document).ready(function() {
 	getHeader ( );
@@ -16,14 +17,13 @@ $(document).ready(function() {
 		        zoom: 2
 		    };
 	 google.maps.event.addDomListener(window, 'load', initalize());
-	 
-		    
 });
 
 /**
  * This function initalizes the Google Map
  */
 function initalize (){ 
+  geocoder = new google.maps.Geocoder();
   map = new google.maps.Map(document.getElementById('map'), mapOptions); 
 	//Resize Function
 	google.maps.event.addDomListener(window, "resize", function() {
@@ -41,7 +41,35 @@ function initalize (){
 	      });
 	      console.log(rectangle);
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
-	          console.log('latlng', args.latLng);
+	          //zoom to country with reverse geocoding
+	    	  reverseGeocode (args.lat(), args.lng())
 	       });    
 	  });
 	}
+
+/**
+ * This function reverse geocodes a set of coordinates to an address
+ * @param lat latitude of the point to reverse geocode
+ * @param lng longitude of the point to reverse geocode
+ */
+function reverseGeocode (lat, lng) {
+	var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+	 geocoder.geocode( { 'location': latlng}, function(results, status) {
+	      if (status === google.maps.GeocoderStatus.OK) {
+	      if ( results[0] ) {
+	    	if (results[0].address_components.types.country) {
+	    		console.log(results[0].address_components.types.country);
+	    	}
+	    	else {
+		    	  console.log('No Country Found');
+	    	}
+	      }
+	      else {
+	    	  console.log('No Country Found');
+	      }
+	   }
+	 else {
+	      console.log('Geocoder failed due to: ' + status);
+	    }
+	  });
+}
