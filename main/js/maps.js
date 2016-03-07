@@ -4,6 +4,7 @@ var map;
 var mapOptions;
 //universal rectangle to listen for clicks
 var rectangle;
+var boundsChanged;
 //geocoder object
 var geocoder;
 
@@ -31,7 +32,7 @@ function initalize (){
 		google.maps.event.trigger(map, "resize");
 		map.setCenter(center);
 	});
-	google.maps.event.addListener(map, 'bounds_changed', function() {
+	boundsChanged = google.maps.event.addListener(map, 'bounds_changed', function() {
 		  var mapBounds = map.getBounds();
 	      rectangle = new google.maps.Rectangle({
 	        bounds: map.getBounds(),
@@ -80,7 +81,7 @@ function zoomToViewport (area) {
 	      map.setCenter (results[0].geometry.location);
 	      map.fitBounds(results[0].geometry.viewport);
 	      rectangle = null;
-	      google.maps.event.removeEventListener(map, 'bounds_changed');
+	      google.maps.event.removeListener(boundsChanged);
 	   }
 	   else {
 	      console.log('Could not find viewport due to: ' + status);
