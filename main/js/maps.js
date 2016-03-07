@@ -41,7 +41,7 @@ function initalize (){
 	      });
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
 	          //zoom to country with reverse, then forward geocoding
-	    	  countryName = reverseGeocodeZoom (args.latLng, 'country');
+	    	  countryName = reverseGeocode (args.latLng, 'country');
 	       });    
 	  });
 	}
@@ -59,7 +59,7 @@ function reverseGeocodeZoom (latLng, type) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
 	    	  if ( value.types[0] == type) {
-	    		  console.log(results);
+	    		  zoomToViewport(value.types[0]);
 	    	  }
 	      });
 	      }
@@ -69,3 +69,21 @@ function reverseGeocodeZoom (latLng, type) {
 	  });
 }
 
+/**
+ * This functions zooms to the Google-supplied recommended viewport for the
+ * provided area, finding it by geocoding
+ * @param string area
+ */
+function zoomToViewport (area) {
+	geocoder.geocode ({'address' : area}, function(forwardResults, status) {
+	   if (status === google.maps.GeocoderStatus.OK) {
+		  console.log (forwardResults);
+	      map.setCenter (forwardResults[0].geometry.location);
+	      map.fitBounds(forwardResults[0].geometry.viewport);
+	   }
+	   else {
+	      console.log('Could not find viewport due to: ' + status);
+	      console.log (area);
+	   }
+	});
+}
