@@ -57,7 +57,7 @@ function reverseGeocode (latLng, type) {
 	      if (status === google.maps.GeocoderStatus.OK) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
-	    	  if ( address_components[key].types[0] == type) {
+	    	  if ( value.types[0] == type) {
 	    		  console.log(value);
 	    	  }
 	      });
