@@ -59,7 +59,7 @@ function reverseGeocode (latLng, type) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
 	    	  if ( value.types[0] == type) {
-	    		  zoomToViewport(value.types[0]);
+	    		  zoomToViewport(value.long_name);
 	    	  }
 	      });
 	      }
