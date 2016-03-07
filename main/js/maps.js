@@ -76,8 +76,8 @@ function reverseGeocode (latLng, type) {
 function zoomToViewport (area) {
 	geocoder.geocode ({'address' : area}, function(results, status) {
 	   if (status === google.maps.GeocoderStatus.OK) {
-	      map.setCenter (results.geometry.location);
-	      map.fitBounds(results.geometry.viewport);
+	      map.setCenter (results[0].geometry.location);
+	      map.fitBounds(results[0].geometry.viewport);
 	   }
 	   else {
 	      console.log('Could not find viewport due to: ' + status);
