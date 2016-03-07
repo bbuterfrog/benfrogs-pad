@@ -24,7 +24,6 @@ function initalize (){
 	        zoom: 2
 	    };
   geocoder = new google.maps.Geocoder();
-  detectBrowser();
   map = new google.maps.Map(document.getElementById('map'), mapOptions); 
 	//Resize Function
 	google.maps.event.addDomListener(window, "resize", function() {
@@ -46,22 +45,6 @@ function initalize (){
 	       });    
 	  });
 	}
-
-/**
- * This function (from Google's docs) attempts user-agent detection to find out if we are using a mobile 
- * device
- */
-function detectBrowser() {
-	  var useragent = navigator.userAgent;
-	  var mapdiv = document.getElementById("map");
-
-	  if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
-	    mapdiv.style.width = '100%';
-	    mapdiv.style.height = '100%';
-	  } else {
-	    mapdiv.style.height = '600px';
-	  }
-}
 
 
 /**
