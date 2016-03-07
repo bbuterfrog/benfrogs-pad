@@ -13,18 +13,18 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
 	prettyPrint();
-	mapOptions = {
-		        center: new google.maps.LatLng(0,0),
-		        zoom: 2
-		    };
-	 google.maps.event.addDomListener(window, 'load', initalize());
 });
 
 /**
  * This function initalizes the Google Map
  */
-function initalize (){ 
+function initalize (){
+	mapOptions = {
+	        center: new google.maps.LatLng(0,0),
+	        zoom: 2
+	    };
   geocoder = new google.maps.Geocoder();
+  detectBrowser();
   map = new google.maps.Map(document.getElementById('map'), mapOptions); 
 	//Resize Function
 	google.maps.event.addDomListener(window, "resize", function() {
@@ -46,6 +46,24 @@ function initalize (){
 	       });    
 	  });
 	}
+
+/**
+ * This function (from Google's docs) attempts user-agent detection to find out if we are using a mobile 
+ * device
+ */
+function detectBrowser() {
+	  var useragent = navigator.userAgent;
+	  var mapdiv = document.getElementById("map");
+
+	  if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+	    mapdiv.style.width = '100%';
+	    mapdiv.style.height = '100%';
+	  } else {
+	    mapdiv.style.width = '600px';
+	    mapdiv.style.height = '800px';
+	  }
+}
+
 
 /**
  * This function reverse geocodes a set of coordinates to an address 
