@@ -83,5 +83,5 @@ function zoomToViewport (area) {
 	   else {
 	      console.log('Could not find viewport due to: ' + status);
 	   }
-	)};
+	});
 }
