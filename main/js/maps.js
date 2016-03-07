@@ -40,17 +40,18 @@ function initalize (){
 	        map : map
 	      });
 	      google.maps.event.addListener(rectangle, 'click', function(args) {  
-	          //zoom to country with reverse geocoding
-	    	  reverseGeocode (args.latLng, 'country');
+	          //zoom to country with reverse, then forward geocoding
+	    	  countryName = reverseGeocode (args.latLng, 'country');
+	    	  zoomToViewport (countryName);
 	       });    
 	  });
 	}
 
 /**
- * This function reverse geocodes a set of coordinates to an address and returns the viewport of 
- * that address, based on a provided type
+ * This function reverse geocodes a set of coordinates to an address 
  * @param object latLng lat/lng of the coordinates to geocode
- * @param string type Google Maps type of the address component to return the viewport of
+ * @param string type Google Maps type of the address component to return
+ * @return string the name of the address component (long_name) 
  */
 function reverseGeocode (latLng, type) {
 	 geocoder.geocode( { 'location': latLng}, function(results, status) {
@@ -58,12 +59,28 @@ function reverseGeocode (latLng, type) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
 	    	  if ( value.types[0] == type) {
-	    		  console.log(value);
+	    		  return value.long_name;
 	    	  }
 	      });
 	      }
 	    else {
-	      console.log('Geocoder failed due to: ' + status);
+	      console.log('Could not find country due to: ' + status);
 	    }
 	  });
+}
+
+/**
+ * This functions zooms to the Google-supplied recommended viewport for the
+ * provided area, finding it by geocoding
+ * @param string area
+ */
+function zoomToViewport (area) {
+	geocoder.geocode ({'address' : area}, function(results, status) {
+	   if (status === google.maps.GeocoderStatus.OK) {
+	      map.setCenter (results.geometry.location);
+	      map.fitBounds(results.geometry.viewport);
+	   }
+	   else {
+	      console.log('Could not find viewport due to: ' + status);
+	   }
 }
