@@ -4,9 +4,12 @@ var map;
 var mapOptions;
 //universal rectangle to listen for clicks
 var rectangle;
+//listener variable for when map bounds change
 var boundsChanged;
 //geocoder object
 var geocoder;
+//universal array of markers
+var markers = [];
 
 $(document).ready(function() {
 	getHeader ( );
@@ -59,12 +62,10 @@ function initalize (){
     searchBox.addListener('places_changed', function() {
     	var bounds = new google.maps.LatLngBounds();
         var places = searchBox.getPlaces();
-        
         if (places.length == 0) {
           return;
         }
         places.forEach(function(place) {
-
         if (place.geometry.viewport) {
             // Only geocodes have viewport.
             bounds.union(place.geometry.viewport);
@@ -73,6 +74,9 @@ function initalize (){
           }
         });  
         map.fitBounds(bounds);
+        rectangle = null;
+	    google.maps.event.removeListener(boundsChanged);
+	    getMarkers(bounds);
         });
 }
 /**
@@ -114,4 +118,29 @@ function zoomToViewport (area) {
 	      console.log('Could not find viewport due to: ' + status);
 	   }
 	});
+}
+
+/**
+ * This function gets markers within a given set of bounds, then adds them
+ * to the map
+ * @param object bounds
+ */
+function getMarkers (bounds) {
+   //clear the array of markers
+   markers = [];
+   //make a dataObject of the bounds to post
+   NELat, $NELng, $SWLat, $SWLng
+   var dataObject = { NELat: bounds.getNorthEast().lat(),
+		   NELng : bounds.getNorthEast.lng(),
+		   SWLat : bounds.getSouthWest.lat(),
+		   SWLng : bounds.getSouthWest.lng()};
+   //ajax in the marker points and address id's within the bounds
+	$.ajax ({
+		   url: '../main/php/mapsServer.php?content=getPoints',
+		   data: dataObject,
+		   type : "POST"
+	   })
+	   .done (function ( content ) {
+});
+
 }
