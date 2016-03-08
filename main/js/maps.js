@@ -22,7 +22,8 @@ $(document).ready(function() {
 function initalize (){
 	mapOptions = {
 	        center: new google.maps.LatLng(0,0),
-	        zoom: 2
+	        zoom: 2,
+	        mapTypeControl: false
 	    };
   geocoder = new google.maps.Geocoder();
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
