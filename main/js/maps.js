@@ -129,7 +129,6 @@ function getMarkers (bounds) {
    //clear the array of markers
    markers = [];
    //make a dataObject of the bounds to post
-   NELat, $NELng, $SWLat, $SWLng
    var dataObject = { NELat: bounds.getNorthEast().lat(),
 		   NELng : bounds.getNorthEast.lng(),
 		   SWLat : bounds.getSouthWest.lat(),
