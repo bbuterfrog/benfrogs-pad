@@ -143,7 +143,7 @@ function getMarkers (bounds) {
 		   $.each (content, function( key, value ) {
 		   //make a marker for each point
 		   var marker = new google.maps.Marker ({ map: map,
-			   position : new google.maps.LatLng({lat: value.lat, lng: value.lng});
+			   position : ({lat: -34, lng: 151})
 		   });
 		   markers[value.address_id] = marker;
 	   }
