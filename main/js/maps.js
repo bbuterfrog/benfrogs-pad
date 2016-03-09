@@ -148,6 +148,6 @@ function getMarkers (bounds) {
 		   });
 		   markers[value.address_id] = marker;
    });
-}
+});
 }
 
