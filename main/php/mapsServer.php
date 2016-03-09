@@ -2,7 +2,7 @@
 require_once 'maps.php';
 $mapsServer = new maps();
 $content = $_GET['content'];
-switch ( $content ) {
+switch  ($content) {   
 	case 'getPoints':
 		if(isset($_POST['NWLat'])) {
 			$NWLat = $_POST['NWLat'];
@@ -33,4 +33,4 @@ switch ( $content ) {
 	default:
 		die ('error: unknown request');
 }
-die (json_encode($data);
+die (json_encode($data));
