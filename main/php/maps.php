@@ -17,10 +17,10 @@ class maps extends database {
 	 * @return array address_id's and coordinates of the points inside of the bounds
 	 */
 	public function getPoints ($NELat, $NELng, $SWLat, $SWLng) {
-		$sql = "SELECT address_id, lat, lng FROM lat_lng WHERE lng >= :NELng AND
+		$sql = "SELECT address_id, lat, lng FROM lat_lng WHERE lng <= :NELng AND
 		        lat <= :NELat AND 
-		        lng <= :SWLng AND
-		        lat >= :SWLng";
+		        lng >= :SWLng AND
+		        lat >= :SWLat";
 		$params = array ( ':NELat' => $NELat,
 				':NELng' => $NELng,
 				':SWLat' => $SWLat,
