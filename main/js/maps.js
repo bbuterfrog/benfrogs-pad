@@ -140,6 +140,13 @@ function getMarkers (bounds) {
 		   type : "POST"
 	   })
 	   .done (function ( content ) {
+		   $.each (content, function( key, value ) {
+		   //make a marker for each point
+		   var marker = new google.maps.Marker ({ map: map,
+			   position : new google.maps.LatLng({lat: value.lat, lng: value.lng});})
+		   });
+		   markers[value.address_id] = marker;
+	   }
 });
 
 }
