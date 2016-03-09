@@ -146,7 +146,7 @@ function getMarkers (bounds) {
 		   //var latLng = ({lat: lat, lng: lng})
 		   //var marker = new google.maps.Marker ({ map: map,
 			   //postition: latLng
-		   });
+		   ///});
 		   //markers[value.address_id] = marker;
    });
 });
