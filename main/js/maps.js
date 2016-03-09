@@ -130,9 +130,9 @@ function getMarkers (bounds) {
    markers = [];
    //make a dataObject of the bounds to post
    var dataObject = { NELat: bounds.getNorthEast().lat(),
-		   NELng : bounds.getNorthEast.lng(),
-		   SWLat : bounds.getSouthWest.lat(),
-		   SWLng : bounds.getSouthWest.lng()};
+		   NELng : bounds.getNorthEast().lng(),
+		   SWLat : bounds.getSouthWest().lat(),
+		   SWLng : bounds.getSouthWest().lng()};
    //ajax in the marker points and address id's within the bounds
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?content=getPoints',
