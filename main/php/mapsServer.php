@@ -23,7 +23,7 @@ switch  ($content) {
 			die ('error: parameter SWLat not set' );
 		}
 		if(isset($_POST['SWLng'])) {
-			$SWLat = $_POST['SWLng'];
+			$SWLng = $_POST['SWLng'];
 		}
 		else {
 			die ('error: parameter SWLng not set' );
