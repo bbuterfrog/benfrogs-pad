@@ -4,17 +4,17 @@ $mapsServer = new maps();
 $content = $_GET['content'];
 switch  ($content) {   
 	case 'getPoints':
-		if(isset($_POST['NWLat'])) {
-			$NWLat = $_POST['NWLat'];
+		if(isset($_POST['NELat'])) {
+			$NWLat = $_POST['NELat'];
 		}
 		else {
-			die ('error: parameter NWLat not set' );
+			die ('error: parameter NELat not set' );
 		}
-		if(isset($_POST['NWLng'])) {
-			$NWLng = $_POST['NWLng'];
+		if(isset($_POST['NELng'])) {
+			$NWLng = $_POST['NELng'];
 		}
 		else {
-			die ('error: parameter NWLng not set' );
+			die ('error: parameter NELng not set' );
 		}
 		if(isset($_POST['SWLat'])) {
 			$SWLat = $_POST['SWLat'];
@@ -28,7 +28,7 @@ switch  ($content) {
 		else {
 			die ('error: parameter SWLng not set' );
 		}
-		$data = $mapsServer->getPoints($NWLat, $NWLng, $SWLat, $SWLng);
+		$data = $mapsServer->getPoints($NELat, $NELng, $SWLat, $SWLng);
 		break;
 	default:
 		die ('error: unknown request');
