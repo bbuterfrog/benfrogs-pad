@@ -147,7 +147,6 @@ function getMarkers (bounds) {
 			   postition: latLng
 		   });
 		   markers[value.address_id] = marker;
-	   }
 });
 
 }
