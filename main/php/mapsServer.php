@@ -5,13 +5,13 @@ $content = $_GET['content'];
 switch  ($content) {   
 	case 'getPoints':
 		if(isset($_POST['NELat'])) {
-			$NWLat = $_POST['NELat'];
+			$NELat = $_POST['NELat'];
 		}
 		else {
 			die ('error: parameter NELat not set' );
 		}
 		if(isset($_POST['NELng'])) {
-			$NWLng = $_POST['NELng'];
+			$NELng = $_POST['NELng'];
 		}
 		else {
 			die ('error: parameter NELng not set' );
