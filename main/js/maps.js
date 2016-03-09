@@ -145,7 +145,6 @@ function getMarkers (bounds) {
 		      var lat = content[i].lat;
 		      var lng = content[i].lng;
 		   }
-   });
 });
 }
 
