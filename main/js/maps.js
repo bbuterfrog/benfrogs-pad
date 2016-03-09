@@ -140,7 +140,7 @@ function getMarkers (bounds) {
 		   type : "POST"
 	   })
 	   .done (function ( content ) {
-		   for (var i in content) {
+		   for (i = 0; i < content.length; i++) {
 		      var addressID = content[i].address_id;
 		      var lat = content[i].lat;
 		      var lng = content[i].lng;
@@ -148,6 +148,7 @@ function getMarkers (bounds) {
 		      var marker = new google.maps.Marker ({
 		    	 position : latLng
 		      });
+		      console.log(marker);
 		      marker.setMap (map);
 		      markers[addressID] = marker;
 		   }
