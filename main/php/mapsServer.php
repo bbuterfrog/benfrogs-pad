@@ -59,7 +59,7 @@ switch  ($content) {
 	default:
 		die ('error: unknown request');
 }
-if (contentType == 'json') {
+if ($contentType == 'json') {
    die (json_encode($data));
 }
 else { 
