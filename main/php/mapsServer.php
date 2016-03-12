@@ -65,4 +65,3 @@ if (contentType == 'json') {
 else { 
    die ($data);
 }
-}
