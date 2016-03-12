@@ -1,7 +1,7 @@
 <?php
 require_once 'database.php';
 class contentServer extends database {
-	function __construct($database) {
+	function __construct() {
 		if (isset($_GET['database'])) {
 			$database = $_GET['database'];
 		}
