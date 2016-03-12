@@ -2,6 +2,7 @@
 require_once 'maps.php';
 $mapsServer = new maps();
 $content = $_GET['content'];
+header('Content-Type: application/json');
 switch  ($content) {   
 	case 'getPoints':
 		if(isset($_POST['NELat'])) {
@@ -34,5 +35,4 @@ switch  ($content) {
 	default:
 		die ('error: unknown request');
 }
-$data .= "header('Content-Type: application/json')";
 die (json_encode($data));
