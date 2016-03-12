@@ -152,14 +152,15 @@ function getMarkers (bounds) {
 		      var lng = content[i].lng;
 		      var latLng = new google.maps.LatLng(lat, lng);
 		      var marker = new google.maps.Marker ({
-		    	 position : latLng
-		    	 
+		    	 position : latLng,
+		    	 map: map
 		      });
-		      marker.setMap (map);
-              marker.addListener('click', function() {
-		    	openInfoBubble (marker, addressID);  
-		      });
-		      markers[i] = marker;
+		      google.maps.event.addListener(marker, 'click', (function(marker, addressID) {
+		          return function() {
+		        	  openInfoBubble (marker, addressID )
+		          }
+		     })(marker, addressID));
+		     markers[addressID] = marker;
 		    
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
