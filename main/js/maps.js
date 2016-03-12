@@ -160,7 +160,6 @@ function getMarkers (bounds) {
 		    	openInfoBubble (marker, addressID);  
 		      });
 		      markers[i] = marker;
-		      console.log(markers);
 		    
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
