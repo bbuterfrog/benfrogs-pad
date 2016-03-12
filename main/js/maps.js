@@ -199,7 +199,7 @@ function openInfoBubble (marker, addressID ) {
 			   var template = Handlebars.compile(templateHTML);
 			   var infoBubbleHTML = template(windowContent);
 			   var infowindow = new google.maps.InfoWindow({
-				    content: infoBubbleHTML;
+				    content: infoBubbleHTML
 				  });
 			   infowindow.open(map, marker);
 		   });	
