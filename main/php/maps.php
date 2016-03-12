@@ -27,4 +27,18 @@ class maps extends database {
 				':SWLng' => $SWLng);
 		return parent::boundQuery($sql, $params);
 	}
+	
+	/**
+	 * This function gets all of the info needed for a customer "infoBubble" (infoWindow)
+	 * from the database
+	 * @param int addressID
+	 * @return array customer information for the infoBubble
+	 */
+	public function getCustomerBubble ($addressID) {
+		$sql = "SELECT name, address, `zip code`, phone, city, 
+                country FROM customer c INNER JOIN 
+                customer_list cl on cl.ID = c.address_id WHERE c.address_id = :address_id";
+		$params = array ( ':address_id' => $addressID);
+		return parent::boundQuery($sql, $params);
+	}
 }

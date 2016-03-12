@@ -132,10 +132,7 @@ function zoomToViewport (area) {
  * @param object bounds
  */
 function getMarkers (bounds) {
-   //clear the array of markers
-   for ( var i =0; i < markers.length; i++ ) {
-	   markers[i] = null;
-   }
+   markers = [];
    //make a dataObject of the bounds to post
    var dataObject = { NELat: bounds.getNorthEast().lat(),
 		   NELng : bounds.getNorthEast().lng(),
@@ -143,7 +140,7 @@ function getMarkers (bounds) {
 		   SWLng : bounds.getSouthWest().lng()};
    //ajax in the marker points and address id's within the bounds
 	$.ajax ({
-		   url: '../main/php/mapsServer.php?content=getPoints',
+		   url: '../main/php/mapsServer.php?content=getPoints&contentType=json',
 		   data: dataObject,
 		   type : "POST",
 		   dataType : "json"	   
@@ -159,7 +156,11 @@ function getMarkers (bounds) {
 		    	 
 		      });
 		      marker.setMap (map);
-		      markers[i] = marker;
+              marker.addListener('click', function() {
+		    	openInfoBubble (marker, addressID);  
+		      });
+		      markers[addressID] = marker;
+		    
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
 		  //zooms or moves the map, then stops
@@ -173,3 +174,36 @@ function getMarkers (bounds) {
       });
 }
 
+/**
+ * This function opens an "infoBubble" (aka infoWindow) when a marker is clicked, by getting
+ * the html template via an ajax call and filling it in with handlebars.js
+ * @param float lat
+ * @param float lng
+ * @param object addressID
+ * @param object marker
+ */
+function openInfoBubble (marker, addressID ) {
+	var dataObject = { addressID: addressID };
+	$.ajax ({ 
+		   url: '../main/php/mapsServer.php?type=json&content=customerBubble',
+		   data: dataObject,
+		   type : "POST",
+		   dataType : "json"	   
+	   })
+	   .done (function ( windowContent ) {
+		   $.ajax ({
+			   url: '../main/php/mapsServer.php?type=HTML&content=infoBubble',
+			   contentType : 'html'
+		   })
+		   .done (function ( templateHTML ) {
+			   var template = Handlebars.compile(templateHTML);
+			   var infoBubbleHTML = template(windowContent);
+			   var infowindow = new google.maps.InfoWindow({
+				    content: windowContent
+				  });
+			   infowindow.open(map, marker);
+		   });	
+	});
+	 
+	} 
+}

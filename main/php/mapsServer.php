@@ -1,8 +1,21 @@
 <?php
 require_once 'maps.php';
 $mapsServer = new maps();
-$content = $_GET['content'];
-header('Content-Type: application/json');
+if ( isset($_GET['content']) ) {
+   $content = $_GET['content'];
+}
+else {
+	die ('error: unknown request');
+}
+if ( isset($_GET['contentType']) ) {
+   $contentType = $_GET['contentType'];
+}
+else {
+	die ('error: must set contentType');
+}
+if ( $contentType == 'json' ) {
+   header('Content-Type: application/json');
+}
 switch  ($content) {   
 	case 'getPoints':
 		if(isset($_POST['NELat'])) {
@@ -29,8 +42,19 @@ switch  ($content) {
 		else {
 			die ('error: parameter SWLng not set' );
 		}
-		
 		$data = $mapsServer->getPoints($NELat, $NELng, $SWLat, $SWLng);
+		break;
+	case 'infoBubble' :
+		$data = file_get_contents('/main/infoBubble.html');
+		break;
+	case 'customerBubble' :
+		if(isset($_POST['addressID'])) {
+			$addressID = $_POST['addressID'];
+		}
+		else {
+			die ('error: parameter addressID not set' );
+		}
+		$data = $mapsServer->getCustomerBubble($addressID);
 		break;
 	default:
 		die ('error: unknown request');
