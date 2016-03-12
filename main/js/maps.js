@@ -14,8 +14,7 @@ var geocoder;
 var markers = [];
 //boolean variable to see if we are zooming to a marker
 var markerZoom = false;
-var infowindow = new google.maps.InfoWindow();
-
+var infoWindow;
 $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
@@ -199,6 +198,7 @@ function openInfoBubble (marker, addressID ) {
 		   .done (function ( templateHTML ) {
 			   var template = Handlebars.compile(templateHTML);
 			   var infoBubbleHTML = template(windowContent);
+			   infowindow = new google.maps.infowindow();
 			   infowindow.setContent(infoBubbleHTML);
 			   infowindow.open(map, marker);
 		   });	
