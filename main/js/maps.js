@@ -133,7 +133,7 @@ function zoomToViewport (area) {
  */
 function getMarkers (bounds) {
    //clear the array of markers
-   for ( var i =0; i < count(markers); i++ ) {
+   for ( var i =0; i < markers.length; i++ ) {
 	   markers[i] = null;
    }
    //make a dataObject of the bounds to post
