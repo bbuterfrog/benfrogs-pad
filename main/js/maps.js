@@ -6,6 +6,8 @@ var mapOptions;
 var rectangle;
 //listener variable for when map bounds change
 var boundsChanged;
+//listener variable for when a polygon is clicked on 
+var polyClicked;
 //geocoder object
 var geocoder;
 //universal array of markers
@@ -44,7 +46,7 @@ function initalize (){
 	        fillOpacity : 0,
 	        map : map
 	      });
-	      google.maps.event.addListener(rectangle, 'click', function(args) {  
+	      polyClicked = google.maps.event.addListener(rectangle, 'click', function(args) {  
 	          //zoom to country with reverse, then forward geocoding
 	    	  countryName = reverseGeocode (args.latLng, 'country');
 	       });    
@@ -91,6 +93,7 @@ function reverseGeocode (latLng, type) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
 	    	  if ( value.types[0] == type) {
+	    		  google.maps.event.removeListener('polyClicked');
 	    		  zoomToViewport(value.long_name);
 	    	  }
 	      });
