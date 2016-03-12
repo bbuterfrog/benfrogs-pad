@@ -133,7 +133,9 @@ function zoomToViewport (area) {
  */
 function getMarkers (bounds) {
    //clear the array of markers
-   markers = [];
+   for ( var i =0; i < count(markers); i++ ) {
+	   markers[i] = null;
+   }
    //make a dataObject of the bounds to post
    var dataObject = { NELat: bounds.getNorthEast().lat(),
 		   NELng : bounds.getNorthEast().lng(),
@@ -147,16 +149,17 @@ function getMarkers (bounds) {
 		   dataType : "json"	   
 	   })
 	   .done (function ( content ) {
-		   for (i = 0; i < content.length; i++) {
+		   for (var i = 0; i < content.length; i++) {
 		      var addressID = content[i].address_id;
 		      var lat = content[i].lat;
 		      var lng = content[i].lng;
 		      var latLng = new google.maps.LatLng(lat, lng);
 		      var marker = new google.maps.Marker ({
 		    	 position : latLng
+		    	 
 		      });
 		      marker.setMap (map);
-		      markers[addressID] = marker;
+		      markers[i] = marker;
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
 		  //zooms or moves the map, then stops
