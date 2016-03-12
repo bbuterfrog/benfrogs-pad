@@ -204,6 +204,4 @@ function openInfoBubble (marker, addressID ) {
 			   infowindow.open(map, marker);
 		   });	
 	});
-	 
-	} 
 }
