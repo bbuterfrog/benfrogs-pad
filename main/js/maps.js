@@ -137,7 +137,8 @@ function getMarkers (bounds) {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?content=getPoints',
 		   data: dataObject,
-		   type : "POST"
+		   type : "POST",
+		   dataType : "json"	   
 	   })
 	   .done (function ( content ) {
 		   for (i = 0; i < content.length; i++) {
@@ -148,7 +149,7 @@ function getMarkers (bounds) {
 		      var marker = new google.maps.Marker ({
 		    	 position : latLng
 		      });
-		      console.log(marker);
+		      console.log(content);
 		      marker.setMap (map);
 		      markers[addressID] = marker;
 		   }
