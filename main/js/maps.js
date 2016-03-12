@@ -93,7 +93,7 @@ function reverseGeocode (latLng, type) {
 	      $.each (results[0].address_components, function( key, value ) {
 	      //run an each loop to find the type we want over results
 	    	  if ( value.types[0] == type) {
-	    		  google.maps.event.removeListener('polyClicked');
+	    		  google.maps.event.removeListener(polyClicked);
 	    		  zoomToViewport(value.long_name);
 	    	  }
 	      });
