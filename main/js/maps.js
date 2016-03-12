@@ -12,6 +12,8 @@ var polyClicked;
 var geocoder;
 //universal array of markers
 var markers = [];
+//boolean variable to see if we are zooming to a marker
+var markerZoom = false;
 
 $(document).ready(function() {
 	getHeader ( );
@@ -156,6 +158,18 @@ function getMarkers (bounds) {
 		      marker.setMap (map);
 		      markers[addressID] = marker;
 		   }
-});
+		  //add listener for when user (not "us", that is not when we zoom to a marker),
+		  //zooms or moves the map, then stops
+		   google.maps.event.addListener(map, 'idle', function() {
+		       if (markerZoom == false) {
+		    	 //call this very function again
+		    	   var bounds = map.getBounds();
+		    	   getMarkers(bounds);
+		       }
+			   
+			   
+		   });
+		   }
+      });
 }
 
