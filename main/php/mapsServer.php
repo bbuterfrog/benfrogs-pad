@@ -45,7 +45,7 @@ switch  ($content) {
 		$data = $mapsServer->getPoints($NELat, $NELng, $SWLat, $SWLng);
 		break;
 	case 'infoBubble' :
-		$data = file_get_contents('/main/infoBubble.html');
+		$data = file_get_contents('main/infoBubble.html');
 		break;
 	case 'customerBubble' :
 		if(isset($_POST['addressID'])) {
