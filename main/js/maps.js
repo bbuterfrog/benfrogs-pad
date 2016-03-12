@@ -166,10 +166,7 @@ function getMarkers (bounds) {
 		    	   var bounds = map.getBounds();
 		    	   getMarkers(bounds);
 		       }
-			   
-			   
 		   });
-		   }
       });
 }
 
