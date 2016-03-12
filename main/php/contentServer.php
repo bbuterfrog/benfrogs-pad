@@ -2,13 +2,7 @@
 require_once 'database.php';
 class contentServer extends database {
 	function __construct() {
-		if (isset($_GET['database'])) {
-			$database = $_GET['database'];
-		}
-		else {
-			$database = 'employees';
-		}
-		parent::__construct($database);
+		parent::construct('employees');
 	}
 		
 	/* This function simply gets static html from a given file via
