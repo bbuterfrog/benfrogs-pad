@@ -28,9 +28,11 @@ switch  ($content) {
 		else {
 			die ('error: parameter SWLng not set' );
 		}
+		
 		$data = $mapsServer->getPoints($NELat, $NELng, $SWLat, $SWLng);
 		break;
 	default:
 		die ('error: unknown request');
 }
+$data .= "header('Content-Type: application/json')";
 die (json_encode($data));
