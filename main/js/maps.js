@@ -156,7 +156,7 @@ function getMarkers (bounds) {
 		    	 
 		      });
 		      marker.setMap (map);
-              marker.addListener('click', function() {
+              marker.addListener('click', function(addressID) {
 		    	openInfoBubble (marker, addressID);  
 		      });
 		      markers[i] = marker;
