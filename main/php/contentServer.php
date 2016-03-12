@@ -2,7 +2,7 @@
 require_once 'database.php';
 class contentServer extends database {
 	function __construct($database = 'employees') {
-		parent::construct($database);
+		parent::__construct($database);
 	}
 		
 	/* This function simply gets static html from a given file via
