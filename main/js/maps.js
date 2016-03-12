@@ -113,6 +113,7 @@ function zoomToViewport (area) {
 	      map.fitBounds(results[0].geometry.viewport);
 	      rectangle = null;
 	      google.maps.event.removeListener(boundsChanged);
+	      getMarkers (results[0].geometry.viewport);
 	   }
 	   else {
 	      console.log('Could not find viewport due to: ' + status);
@@ -149,7 +150,6 @@ function getMarkers (bounds) {
 		      var marker = new google.maps.Marker ({
 		    	 position : latLng
 		      });
-		      console.log(content);
 		      marker.setMap (map);
 		      markers[addressID] = marker;
 		   }
