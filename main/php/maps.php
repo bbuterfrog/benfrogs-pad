@@ -37,7 +37,8 @@ class maps extends database {
 	public function getCustomerBubble ($addressID) {
 		$sql = "SELECT name, address, `zip code`, phone, city, 
                 country FROM customer c INNER JOIN 
-                customer_list cl on cl.ID = c.address_id WHERE c.address_id = :address_id";
+                customer_list cl on cl.ID = c.customer_id
+                WHERE c.address_id = :address_id";
 		$params = array ( ':address_id' => $addressID);
 		return parent::boundQuery($sql, $params);
 	}
