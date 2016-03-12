@@ -147,19 +147,19 @@ function getMarkers (bounds) {
 	   })
 	   .done (function ( content ) {
 		   for (var i = 0; i < content.length; i++) {
+		      var addressID = content[i].address_id;
 		      var lat = content[i].lat;
 		      var lng = content[i].lng;
-		      var addressID = content[i].addressID;
 		      var latLng = new google.maps.LatLng(lat, lng);
 		      var marker = new google.maps.Marker ({
 		    	 position : latLng
+		    	 
 		      });
 		      marker.setMap (map);
               marker.addListener('click', function() {
-            	  markerZoom = true;
 		    	openInfoBubble (marker, addressID);  
 		      });
-		      markers[i] = marker;
+		      markers[addressID] = marker;
 		    
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
@@ -185,22 +185,21 @@ function getMarkers (bounds) {
 function openInfoBubble (marker, addressID ) {
 	var dataObject = { addressID: addressID };
 	$.ajax ({ 
-		   url: '../main/php/mapsServer.php?contentType=json&content=customerBubble',
+		   url: '../main/php/mapsServer.php?type=json&content=customerBubble',
 		   data: dataObject,
 		   type : "POST",
 		   dataType : "json"	   
 	   })
 	   .done (function ( windowContent ) {
 		   $.ajax ({
-			   url: '../main/php/mapsServer.php?contentType=HTML&content=infoBubble',
+			   url: '../main/php/mapsServer.php?type=HTML&content=infoBubble',
 			   contentType : 'html'
 		   })
 		   .done (function ( templateHTML ) {
-			   var html = templateHTML;
 			   var template = Handlebars.compile(templateHTML);
 			   var infoBubbleHTML = template(windowContent);
 			   var infowindow = new google.maps.InfoWindow({
-				    content: infoBubbleHTML
+				    content: windowContent
 				  });
 			   infowindow.open(map, marker);
 		   });	
