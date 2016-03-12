@@ -157,6 +157,7 @@ function getMarkers (bounds) {
 		      });
 		      marker.setMap (map);
               marker.addListener('click', function(addressID) {
+            	  markerZoom = true;
 		    	openInfoBubble (marker, addressID);  
 		      });
 		      markers[i] = marker;
