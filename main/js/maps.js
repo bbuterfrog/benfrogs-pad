@@ -149,6 +149,7 @@ function getMarkers (bounds) {
 		   for (var i = 0; i < content.length; i++) {
 		      var lat = content[i].lat;
 		      var lng = content[i].lng;
+		      var addressID = content[i].addressID;
 		      var latLng = new google.maps.LatLng(lat, lng);
 		      var marker = new google.maps.Marker ({
 		    	 position : latLng
@@ -195,6 +196,7 @@ function openInfoBubble (marker, addressID ) {
 			   contentType : 'html'
 		   })
 		   .done (function ( templateHTML ) {
+			   var html = templateHTML;
 			   var template = Handlebars.compile(templateHTML);
 			   var infoBubbleHTML = template(windowContent);
 			   var infowindow = new google.maps.InfoWindow({
