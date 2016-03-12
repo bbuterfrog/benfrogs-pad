@@ -185,14 +185,14 @@ function getMarkers (bounds) {
 function openInfoBubble (marker, addressID ) {
 	var dataObject = { addressID: addressID };
 	$.ajax ({ 
-		   url: '../main/php/mapsServer.php?type=json&content=customerBubble',
+		   url: '../main/php/mapsServer.php?type=json?contentType=json&content=customerBubble',
 		   data: dataObject,
 		   type : "POST",
 		   dataType : "json"	   
 	   })
 	   .done (function ( windowContent ) {
 		   $.ajax ({
-			   url: '../main/php/mapsServer.php?type=HTML&content=infoBubble',
+			   url: '../main/php/mapsServer.php?type=HTML?contentType=html&content=infoBubble',
 			   contentType : 'html'
 		   })
 		   .done (function ( templateHTML ) {
