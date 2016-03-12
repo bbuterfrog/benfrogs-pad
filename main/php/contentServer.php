@@ -1,7 +1,13 @@
 <?php
 require_once 'database.php';
+if (isset($_GET['database'])) {
+   $database = $_GET['database'];	
+} 
+else {
+	$database = 'employees';
+}
 class contentServer extends database {
-	function __construct($database = 'employees') {
+	function __construct($database) {
 		parent::__construct($database);
 	}
 		
