@@ -32,7 +32,7 @@ function initalize (){
 	        zoom: 2,
 	        mapTypeControl: false
 	    };
-  if($('#bigMap')is(":visible")) {
+  if($('#bigMap').is(":visible")) {
 	  $.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=bigMap',
 		   contentType : 'html'
