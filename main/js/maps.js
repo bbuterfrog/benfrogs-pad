@@ -218,6 +218,7 @@ function openInfoBubble (marker, addressID ) {
  * @param string city
  * @param string zip
  * @param string country
+ * @return string link to directions page
  */
 function directionsLink(address, city, zip, country){
 	var address = address + ',' + city + ',' + zip + ',' + country;
@@ -226,7 +227,8 @@ function directionsLink(address, city, zip, country){
     if( (navigator.platform.indexOf("iPhone") != -1) 
         || (navigator.platform.indexOf("iPod") != -1)
         || (navigator.platform.indexOf("iPad") != -1))
-         window.open("maps://maps.google.com/maps?addr=Current+Location&daddr=" + address);
+         return("maps://maps.google.com/maps?addr=Current+Location&daddr=" + address);
     else
-         window.open("http://maps.google.com/maps?maps?addr=Current+Location&daddr=" + address);
+         return("http://maps.google.com/maps?maps?addr=Current+Location&daddr=" + address);
+    
 }
