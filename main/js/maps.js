@@ -289,8 +289,8 @@ function makeMapTable (bounds) {
 							   }
 							   else {
 								   $('html,body').animate({
-								   scrollTop: $("#map").offset().top;
-								});
+									   scrollTop: $("#map").offset().top - 10
+									});
 							   }
 							   google.maps.event.trigger(markers[this.id], 'click');
 							});
