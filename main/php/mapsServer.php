@@ -83,6 +83,9 @@ switch  ($content) {
 		}
 		$data = $mapsServer->getCustomerTable($NELat, $NELng, $SWLat, $SWLng);
 	    break;
+	case 'infoBubble' :
+	    $data = file_get_contents('../mapsTable.html');
+	    break;
 	default:
 		die ('error: unknown request');
 }
