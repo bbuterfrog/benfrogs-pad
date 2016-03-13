@@ -178,8 +178,6 @@ function getMarkers (bounds) {
 /**
  * This function opens an "infoBubble" (aka infoWindow) when a marker is clicked, by getting
  * the html template via an ajax call and filling it in with handlebars.js
- * @param float lat
- * @param float lng
  * @param object addressID
  * @param object marker
  */
@@ -192,8 +190,8 @@ function openInfoBubble (marker, addressID ) {
 		   dataType : "json"	   
 	   })
 	   .done (function ( windowContent ) {
-		   windowContent[0].directions = directionsLink(windowContent[0].address, 
-				   windowContent[0].city, windowContent[0].zip, windowContent[0].country);
+		   windowContent[0].directions = directionsLink(marker.getPosition().lat(),
+				   marker.getPosition().lng());
 		   $.ajax ({
 			   url: '../main/php/mapsServer.php?contentType=html&content=infoBubble',
 			   contentType : 'html'
@@ -223,15 +221,14 @@ function openInfoBubble (marker, addressID ) {
  * @param string country
  * @return string link to directions page
  */
-function directionsLink(address, city, zip, country){
-	var address = address + ',' + city + ',' + zip + ',' + country;
+function directionsLink(lat, lng){
 	var address = address.replace(' ', '+');
     // If it's an iPhone..
     if( (navigator.platform.indexOf("iPhone") != -1) 
         || (navigator.platform.indexOf("iPod") != -1)
         || (navigator.platform.indexOf("iPad") != -1))
-         return("maps://maps.google.com/maps?addr=Current+Location&daddr=" + address);
+         return("maps://maps.google.com/maps?addr=Current+Location&daddr=" + lat + ',' + lng);
     else
-         return("http://maps.google.com/maps?maps?addr=Current+Location&daddr=" + address);
+         return("http://maps.google.com/maps?addr=Current+Location&daddr=" + lat + ',' + lng);
     
 }
