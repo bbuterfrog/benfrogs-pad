@@ -289,7 +289,7 @@ function makeMapTable (bounds) {
 							   }
 							   else {
 								   $('html,body').animate({
-								   scrollTop: $("#map").offset().top - 10;
+								   scrollTop: $("#map").offset().top;
 								});
 							   }
 							   google.maps.event.trigger(markers[this.id], 'click');
