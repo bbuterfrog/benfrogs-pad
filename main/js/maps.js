@@ -49,6 +49,7 @@ function initalize (){
  * 
  */
 function makeMap () {
+	geocoder = new google.maps.Geocoder();
 	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	//Resize Function
 	google.maps.event.addDomListener(window, "resize", function() {
