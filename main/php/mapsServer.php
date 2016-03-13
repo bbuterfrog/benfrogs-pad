@@ -86,6 +86,12 @@ switch  ($content) {
 	case 'mapsTable' :
 	    $data = file_get_contents('../mapsTable.html');
 	    break;
+	case 'bigMap' :
+		$data = file_get_contents('../bigMap.html');
+		break;
+	case 'tabMap' :
+		$data = file_get_contents('../tabMap.html');
+		break;
 	default:
 		die ('error: unknown request');
 }

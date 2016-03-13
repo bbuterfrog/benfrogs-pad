@@ -32,8 +32,23 @@ function initalize (){
 	        zoom: 2,
 	        mapTypeControl: false
 	    };
-  geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  if($('#bigMap')is(":visible")) {
+	  $.ajax ({
+		   url: '../main/php/mapsServer.php?contentType=html&content=bigMap',
+		   contentType : 'html'
+	   })
+	   .done {
+		  makeMap();
+	  });
+  }
+  
+}
+
+/**
+ * 
+ */
+function makeMap () {
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	//Resize Function
 	google.maps.event.addDomListener(window, "resize", function() {
 		var center = map.getCenter();
