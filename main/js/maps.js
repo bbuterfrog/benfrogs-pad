@@ -192,6 +192,8 @@ function openInfoBubble (marker, addressID ) {
 		   dataType : "json"	   
 	   })
 	   .done (function ( windowContent ) {
+		   windowContent[0].directions = directionsLink(windowContent[0].address, 
+				   windowContent[0].city, windowContent[0].zip, windowContent[0].country);
 		   $.ajax ({
 			   url: '../main/php/mapsServer.php?contentType=html&content=infoBubble',
 			   contentType : 'html'
@@ -207,4 +209,24 @@ function openInfoBubble (marker, addressID ) {
 			   infowindow.open(map, marker);
 		   });	
 	});
+}
+
+/**
+ * This function generates a directions link (starting with the current location)
+ * for the given address, city, state and country, dependent on user agent 
+ * @param string address
+ * @param string city
+ * @param string zip
+ * @param string country
+ */
+function directionsLink(address, city, zip, country){
+	var address = address ',' + city ',' + zip ',' + country;
+	var address = address.replace(' ', '+');
+    // If it's an iPhone..
+    if( (navigator.platform.indexOf("iPhone") != -1) 
+        || (navigator.platform.indexOf("iPod") != -1)
+        || (navigator.platform.indexOf("iPad") != -1))
+         window.open("maps://maps.google.com/maps?addr=Current+Location&daddr=" + address);
+    else
+         window.open("http://maps.google.com/maps?maps?addr=Current+Location&daddr=" + address);
 }
