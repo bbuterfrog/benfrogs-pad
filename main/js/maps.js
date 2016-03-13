@@ -243,6 +243,9 @@ function makeMapTable (bounds) {
 						   var template = Handlebars.compile(templateHTML);
 						   var wrapper  = {objects: customerTable};
 						   $('#mapsTable').html(template(wrapper));
+						   $('.mapMarker').on('click', function(){
+							   google.maps.event.trigger(markers[this.id], 'click'); 
+						   });
 					   });
 				});
 }
