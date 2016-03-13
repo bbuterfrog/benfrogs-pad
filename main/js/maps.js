@@ -198,9 +198,7 @@ function openInfoBubble (marker, addressID ) {
 		   })
 		   .done (function ( templateHTML ) {
 			   var template = Handlebars.compile(templateHTML);
-			   var windowContent = windowContent[0];
-			   
-			   var infoBubbleHTML = template();
+			   var infoBubbleHTML = template(windowContent[0]);
 			   if (infowidow) {
 				   infowindow.close();
 			   }

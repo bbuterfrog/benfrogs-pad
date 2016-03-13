@@ -35,7 +35,7 @@ class maps extends database {
 	 * @return array customer information for the infoBubble
 	 */
 	public function getCustomerBubble ($addressID) {
-		$sql = "SELECT name, address, `zip code`, phone, city, 
+		$sql = "SELECT name, address, `zip code`, city, 
                 country FROM customer c INNER JOIN 
                 customer_list cl on cl.ID = c.customer_id
                 WHERE c.address_id = :address_id";
