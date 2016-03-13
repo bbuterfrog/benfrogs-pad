@@ -184,9 +184,6 @@ function getMarkers (bounds) {
  * @param object marker
  */
 function openInfoBubble (marker, addressID ) {
-	$('.directions').click(function(){
-		   window.open(windowContent[0].directions); 
-	   });
 	var dataObject = { addressID: addressID };
 	$.ajax ({ 
 		   url: '../main/php/mapsServer.php?contentType=json&content=customerBubble',
@@ -210,6 +207,9 @@ function openInfoBubble (marker, addressID ) {
 			   infowindow = new google.maps.InfoWindow();
 			   infowindow.setContent(infoBubbleHTML);
 			   infowindow.open(map, marker);
+			   $(document).on('click','.directions',function(){
+				    window.open(windowContent[0].directions)
+				});
 		   });	
 	});
 }
