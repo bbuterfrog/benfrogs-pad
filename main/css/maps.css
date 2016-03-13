@@ -50,3 +50,7 @@
         width: 345px;
       }
 
+.mapMarker {
+	color: #ff0000;
+	cursor: pointer;
+}
