@@ -197,9 +197,11 @@ function getMarkers (bounds) {
 		      });
 		      google.maps.event.addListener(marker, 'click', (function(marker, addressID) {
 		          return function() {
+		        	  markerZoom = true;
 		        	  map.setCenter(marker.getPosition());
 		        	  map.setZoom(8);
-		        	  openInfoBubble (marker, addressID )
+		        	  markerZoom = false;
+		        	  openInfoBubble (marker, addressID );
 		          }
 		     })(marker, addressID));
 		     markers[addressID] = marker;
