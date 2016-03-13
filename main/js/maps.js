@@ -215,14 +215,11 @@ function openInfoBubble (marker, addressID ) {
 /**
  * This function generates a directions link (starting with the current location)
  * for the given address, city, state and country, dependent on user agent 
- * @param string address
- * @param string city
- * @param string zip
- * @param string country
+ * @param float lat
+ * @param float lng
  * @return string link to directions page
  */
 function directionsLink(lat, lng){
-	var address = address.replace(' ', '+');
     // If it's an iPhone..
     if( (navigator.platform.indexOf("iPhone") != -1) 
         || (navigator.platform.indexOf("iPod") != -1)
