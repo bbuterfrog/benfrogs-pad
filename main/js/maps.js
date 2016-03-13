@@ -288,7 +288,9 @@ function makeMapTable (bounds) {
 						   $(document).on('click','.mapMarker',function(){
 							   if ( mapIsTab == true ) {
 								   $('.nav-tabs a[href="#mapTab"]').tab('show');
-								   scrollTop: $("#map").offset().top - 10
+								   $('html,body').animate({
+									   scrollTop: $("#map").offset().top - 10
+									});
 							   }
 							   else {
 								   $('html,body').animate({
