@@ -83,7 +83,7 @@ switch  ($content) {
 		}
 		$data = $mapsServer->getCustomerTable($NELat, $NELng, $SWLat, $SWLng);
 	    break;
-	case 'infoBubble' :
+	case 'mapsTable' :
 	    $data = file_get_contents('../mapsTable.html');
 	    break;
 	default:
