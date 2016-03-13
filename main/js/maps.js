@@ -165,7 +165,7 @@ function getMarkers (bounds) {
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
 		  //zooms or moves the map, then stops
-		   google.maps.event.addListener(map, 'idle', function() {
+		   google.maps.event.addListener(map, 'dragend', function() {
 		       if (markerZoom == false) {
 		    	 //call this very function again
 		    	   var bounds = map.getBounds();
@@ -174,6 +174,17 @@ function getMarkers (bounds) {
 		    	   makeMapTable(bounds);
 		       }
 		   });
+		 //add listener for when user (not "us", that is not when we zoom to a marker),
+			  //zooms or moves the map, then stops
+			   google.maps.event.addListener(map, 'zoom_changed', function() {
+			       if (markerZoom == false) {
+			    	 //call this very function again
+			    	   var bounds = map.getBounds();
+			    	   getMarkers(bounds);
+			    	   //make a table of the customers within these bounds
+			    	   makeMapTable(bounds);
+			       }
+			   });
       });
 }
 
