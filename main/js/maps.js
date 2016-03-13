@@ -1,5 +1,7 @@
 //universal variable for the map
 var map;
+//whether map is a tab
+var mapIsTab = false;
 //universal variable for mapOptions
 var mapOptions;
 //universal rectangle to listen for clicks
@@ -40,6 +42,25 @@ function initalize (){
 	   .done  (function ( content ) {
 		   $('#bigMap').html(content);
 		   makeMap();
+	  });
+  }
+  else {
+	  $.ajax ({
+		   url: '../main/php/mapsServer.php?contentType=html&content=tabMap',
+		   contentType : 'html'
+	   })
+	   .done  (function ( content ) {
+		   $('#mapTabs').html(content);
+		   makeMap();
+		   mapIsTab = true;
+		   $('#mapTab a').click(function (e) {
+			   e.preventDefault()
+			   $(this).tab('show')
+			 });
+			 $('#customers a').click(function (e) {
+			   e.preventDefault()
+			   $(this).tab('show')
+			 });
 	  });
   }
   
