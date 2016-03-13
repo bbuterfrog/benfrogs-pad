@@ -207,7 +207,6 @@ function openInfoBubble (marker, addressID ) {
 			   infowindow.open(map, marker);
 				});
 		   });	
-	});
 }
 
 /**
@@ -225,7 +224,8 @@ function makeMapTable (bounds) {
 			url: '../main/php/mapsServer.php?contentType=json&content=customerTable',
 			   data: dataObject,
 			   type : "POST",
-			   dataType : "json"	   
+			   dataType : "json"
+		})
 				   .done (function ( customerTable ) {
 					   $.ajax ({
 						   url: '../main/php/mapsServer.php?contentType=html&content=mapsTable',
@@ -237,7 +237,6 @@ function makeMapTable (bounds) {
 						   $('#mapsTable').html(template(wrapper));
 					   });
 				});
-		});
 }
 
 /**
