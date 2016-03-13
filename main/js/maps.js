@@ -184,7 +184,7 @@ function getMarkers (bounds) {
  * @param object marker
  */
 function openInfoBubble (marker, addressID ) {
-	$('#directions').click(function(){
+	$('.directions').click(function(){
 		   window.open(windowContent[0].directions); 
 	   });
 	var dataObject = { addressID: addressID };
