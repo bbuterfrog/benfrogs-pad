@@ -132,6 +132,8 @@ function zoomToViewport (area) {
  * @param object bounds
  */
 function getMarkers (bounds) {
+    //make a table of the customers within these bounds
+   makeMapTable(bounds);
    markers = [];
    //make a dataObject of the bounds to post
    var dataObject = { NELat: bounds.getNorthEast().lat(),
@@ -161,7 +163,6 @@ function getMarkers (bounds) {
 		          }
 		     })(marker, addressID));
 		     markers[addressID] = marker;
-		    
 		   }
 		  //add listener for when user (not "us", that is not when we zoom to a marker),
 		  //zooms or moves the map, then stops
@@ -170,8 +171,6 @@ function getMarkers (bounds) {
 		    	 //call this very function again
 		    	   var bounds = map.getBounds();
 		    	   getMarkers(bounds);
-		    	   //make a table of the customers within these bounds
-		    	   makeMapTable(bounds);
 		       }
 		   });
 		 //add listener for when user (not "us", that is not when we zoom to a marker),
@@ -181,8 +180,6 @@ function getMarkers (bounds) {
 			    	 //call this very function again
 			    	   var bounds = map.getBounds();
 			    	   getMarkers(bounds);
-			    	   //make a table of the customers within these bounds
-			    	   makeMapTable(bounds);
 			       }
 			   });
       });
