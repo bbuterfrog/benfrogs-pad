@@ -14,7 +14,7 @@ var geocoder;
 var markers = [];
 //boolean variable to see if we are zooming to a marker
 var markerZoom = false;
-var infoWindow;
+var infowindow;
 $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
@@ -198,10 +198,15 @@ function openInfoBubble (marker, addressID ) {
 		   })
 		   .done (function ( templateHTML ) {
 			   var template = Handlebars.compile(templateHTML);
-			   var infoBubbleHTML = template(windowContent[0]);
-			   infoWindow = new google.maps.InfoWindow();
-			   infoWindow.setContent(infoBubbleHTML);
-			   infoWindow.open(map, marker);
+			   var windowContent = windowContent[0];
+			   
+			   var infoBubbleHTML = template();
+			   if (infowidow) {
+				   infowindow.close();
+			   }
+			   infowindow = new google.maps.InfoWindow();
+			   infowindow.setContent(infoBubbleHTML);
+			   infowindow.open(map, marker);
 		   });	
 	});
 }
