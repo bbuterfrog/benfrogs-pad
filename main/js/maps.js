@@ -197,6 +197,8 @@ function getMarkers (bounds) {
 		      });
 		      google.maps.event.addListener(marker, 'click', (function(marker, addressID) {
 		          return function() {
+		        	  map.setCenter(marker.getPosition());
+		        	  map.setZoom(8);
 		        	  openInfoBubble (marker, addressID )
 		          }
 		     })(marker, addressID));
@@ -282,6 +284,14 @@ function makeMapTable (bounds) {
 						   var wrapper  = {objects: customerTable};
 						   $('#mapsTable').html(template(wrapper));
 						   $(document).on('click','.mapMarker',function(){
+							   if ( mapIsTab ) {
+								   $('#mapTabs a[href="#mapTab"]').tab('show');   
+							   }
+							   else {
+								   $('html,body').animate({
+								   scrollTop: $("#map").offset().top - 10;
+								});
+							   }
 							   google.maps.event.trigger(markers[this.id], 'click');
 							});
 					   });
