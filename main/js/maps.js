@@ -207,6 +207,9 @@ function openInfoBubble (marker, addressID ) {
 			   infowindow = new google.maps.InfoWindow();
 			   infowindow.setContent(infoBubbleHTML);
 			   infowindow.open(map, marker);
+			   $('#directions').click(function(){
+				   window.open(windowContent[0].directions); 
+			   });
 		   });	
 	});
 }
