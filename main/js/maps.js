@@ -220,7 +220,7 @@ function openInfoBubble (marker, addressID ) {
  * @param string country
  */
 function directionsLink(address, city, zip, country){
-	var address = address + ',' + city ',' + zip ',' + country;
+	var address = address + ',' + city ',' + zip + ',' + country;
 	var address = address.replace(' ', '+');
     // If it's an iPhone..
     if( (navigator.platform.indexOf("iPhone") != -1) 
