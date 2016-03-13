@@ -286,8 +286,8 @@ function makeMapTable (bounds) {
 						   var wrapper  = {objects: customerTable};
 						   $('#mapsTable').html(template(wrapper));
 						   $(document).on('click','.mapMarker',function(){
-							   if ( mapIsTab ) {
-								   $('#mapTabs a[href="#mapTab"]').tab('show');   
+							   if ( mapIsTab == true ) {
+								   $('.nav-tabs a[href="#mapTab"]').tab('show');   
 							   }
 							   else {
 								   $('html,body').animate({
