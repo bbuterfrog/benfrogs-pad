@@ -42,4 +42,28 @@ class maps extends database {
 		$params = array ( ':address_id' => $addressID);
 		return parent::boundQuery($sql, $params);
 	}
+	
+	/**
+	 * This function gets the data needed for the customer (maps) table 
+	 * from the database
+	 * @param float NELat Latitude of the NorthWest corner 
+	 * @param float NELon Longitude of the NorthWest corner
+	 * @param float SWLat Latitude of the SouthWest corner
+	 * @param float SWLon Longitude of the SouthWest corner
+	 * @return array customer information for all customers within the bounds
+	 */
+	public function getCustomerTable ($NELat, $NELng, $SWLat, $SWLng) {
+		$sql = "SELECT c.address_id, name, address, `zip code` AS zip, city, 
+                country FROM customer c INNER JOIN lat_lng ll ON 
+				c.address_id = ll.address_id INNER JOIN 
+                customer_list cl on cl.ID = c.customer_id  WHERE lng <= :NELng AND
+		        lat <= :NELat AND 
+		        lng >= :SWLng AND
+		        lat >= :SWLat";
+		$params = array ( ':NELat' => $NELat,
+				':NELng' => $NELng,
+				':SWLat' => $SWLat,
+				':SWLng' => $SWLng);
+		return parent::boundQuery($sql, $params);
+	}
 }

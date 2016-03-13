@@ -170,6 +170,8 @@ function getMarkers (bounds) {
 		    	 //call this very function again
 		    	   var bounds = map.getBounds();
 		    	   getMarkers(bounds);
+		    	   //make a table of the customers within these bounds
+		    	   makeMapTable(bounds);
 		       }
 		   });
       });
@@ -206,6 +208,36 @@ function openInfoBubble (marker, addressID ) {
 				});
 		   });	
 	});
+}
+
+/**
+ * This function makes and ajaxes in a table of the customer information of the customers within the map
+ * bounds
+ * @param object bounds
+ */
+function makeMapTable (bounds) {
+	var dataObject = { NELat: bounds.getNorthEast().lat(),
+			   NELng : bounds.getNorthEast().lng(),
+			   SWLat : bounds.getSouthWest().lat(),
+			   SWLng : bounds.getSouthWest().lng()};
+	   //ajax in the customer data for the customers within the bounds
+		$.ajax ({
+			url: '../main/php/mapsServer.php?contentType=json&content=customerTable',
+			   data: dataObject,
+			   type : "POST",
+			   dataType : "json"	   
+				   .done (function ( customerTable ) {
+					   $.ajax ({
+						   url: '../main/php/mapsServer.php?contentType=html&content=mapsTable',
+						   contentType : 'html'
+					   })
+					   .done (function ( templateHTML ) {
+						   var template = Handlebars.compile(templateHTML);
+						   var wrapper  = {objects: customerTable};
+						   $('#mapsTable').html(template(wrapper));
+					   });
+				});
+		});
 }
 
 /**

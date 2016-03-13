@@ -56,6 +56,33 @@ switch  ($content) {
 		}
 		$data = $mapsServer->getCustomerBubble($addressID);
 		break;
+	case 'customerTable':
+		if(isset($_POST['NELat'])) {
+			$NELat = $_POST['NELat'];
+		}
+		else {
+			die ('error: parameter NELat not set' );
+		}
+		if(isset($_POST['NELng'])) {
+			$NELng = $_POST['NELng'];
+		}
+		else {
+			die ('error: parameter NELng not set' );
+		}
+		if(isset($_POST['SWLat'])) {
+			$SWLat = $_POST['SWLat'];
+		}
+		else {
+			die ('error: parameter SWLat not set' );
+		}
+		if(isset($_POST['SWLng'])) {
+			$SWLng = $_POST['SWLng'];
+		}
+		else {
+			die ('error: parameter SWLng not set' );
+		}
+		$data = $mapsServer->getCustomerTable($NELat, $NELng, $SWLat, $SWLng);
+	    break;
 	default:
 		die ('error: unknown request');
 }
