@@ -190,8 +190,6 @@ function openInfoBubble (marker, addressID ) {
 		   dataType : "json"	   
 	   })
 	   .done (function ( windowContent ) {
-		   windowContent[0].directions = directionsLink(marker.getPosition().lat(),
-				   marker.getPosition().lng());
 		   $.ajax ({
 			   url: '../main/php/mapsServer.php?contentType=html&content=infoBubble',
 			   contentType : 'html'
@@ -205,8 +203,6 @@ function openInfoBubble (marker, addressID ) {
 			   infowindow = new google.maps.InfoWindow();
 			   infowindow.setContent(infoBubbleHTML);
 			   infowindow.open(map, marker);
-			   $(document).on('click','.directions',function(){
-				    window.open(windowContent[0].directions)
 				});
 		   });	
 	});
