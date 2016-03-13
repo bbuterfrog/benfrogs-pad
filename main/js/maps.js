@@ -37,8 +37,9 @@ function initalize (){
 		   url: '../main/php/mapsServer.php?contentType=html&content=bigMap',
 		   contentType : 'html'
 	   })
-	   .done {
-		  makeMap();
+	   .done  (function ( content ) {
+		   $('#bigMap').html(content);
+		   makeMap();
 	  });
   }
   
