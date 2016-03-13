@@ -244,8 +244,7 @@ function makeMapTable (bounds) {
 						   var wrapper  = {objects: customerTable};
 						   $('#mapsTable').html(template(wrapper));
 						   $(document).on('click','.mapMarker',function(){
-							   console.log(this.id);
-							   //google.maps.event.trigger(markers[this.id], 'click');
+							   google.maps.event.trigger(markers[this.id], 'click');
 							});
 					   });
 				});
