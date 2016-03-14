@@ -16,7 +16,13 @@ var geocoder;
 var markers = [];
 //boolean variable to see if we are zooming to a marker
 var markerZoom = false;
+//universal infowindow to open/close
 var infowindow;
+//geolocation control area
+var geolocationcontrolDiv;
+//actual geolocation control
+var geolocationcontrol;
+
 $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
@@ -114,7 +120,14 @@ function makeMap () {
           } else {
             bounds.extend(place.geometry.location);
           }
-        });  
+        });
+        //add the geoCoding trigger element to the map
+        geolocationcontrolDiv = document.createElement('div');
+        geolocationcontrol = new geolocationcontrol(geolocationcontrolDiv, map);
+
+        geolocationcontrolDiv = 1;
+        map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(geolocationcontrolDiv);
+
         map.fitBounds(bounds);
         rectangle = null;
 	    google.maps.event.removeListener(boundsChanged);
@@ -303,20 +316,76 @@ function makeMapTable (bounds) {
 				});
 }
 
+
 /**
- * This function generates a directions link (starting with the current location)
- * for the given address, city, state and country, dependent on user agent 
- * @param float lat
- * @param float lng
- * @return string link to directions page
+ * This is nearly a direct copy/paste from the custom control example at Google, this will add a geolocation 
+ * custom control 
+ * @param object controlDiv
+ * @param object map
  */
-function directionsLink(lat, lng){
-    // If it's an iPhone..
-    if( (navigator.platform.indexOf("iPhone") != -1) 
-        || (navigator.platform.indexOf("iPod") != -1)
-        || (navigator.platform.indexOf("iPad") != -1))
-         return("maps://maps.google.com/maps?addr=Current+Location&daddr=" + lat + ',' + lng);
-    else
-         return("http://maps.google.com/maps?addr=Current+Location&daddr=" + lat + ',' + lng);
-    
+function geolocationControl(controlDiv, map) {
+
+  // Set CSS for the control border.
+  var controlUI = document.createElement('div');
+  controlUI.style.backgroundColor = '#fff';
+  controlUI.style.border = '2px solid #fff';
+  controlUI.style.borderRadius = '3px';
+  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+  controlUI.style.cursor = 'pointer';
+  controlUI.style.marginBottom = '22px';
+  controlUI.style.textAlign = 'center';
+  controlUI.title = 'Find Me';
+  controlDiv.appendChild(controlUI);
+
+  // Set CSS for the control interior.
+  var controlText = document.createElement('div');
+  controlText.style.color = 'rgb(25,25,25)';
+  controlText.style.lineHeight = '38px';
+  controlText.style.paddingLeft = '5px';
+  controlText.style.paddingRight = '5px';
+  controlText.innerHTML = '<i class="fa fa-crosshairs"></i>';
+  controlUI.appendChild(controlText);
+  //Setup the click event listeners: get viewport by location
+  controlUI.addEventListener('click', function() {
+     getViewPortByLocation();
+  });
+
+
+
+/**
+ * This function gets the country via reverse geocoding after a geolocation request, then passes
+ * it to reverseGeocode to zoom to that country's viewport
+ */
+function getViewportByLocation  () {
+	$.ajax ({
+		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
+		   contentType : 'html',
+		   beforeSend: function ( () { 
+			   showLoadingImage(locationModalBody);
+			   locationModalTitle.html('<h3 class="modal-title">Finding Your Location...</h3>' )
+		   )};	   
+	   })
+	   .done (function ( templateHTML ) {
+		   if (!navigator.geolocation) {
+			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
+			   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
+					   'Sorry, your browser does not support location');   
+			}
+		   else {
+			   function success(position) {
+				    var latitude  = position.coords.latitude;
+				    var longitude = position.coords.longitude;
+				    var latLng = new google.maps.LatLng (latitude, longitude);
+                    reverseGeocode(latLng, 'country'); 
+			   }
+			   function error(error) {
+				   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
+				   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
+						   'Error finding location');
+				   console.log(error);
+			   }
+		       navigator.geolocation.getCurrentPosition(success, error);	
+			} 
+	   });
+	
 }

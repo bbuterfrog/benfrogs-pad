@@ -92,6 +92,9 @@ switch  ($content) {
 	case 'tabMap' :
 		$data = file_get_contents('../tabMap.html');
 		break;
+	case 'locationModal':
+		$data = file_get_contents('../locationModal.html');
+		break;
 	default:
 		die ('error: unknown request');
 }
