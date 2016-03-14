@@ -360,10 +360,10 @@ function getViewportByLocation  () {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
 		   contentType : 'html',
-		   beforeSend: function (  { 
+		   beforeSend: function () { 
 			   showLoadingImage(locationModalBody);
 			   locationModalTitle.html('<h3 class="modal-title">Finding Your Location...</h3>' )
-		   )};	   
+		   }	   
 	   })
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
