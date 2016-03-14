@@ -301,12 +301,12 @@ function makeMapTable (bounds) {
 							   if ( mapIsTab == true ) {
 								   $('.nav-tabs a[href="#mapTab"]').tab('show');
 								   $('html,body').animate({
-									   scrollTop: $("#map").offset().top - 10
+									   scrollTop: $("#beforeTabs").offset().top - 10
 									});
 							   }
 							   else {
 								   $('html,body').animate({
-									   scrollTop: $("#map").offset().top - 10
+									   scrollTop: $("#beforeTabs").offset().top - 10
 									});
 							   }
 							   google.maps.event.trigger(markers[this.id], 'click');
