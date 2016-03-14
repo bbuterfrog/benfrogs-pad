@@ -363,7 +363,7 @@ function getViewportByLocation  () {
 		   beforeSend: function () { 
 			   showLoadingImage(locationModalBody);
 			   locationModalTitle.html('<h3 class="modal-title">Finding Your Location...</h3>' )
-		   })	   
+		   }
 	   })
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
