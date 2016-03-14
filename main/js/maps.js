@@ -364,7 +364,6 @@ function getViewportByLocation  () {
 			   showLoadingImage(locationModalBody);
 			   locationModalTitle.html('<h3 class="modal-title">Finding Your Location...</h3>' )
 		   }
-	   })
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
