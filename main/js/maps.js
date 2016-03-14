@@ -349,8 +349,8 @@ function geolocationControl(controlDiv, map) {
   controlUI.addEventListener('click', function() {
      getViewPortByLocation();
   });
-}
 
+}
 
 /**
  * This function gets the country via reverse geocoding after a geolocation request, then passes
@@ -360,8 +360,10 @@ function getViewportByLocation  () {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
 		   contentType : 'html',
-		   beforeSend:  showLoadingImage(locationModalBody)
-	})
+		   beforeSend: function () { 
+			   showLoadingImage(locationModalBody);
+			   locationModalTitle.html('<h3 class="modal-title">Finding Your Location...</h3>' )
+		   })
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
@@ -383,5 +385,7 @@ function getViewportByLocation  () {
 			   }
 		       navigator.geolocation.getCurrentPosition(success, error);	
 			}
+	   })
 	});
+	
 }
