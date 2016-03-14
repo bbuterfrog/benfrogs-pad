@@ -360,7 +360,7 @@ function getViewportByLocation() {
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
 		   contentType : 'html',
 		   beforeSend: showLoadingImage(locationModalBody)
-		  )}
+	})
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
