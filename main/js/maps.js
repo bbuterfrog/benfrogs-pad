@@ -125,7 +125,7 @@ function makeMap () {
         geolocationcontrolDiv = document.createElement('div');
         geolocationcontrol = new geolocationcontrol(geolocationcontrolDiv, map);
 
-        geolocationcontrolDiv = 1;
+        geolocationcontrolDiv.index = 1;
         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(geolocationcontrolDiv);
 
         map.fitBounds(bounds);
