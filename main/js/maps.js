@@ -349,7 +349,7 @@ function geolocationControl(controlDiv, map) {
   controlUI.addEventListener('click', function() {
      getViewPortByLocation();
   });
-
+}
 
 
 /**
