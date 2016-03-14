@@ -346,7 +346,7 @@ function geolocationControl(controlDiv, map) {
   controlUI.appendChild(controlText);
   //Setup the click event listeners: get viewport by location
   controlUI.addEventListener('click', function() {
-     getViewPortByLocation();
+	  getViewportByLocation();
   });
 
 }
@@ -355,7 +355,7 @@ function geolocationControl(controlDiv, map) {
  * This function gets the country via reverse geocoding after a geolocation request, then passes
  * it to reverseGeocode to zoom to that country's viewport
  */
-function getViewportByLocation  () {
+function getViewportByLocation() {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
 		   contentType : 'html',
