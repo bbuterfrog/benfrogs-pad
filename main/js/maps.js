@@ -360,7 +360,7 @@ function getViewportByLocation  () {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
 		   contentType : 'html',
-		   beforeSend:  showLoadingImage(locationModalBody);
+		   beforeSend:  showLoadingImage(locationModalBody)
 	})
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
