@@ -121,19 +121,17 @@ function makeMap () {
             bounds.extend(place.geometry.location);
           }
         });
-        //add the geoCoding trigger element to the map
-        geolocationcontrolDiv = document.createElement('div');
-        geolocationcontrol = new geolocationControl(geolocationcontrolDiv, map);
-        console.log(geolocationcontrol);
-
-        geolocationcontrolDiv.index = 1;
-        map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(geolocationcontrolDiv);
-
         map.fitBounds(bounds);
         rectangle = null;
 	    google.maps.event.removeListener(boundsChanged);
 	    getMarkers(bounds);
         });
+     //add the geoCoding trigger element to the map
+    geolocationcontrolDiv = document.createElement('div');
+    geolocationcontrol = new geolocationControl(geolocationcontrolDiv, map);
+    geolocationcontrolDiv.index = 1;
+    map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(geolocationcontrolDiv);
+
 }
 /**
  * This function reverse geocodes a set of coordinates to an address 
