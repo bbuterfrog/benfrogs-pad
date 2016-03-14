@@ -385,7 +385,8 @@ function getViewportByLocation  () {
 				   console.log(error);
 			   }
 		       navigator.geolocation.getCurrentPosition(success, error);	
-			} 
-	   });
+			}
+	   })
+	});
 	
 }
