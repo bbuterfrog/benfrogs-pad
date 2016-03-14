@@ -123,7 +123,7 @@ function makeMap () {
         });
         //add the geoCoding trigger element to the map
         geolocationcontrolDiv = document.createElement('div');
-        geolocationcontrol = new geolocationcontrol(geolocationcontrolDiv, map);
+        geolocationcontrol = new geolocationControl(geolocationcontrolDiv, map);
 
         geolocationcontrolDiv.index = 1;
         map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(geolocationcontrolDiv);
