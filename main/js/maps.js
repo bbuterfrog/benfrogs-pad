@@ -360,10 +360,8 @@ function getViewportByLocation  () {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
 		   contentType : 'html',
-		   beforeSend: function () { 
-			   showLoadingImage(locationModalBody);
-			   locationModalTitle.html('<h3 class="modal-title">Finding Your Location...</h3>' )
-		   }
+		   beforeSend:  showLoadingImage(locationModalBody);
+	})
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
@@ -385,7 +383,5 @@ function getViewportByLocation  () {
 			   }
 		       navigator.geolocation.getCurrentPosition(success, error);	
 			}
-	   })
 	});
-	
 }
