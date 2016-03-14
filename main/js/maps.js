@@ -358,8 +358,7 @@ function geolocationControl(controlDiv, map) {
 function getViewportByLocation() {
 	$.ajax ({
 		   url: '../main/php/mapsServer.php?contentType=html&content=locationModal',
-		   contentType : 'html',
-		   beforeSend: showLoadingImage(locationModalBody)
+		   contentType : 'html'
 	})
 	   .done (function ( templateHTML ) {
 		   if (!navigator.geolocation) {
