@@ -364,7 +364,9 @@ function getViewportByLocation() {
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
 			   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
-					   'Sorry, your browser does not support location');   
+					   'Sorry, your browser does not support location'); 
+			   $('#locationModal').modal();
+			   
 			}
 		   else {
 			   function success(position) {
@@ -377,6 +379,7 @@ function getViewportByLocation() {
 				   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
 				   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
 						   'Error finding location');
+				   $('#locationModal').modal();
 				   console.log(error);
 			   }
 		       navigator.geolocation.getCurrentPosition(success, error);	
