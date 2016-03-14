@@ -361,10 +361,13 @@ function getViewportByLocation() {
 		   contentType : 'html'
 	})
 	   .done (function ( templateHTML ) {
+		   $('#beforeTabs').html(templateHTML);
+		   locationModalTitle.html('<h3 class="modal-title">Finding your Location...');
+		   locationModalBody.html('<center><img src="../main/img/loading.gif"></img></center>');
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
 			   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
-					   'Sorry, your browser does not support location'); 
+					   'Sorry, your browser does not support location');
 			   $('#locationModal').modal();
 			   
 			}
