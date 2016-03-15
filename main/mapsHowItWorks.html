@@ -1,10 +1,7 @@
 <h3>Making the Map</h3>
 <p>This is one of the most documented pieces of this walkthrough (with examples all over the internet), so I won't spend a ton of time on it, suffice
-to say that I took Google's recommended approach of doing an asynchronous load of the Maps JavaScript like so:</p>
-<pre class="prettyprint">
-<async defer src="https://maps.googleapis.com/maps/api/js?key=[your_key]&callback=initalize&libraries=places">
-</pre>
-<p>Then put the map in a universal variable set to display the whole world (which makes sense in this example) in that initalize function:</p>
+to say that I took Google's recommended approach of doing an asynchronous load of the Maps JavaScript, Then put the map in a universal variable 
+set to display the whole world (which makes sense in this example) in that initalize function:</p>
 <pre class="prettyprint">
 mapOptions = {
 	        center: new google.maps.LatLng(0,0),
@@ -13,7 +10,7 @@ mapOptions = {
 	    };
 </pre>
 
-<p>This is the only part where this got interesting, as it might in your project, as making Google Maps responsive is likely to require experimentation 
+<p>The only part where this got interesting, as it might in your project, is making Google Maps responsive.  This is likely to require experimentation 
 and the "best" method of doing so really does depend on where you are putting your map and what you are trying to do.  If the map is truly the only thing
 on your page/site, you may want to go with a "full-screen" design, putting anything else you want (menus/etc.) in 
 something like an overlay/<a href="https://developers.google.com/maps/documentation/javascript/examples/control-custom">Custom Control</a>,
