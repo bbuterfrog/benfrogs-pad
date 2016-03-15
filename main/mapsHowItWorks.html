@@ -333,7 +333,6 @@ SELECT c.address_id, name, address, `zip code` AS zip, city,
 <p>Where are we going to put all that data?  This is where Handlebars really shines.  A bit like the infoWindow, after the request to get 
 that data as JSON I ajax'ed in a Handlebars template:</p>
 <pre class="prettyprint">
-<div class="container">
 {{#each objects}}
 <div class="row">
 <div id="{{address_id}}" class="mapMarker col-md-1 col-xs-3">
@@ -348,7 +347,6 @@ that data as JSON I ajax'ed in a Handlebars template:</p>
 {{country}}</div>
 </div>
 {{/each}}
-</div>
 </pre>
 <p>(albeit a more complicated one) as HTML, then did a bit more work to provide it a "wrapper object" to loop through:</p>
 <pre class="prettyprint">
