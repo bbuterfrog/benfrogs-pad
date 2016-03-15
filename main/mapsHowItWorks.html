@@ -2,7 +2,7 @@
 <p>This is one of the most documented pieces of this walkthrough (with examples all over the internet), so I won't spend a ton of time on it, suffice
 to say that I took Google's recommended approach of doing an asynchronous load of the Maps JavaScript like so:</p>
 <pre class="prettyprint">
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=[your_key]&callback=initalize&libraries=places"></script>
+<async defer src="https://maps.googleapis.com/maps/api/js?key=[your_key]&callback=initalize&libraries=places">
 </pre>
 <p>Then put the map in a universal variable set to display the whole world (which makes sense in this example) in that initalize function:</p>
 <pre class="prettyprint">
