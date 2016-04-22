@@ -390,9 +390,3 @@ function getViewportByLocation() {
 	});
 	
 }
-
-!function ($) {
-    $(function(){
-      window.prettyPrint && prettyPrint()
-    })
-  }(window.jQuery)
