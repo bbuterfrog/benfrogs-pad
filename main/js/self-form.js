@@ -7,7 +7,6 @@ $(document).ready(function() {
 	$( "#lastHire" ).datepicker ({
 		dateFormat : "yy-mm-dd"
 	});
-	prettyPrint();
 	//"submit" search form when enter key is hit
 	$( ".form-group" ).keydown(function( event ) {
 		  if ( event.which == 13 ) {

@@ -19,6 +19,7 @@ function getHTML (div, content){
    })
    .done (function ( content ) {
 	   $('#'+div).html(content);
+	   hljs.initHighlightingOnLoad();
    }); 
 }
 
