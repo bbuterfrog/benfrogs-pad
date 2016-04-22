@@ -28,8 +28,13 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
 	getHTML ('addressSearch', 'addressSearch');
-	prettyPrint();
 });
+
+!function ($) {
+    $(function(){
+      window.prettyPrint && prettyPrint()
+    })
+  }(window.jQuery)
 
 /**
  * This function initalizes the Google Map

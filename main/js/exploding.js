@@ -39,6 +39,12 @@ function initStaticDeptTable () {
 	});
 }
 
+!function ($) {
+    $(function(){
+      window.prettyPrint && prettyPrint()
+    })
+  }(window.jQuery)
+
 
 function initDeptTable () {
 	var table = $('#employee-dept').DataTable({
