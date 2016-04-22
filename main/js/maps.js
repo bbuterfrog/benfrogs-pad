@@ -27,6 +27,7 @@ $(document).ready(function() {
 	getHeader ( );
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
+	getHTML ('sslNote', 'sslNote');
 	getHTML ('addressSearch', 'addressSearch');
 });
 
