@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"></script>
-<link rel="stylesheet" href="/main/prettify/loader/prettify.css">
-<script src="/main/prettify/loader/prettify.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
 <script src="/main/js/common.js"></script>
 <script src="/main/js/self-form.js"></script>
 <link rel="stylesheet" type="text/css" href="/main/css/index.css">
@@ -96,7 +96,7 @@ how it happens.</p>
 
 <p>I'll be the first to admit this isn't a perfect example (some of those queries can get really big), but let's run with it.  
 What we are really doing here is creating a form that isn't a form.  Like this:</p>
-<pre class="prettyprint">
+<pre class="html">
 &lt;div class="form-group"&gt;
       &lt;label for="department"&gt;Latest Department:&lt;/label&gt; 
       &lt;select class="form-control" id="dept_no"&gt;
@@ -108,7 +108,7 @@ What we are really doing here is creating a form that isn't a form.  Like this:<
 </pre>
 <p>It has all of the form classes so it looks and feels like one, but it lacks the form tags and that's just a button sitting there 
 at the bottom, not a submit button.  In the document ready function, we're going to make this "fake form" actually do something:</p>
-<pre class="prettyprint">
+<pre class="javascript">
 //"submit" search form when enter key is hit
 	$( ".form-group" ).keydown(function( event ) {
 		  if ( event.which == 13 ) {
@@ -122,7 +122,7 @@ at the bottom, not a submit button.  In the document ready function, we're going
 </pre>
 <p>That makes the form call a customized submit function when the user either hits that button or hits the Enter key (which one would expect it to do).
 Let's delve into that function.  First, it does the rather obvious and just AJAXes in an empty table where the search results should appear:</p>
-<pre class="prettyprint">
+<pre class="javascript">
 	$.ajax ({
 		  url: '../main/php/serverHTML.php?type=HTML&content=searchTable',
 		  contentType : 'html',
@@ -130,7 +130,7 @@ Let's delve into that function.  First, it does the rather obvious and just AJAX
 </pre>
 <p>Then the interesting part happens when the table loads.  We grab the data from all of our form fields with jQuery, putting them into an object
 while we are at it (this is as close as JavaScript gets to an associative array, and actually turns out to be more useful for our purposes, as you'll see):</p>
-<pre class="prettyprint">
+<pre class="javascript">
 var params = { deptNo : $('#dept_no').val(),
 			       empNo : $('#empNo').val(),
 			       firstName : $('#firstName').val(),
@@ -146,7 +146,7 @@ how to make a dynamic SQL query here, you can look at the
 <a href="https://github.com/bbutlerfrog/benfrogs-pad">complete code</a> if you'd like to see how I did it).  This is where that object is really useful.  
 jQuery (in version 1.9 and newer) serializes objects in a form that PHP can recover as an associative array without decoding.  So, we just POST over the
 object via AJAX:</p>
-<pre class="prettyprint">
+<pre class="javascript">
 "ajax" : { 
 		   "url" : '../main/php/searchServer.php',
 		   "method": 'POST',

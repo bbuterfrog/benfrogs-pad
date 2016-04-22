@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="/main/jquery-ui/jquery-ui-1.11.4/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/r/ju/dt-1.10.8,af-2.0.0,r-1.0.7/datatables.min.js"></script>
-<link rel="stylesheet" href="/main/prettify/loader/prettify.css">
-<script src="/main/prettify/loader/prettify.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
 <script src="/main/js/common.js"></script>
 <script src="/main/js/exploding.js"></script>
 <link rel="stylesheet" type="text/css" href="/main/css/index.css">
@@ -40,7 +40,7 @@ Instead, let's go a bit further by putting all 300,000+ employees in one place. 
 and forcing the poor user to search and scroll all day?  
 Well, we have departments, and a table to join together employees and their department.  Let's see what happens when we do these
 JOINs and a GROUP BY:</p>
-<pre class="prettyprint lang-sql">SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
+<pre class="sql">SELECT count(de.emp_no), d.dept_no, d.dept_name FROM departments d INNER JOIN dept_emp de ON d.dept_no = de.dept_no 
 INNER JOIN employees e on de.emp_no = e.emp_no GROUP BY d.dept_no;
 </pre>
 <table id="dept-table" class="compact hover stripe">
@@ -64,7 +64,7 @@ another table.  Here's how we would nest the employees inside their departments:
 </thead>
 </table>
 <p>There's a lot going on behind the scenes here.  First, we are starting out with a completely empty table:</p>
-<pre class="prettyprint">
+<pre class="html">
 &lt;table id="employees" class="compact hover stripe"&gt;
 &lt;thead&gt;
 &lt;tr&gt;&lt;th&gt;Employee #&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Title&lt;
@@ -72,7 +72,7 @@ another table.  Here's how we would nest the employees inside their departments:
 &lt;/table&gt;
 </pre>
 <p>Then, we are initializing it as a DataTable from the Document Ready Function:</p>
-<pre class="prettyprint">
+<pre class="javascript">
 var table = $('#employee-dept').DataTable({
 		"ajax" : { 
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
@@ -97,7 +97,7 @@ var table = $('#employee-dept').DataTable({
 <p>That AJAXes in our content as JSON data from a database query (similar to the one above) and puts it into the columns.  
 We're also adding the className of details-control as per the linked DataTables site example above, which requires their 
 simple CSS example:</p>
-<pre class="prettyprint">
+<pre class="css">
 td.details-control {
     background: url('/main/img/Orb-plus-icon.png') no-repeat center center;
     cursor: pointer;
@@ -108,7 +108,7 @@ tr.shown td.details-control {
 }
 </pre>
 <p>We are also completely following that example, until we get to expanding the row:</p>
-<pre class="prettyprint">
+<pre class="javascript">
        else {
 	            // Open this row
 	        	//get dept no
@@ -120,7 +120,7 @@ tr.shown td.details-control {
 	        }
 </pre> 
 <p>At that point, we deviate from it in that we get the dept_no for later use and then use a much simpler format function:</p>
-<pre class="prettyprint">
+<pre class="javascript">
 function format (d) {
 	return '&lt;div id=\"'+d.dept_no+'\"&gt;&lt;/div&gt;';
 		  
@@ -130,7 +130,7 @@ function format (d) {
 static content for the interal table.  This really isn't vital with only nine rows in the
 external table, but gets really important with a large number of rows in that table.  Next, we call the initEmployeeTable function with the deptNo we just
 got to fill in that table:</p>
-<pre class="prettyprint">
+<pre class="javascript">
 function initEmployeeTable (deptNo) {
 	$.ajax ({
 		   url: '../main/php/serverHTML.php?type=HTML&content=employee-table',
