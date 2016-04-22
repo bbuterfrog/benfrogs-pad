@@ -7,7 +7,6 @@ $(document).ready(function() {
 	
 });
 
-
 function initStaticDeptTable () {
 	$('#dept-table').DataTable({
 	"scrollX": true,
