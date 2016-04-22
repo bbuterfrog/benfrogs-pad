@@ -18,6 +18,7 @@ $(document).ready(function() {
 	$('#search').click(function() {
 	   submitSearch();
 	});
+	hljs.initHighlightingOnLoad();
 });
 
 function submitSearch() {

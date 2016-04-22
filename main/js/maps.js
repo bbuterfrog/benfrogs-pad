@@ -28,6 +28,7 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	getHTML ('innerHowItWorks', 'mapsHowItWorks');
 	getHTML ('addressSearch', 'addressSearch');
+	hljs.initHighlightingOnLoad();
 });
 
 
