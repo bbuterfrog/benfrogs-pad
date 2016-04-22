@@ -6,29 +6,6 @@ $(document).ready(function() {
 	hljs.initHighlightingOnLoad();
 	
 });
-function getHeader ( ) {
-	$.ajax ({
-		   url: '../main/php/serverHTML.php?type=HTML&content=header',
-		   beforeSend: showLoadingImage ('header'),
-		   dataType : 'html',
-		   
-	   })
-	   .done (function ( content ) {
-		   $('#header').html(content);
-});
-}
-
-function getHTML (div, content){
-   $.ajax ({
-	   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
-	   beforeSend: showLoadingImage (div),
-	   contentType : 'html',
-	   
-   })
-   .done (function ( content ) {
-	   $('#'+div).html(content);
-   }); 
-}
 
 
 function initStaticDeptTable () {
