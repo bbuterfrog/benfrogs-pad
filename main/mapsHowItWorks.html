@@ -2,12 +2,13 @@
 <p>This is one of the most documented pieces of this walkthrough (with examples all over the internet), so I won't spend a ton of time on it, suffice
 to say that I took Google's recommended approach of doing an asynchronous load of the Maps JavaScript, Then put the map in a universal variable 
 set to display the whole world (which makes sense in this example) in that initalize function:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 mapOptions = {
 	        center: new google.maps.LatLng(0,0),
 	        zoom: 2,
 	        mapTypeControl: false
 	    };
+</code>	    
 </pre>
 
 <p>The only part where this got interesting, as it might in your project, is making Google Maps responsive.  This is likely to require experimentation 
@@ -45,10 +46,11 @@ paying, so you basically can just try it out for an example like this.  I wrote 
 standard (it takes parameters with '+' signs instead of spaces as per the RFC for a URI, etc.) there are some quirks, such as the fact that if you have addresses all over 
 the world (Salika does), the easiest way to override <a href="https://developers.google.com/maps/documentation/geocoding/intro#RegionCodes">Region Biasing</a> and find what
 you want is to "Component Filtering", like this:</p>
-<pre class="php">
+<pre> <code class="php">
 $geoCoderRequest = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $address . 
 				   '&components=country:' .  str_replace(' ', '+', $row['country']) . '&key='
 				   $this->geoKey;
+</code>
 </pre>
 <p>In other words, you need to put the country in as a "component", not as part of the address.</p>
 <p>Regardless of whether you have coordinates in your database or not, you'll likely want to use <em>dynamic</em> or <em>client-side</em> geocoding to help users find points 
@@ -66,21 +68,23 @@ obviously.</p>
 in recent years.  It's really not that tough (as you'll likely see on that page) to set up and use Places, and I've really deviated quite little
 from the <a href="https://developers.google.com/maps/documentation/javascript/places-autocomplete">Autocomplete Example</a> in my example.  
 I'm just starting out with a default search box control:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    </code>
 </pre> 
 <p>Biasing its results towards the current viewport:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
+    </code>
 </pre>   
 <p>Then seeing if the results of that Search Box change:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 var bounds = new google.maps.LatLngBounds();
         var places = searchBox.getPlaces();
         if (places.length == 0) {
@@ -99,30 +103,33 @@ var bounds = new google.maps.LatLngBounds();
 	    google.maps.event.removeListener(boundsChanged);
 	    getMarkers(bounds);
         });
+        </code>
 </pre>
 <p>Places is taking care of the geocoding for me (and doing a nifty autocomplete).  Pretty simple.  
 But I wanted to take this a step further (both to make the map friendler for the user 
 and to demonstrate how dynamic geocoding actually works) and give the user a chance to click on a country (I have so little data in this example that is
 really the only level that makes sense).  How would this work?  It's actually not bad.  All one needs to do is get that click to begin with, which
 involves drawing what amounts to a giant polygon (which will always be a rectangle) on the map, covering the viewport itself:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 rectangle = new google.maps.Rectangle({
 	        bounds: map.getBounds(),
 	        strokeOpacity: 0,
 	        fillOpacity : 0,
 	        map : map
 	      });
+	      </code>
 </pre>
 <p>Then listening for a click on it:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 polyClicked = google.maps.event.addListener(rectangle, 'click', function(args) {
     //zoom to country with reverse, then forward geocoding
 	countryName = reverseGeocode (args.latLng, 'country');
 	});
+	</code>
 </pre>
 <p>We then get the coordinates of that click and reverse geocode it (this function will take any "type", see the "types" and the formatting of 
 the response <a href="https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingResponses">here</a>:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 /**
  * This function reverse geocodes a set of coordinates to an address 
  * then zooms to its viewport
@@ -145,9 +152,10 @@ function reverseGeocode (latLng, type) {
 	    }
 	  });
 }
+</code>
 </pre>
 <p>And finally zoom to its given "ideal viewport", according to Google (we actually do this by forward geocoding again...):</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 /**
  * This functions zooms to the Google-supplied recommended viewport for the
  * provided area, finding it by geocoding
@@ -167,6 +175,7 @@ function zoomToViewport (area) {
 	   }
 	});
 }
+</code>
 </pre>
 <p>One can certainly argue that I jumped through a bunch of hoops just to do a click and zoom there, but I largely wanted to demonstrate how geocoding and 
 use of the viewport system works, although there are simpler means to take care of that same task.</p>
@@ -179,17 +188,19 @@ I found the easiest and best way to implement this for this example was to do a
 a "crosshairs" icon in it, to trigger the linked-to HTML5 (well, sort-of HTML5) geolocation request.  I really did just follow that example for a 
 custom control, so I won't walk through all of that.  What's important here is that once the user clicks on that control, it fires off a call
 to:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 navigator.geolocation.getCurrentPosition(success, error);
+</code>
 </pre>
 <p>Which (if it works), then calls the success function:</p>
-<pre class="javascript">
+<pre> <code class="javascript">
 function success(position) {
 				    var latitude  = position.coords.latitude;
 				    var longitude = position.coords.longitude;
 				    var latLng = new google.maps.LatLng (latitude, longitude);
                     reverseGeocode(latLng, 'country'); 
 			   }
+			   </code>
 </pre>
 <p>Bringing us back to our reverse geocoding.  This is really nice for a mobile device, and even works reasonably well on most desktops (it should be
 noted that unless you tune it using the instructions in the MDN link, this gives you the fastest result, which is a "rough" location, fine for our
@@ -202,7 +213,7 @@ time, but like to use that map itself to select what it is the table, in real ti
 It really isn't tough.  First, we need to get the bounds of the mapped area we actually want to show data for. In this case, I start to show data once
 a user has selected a country.  So, I need to remove the listener on the large rectangle I was using to see if the user has clicked on a country, 
 after fitting the map's bounds to that country:</p>
-<pre class="javascript">
+<pre><code class="javascript">
 var places = searchBox.getPlaces();
         if (places.length == 0) {
           return;
@@ -219,39 +230,44 @@ var places = searchBox.getPlaces();
         rectangle = null;
 	    google.maps.event.removeListener(boundsChanged);
 	    getMarkers(bounds);
+	    </code>
 </pre>
 <p>Then call a function I deemed getMarkers, which in turn calls a function called makeMapTable (see where this is going?):</p>
-<pre class="javascript">
+<pre><code class="javascript">
 function getMarkers (bounds) {
  //make a table of the customers within these bounds
    makeMapTable(bounds);
+   </code>
 </pre>
 <p>Let's tackle the markers and table one at a time, although they really do much the same thing in different physical places on the page.  
 There are many examples of how to manage large arrays of map markers on the internet, the one thing really worth mentioning is that 
 <em>many</em> of them really don't follow an important practice, that of simply clearing the array of markers:
-<pre class="javascript">
+<pre><code class="javascript">
 markers = [];
+</code>
 </pre>
 <p><em>not</em> setting the map on each marker to null (which makes them dissappear from the map but leaves them in the DOM) when you are done with 
 them.  Markers are fairly large objects, and clearing the array storing those objects (to delete them) really is a necessary practice.  After that 
 step, you'll want to get the corners of the bounds of your map:</p>
-<pre class="javascript">
+<pre><code class="javascript">
 var dataObject = { NELat: bounds.getNorthEast().lat(),
 		   NELng : bounds.getNorthEast().lng(),
 		   SWLat : bounds.getSouthWest().lat(),
 		   SWLng : bounds.getSouthWest().lng()};
+		   </code>
 </pre>
 <p>And set up a SQL query to get all of the points inside of those boundaries, then ajax them in as JSON.  I used PHP for this, with the following 
 SQL:
-<pre class="sql">
+<pre><code class="sql">
 SELECT address_id, lat, lng FROM lat_lng WHERE lng <= :NELng AND
 		        lat <= :NELat AND 
 		        lng >= :SWLng AND
 		        lat >= :SWLat;
+		        </code>
 </pre>
 <p>(using PDO for binding, like any sane person would).  This is a fairly simple, low-impact query, which is important as we'll see.  On the ajax
 .done, I just put in a simple for loop on the JSON length to make a very small marker object:</p>
-<pre class="javascript" >
+<pre><code class="javascript" >
 for (var i = 0; i < content.length; i++) {
 		      var addressID = content[i].address_id;
 		      var lat = content[i].lat;
@@ -261,9 +277,10 @@ for (var i = 0; i < content.length; i++) {
 		    	 position : latLng,
 		    	 map: map
 		      });
+		      </code>
 </pre> 
 <p>Then added a "click" listener to each marker to open an infoWindow (I've grown used to calling them "infoBubbles"):</p>
-<pre class="javascript">
+<pre><code class="javascript">
 google.maps.event.addListener(marker, 'click', (function(marker, addressID) {
 		          return function() {
 		        	  markerZoom = true;
@@ -275,35 +292,39 @@ google.maps.event.addListener(marker, 'click', (function(marker, addressID) {
 		     })(marker, addressID));
 		     markers[addressID] = marker;
 		   }
+		   </code>
 </pre>
 <p>Note the "markerZoom" boolean there to keep track of the fact that it is "us" zooming in to the marker.  
 We'll get to why we need that later.  How do we open that infoWindow?  Again, that's really not that tough.  All that
 function does is a single-row SQL select (I've again ajax'ed in JSON via PHP) with this SQL:
-<pre class="prettyprint">
+<pre><code class="sql">
 SELECT name, address, `zip code` AS zip, city, 
                 country FROM customer c INNER JOIN 
                 customer_list cl on cl.ID = c.customer_id
                 WHERE c.address_id = :address_id;
+                </code>
 </pre>  
 <p>The only really interesting thing I've done here is dynamically build the infoWindow content with 
 <a href="http://handlebarsjs.com/">Handlebars</a>, a JavaScript templating library.  It works well here, it'll be really useful
 later for our table.  This just required a really simple Handlebars template:</p>
-<pre class="prettyprint">
-<h5>{{name}}<br>
-{{address}}<br>
-{{city}}, {{zip}}<br> 
-{{country}}<br></h5>
+<pre><code class="html">
+&lt;h5&gt;{{name}}&lt;br&gt;
+{{address}}&lt;br&gt;
+{{city}}, {{zip}}&lt;br&gt; 
+{{country}}&lt;br&gt;&lt;/h5&gt;
+</code>
 </pre>
 <p>And some nested ajax.  After I got the JSON (which I called windowContent), I had to get that template as HTML:</p>
-<pre class="prettyprint">
+<pre><code class="javascript">
 .done (function ( windowContent ) {
 		   $.ajax ({
 			   url: '../main/php/mapsServer.php?contentType=html&content=infoBubble',
 			   contentType : 'html'
 		   })
+</code>		   
 </pre>
 <p>Then grab the first row of the JSON and compile it with the template using Handlebars to put into the infoWindow:</p>
-<pre class="javascript">
+<pre><code class="javascript">
 .done (function ( templateHTML ) {
 			   var template = Handlebars.compile(templateHTML);
 			   var infoBubbleHTML = template(windowContent[0]);
@@ -315,10 +336,11 @@ later for our table.  This just required a really simple Handlebars template:</p
 			   infowindow.open(map, marker);
 				});
 		   });
+		   </code>
 </pre>
 <p>Note that I also followed Google's "best practice" of closing an existing infoWindow if one was open.</p>
 <p>Getting the table really does follow almost exactly the same pattern in terms of SQL, we just get more data from the start:</p>
-<pre class="sql">
+<pre><code class="sql">
 SELECT c.address_id, name, address, `zip code` AS zip, city, 
                 country FROM customer c INNER JOIN lat_lng ll ON 
 				c.address_id = ll.address_id INNER JOIN 
@@ -326,10 +348,11 @@ SELECT c.address_id, name, address, `zip code` AS zip, city,
 		        lat <= :NELat AND 
 		        lng >= :SWLng AND
 		        lat >= :SWLat
+		        </code>
 </pre>
 <p>Where are we going to put all that data?  This is where Handlebars really shines.  A bit like the infoWindow, after the request to get 
 that data as JSON I ajax'ed in a Handlebars template:</p>
-<pre class="html">
+<pre><code class="html">
 {{#each objects}}
 &lt;div class="row"&gt;
 &lt;div id="{{address_id}}" class="mapMarker col-md-1 col-xs-3"&gt;
@@ -344,16 +367,18 @@ that data as JSON I ajax'ed in a Handlebars template:</p>
 {{country}}&lt;/div&gt;
 &lt;/div&gt;
 {{/each}}
+</code>
 </pre>
 <p>(albeit a more complicated one) as HTML, then did a bit more work to provide it a "wrapper object" to loop through:</p>
-<pre class="javascript">
+<pre><code class="javascript">
 var template = Handlebars.compile(templateHTML);
 var wrapper  = {objects: customerTable};
 $('#mapsTable').html(template(wrapper));
+</code>
 </pre>
 <p>You'll find Handlebars remarkably fast, even for a reasonably large "table".  
 I then tied each marker on the table to the click event of the markers on the map:</p>
-<pre class="javascript">
+<pre><code class="javascript">
 $(document).on('click','.mapMarker',function(){
    if ( mapIsTab == true ) {
       $('.nav-tabs a[href="#mapTab"]').tab('show');
@@ -369,6 +394,7 @@ $(document).on('click','.mapMarker',function(){
     google.maps.event.trigger(markers[this.id], 'click');
 	});
 });
+</code>
 </pre>
 <p>Note that I had to do some coding to make the page "jump" back to the map location, regardless of whether it was in a tab or not.</p>
 
@@ -379,11 +405,12 @@ setting event listeners on the 'dragend' and 'zoom_changed' events.  You can als
 the user stops changing the zoom or dragging the map, and the last set of viewport bounds you get might not be the ones you want.  Whatever you do, 
 don't set an event listener on 'bounds_changed', unless you use it once.  Using that over and over will make it fire hundreds of times, thus 
 causing you to get hundreds of query requests.  That being said, what do we do with these requests?  Well, what you might expect:</p>
-<pre class="javascript">
+<pre><code class="javascript">
 if (markerZoom == false) {
 var bounds = map.getBounds();
 getMarkers(bounds);
 }
+</code>
 </pre>
 <p>Yep, get the set of bounds again (whatever they may be), and simply call the getMarkers function, which in turn calls the makeMapTable function
 with those same new bounds.  Note that this is where the markerZoom boolean comes in--we need to make sure that the user is zooming or panning the map,
