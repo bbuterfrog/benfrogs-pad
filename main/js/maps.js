@@ -30,11 +30,6 @@ $(document).ready(function() {
 	getHTML ('addressSearch', 'addressSearch');
 });
 
-!function ($) {
-    $(function(){
-      window.prettyPrint && prettyPrint()
-    })
-  }(window.jQuery)
 
 /**
  * This function initalizes the Google Map
@@ -395,3 +390,9 @@ function getViewportByLocation() {
 	});
 	
 }
+
+!function ($) {
+    $(function(){
+      window.prettyPrint && prettyPrint()
+    })
+  }(window.jQuery)
