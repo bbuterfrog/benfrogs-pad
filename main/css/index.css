@@ -28,5 +28,5 @@ body > .container {
 }
 
 pre {
-	overflow: hidden;
-}
+    white-space: pre-wrap;       
+    }
