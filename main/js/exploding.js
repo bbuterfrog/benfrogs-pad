@@ -3,9 +3,22 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	initStaticDeptTable();
 	initDeptTable();
-	hljs.initHighlightingOnLoad();
 	
 });
+
+function getHTML (div, content){
+	   $.ajax ({
+		   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
+		   beforeSend: showLoadingImage (div),
+		   contentType : 'html',
+		   
+	   })
+	   .done (function ( content ) {
+		   $('#'+div).html(content);
+		   hljs.initHighlightingOnLoad();
+	   }); 
+	}
+
 
 function initStaticDeptTable () {
 	$('#dept-table').DataTable({

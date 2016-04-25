@@ -17,8 +17,21 @@ $(document).ready(function() {
 	$('#search').click(function() {
 	   submitSearch();
 	});
-	hljs.initHighlightingOnLoad();
 });
+
+function getHTML (div, content){
+	   $.ajax ({
+		   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
+		   beforeSend: showLoadingImage (div),
+		   contentType : 'html',
+		   
+	   })
+	   .done (function ( content ) {
+		   $('#'+div).html(content);
+		   hljs.initHighlightingOnLoad();
+	   }); 
+	}
+
 
 function submitSearch() {
 	$.ajax ({
