@@ -17,6 +17,7 @@ $(document).ready(function() {
 	$('#search').click(function() {
 	   submitSearch();
 	});
+	hljs.initHighlightingOnLoad();
 });
 
 function getHTML (div, content){
