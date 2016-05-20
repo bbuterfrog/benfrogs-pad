@@ -376,8 +376,8 @@ function getViewportByLocation() {
 	})
 	   .done (function ( templateHTML ) {
 		   $('#beforeTabs').html(templateHTML);
-		   locationModalTitle.html('<h3 class="modal-title">Finding your Location...');
-		   locationModalBody.html('<center><img src="../main/img/loading.gif"></img></center>');
+		   $('#locationModalTitle').html('<h3 class="modal-title">Finding your Location...');
+		   $('#locationModalBody').html('<center><img src="../main/img/loading.gif"></img></center>');
 		   if (!navigator.geolocation) {
 			   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
 			   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
@@ -393,8 +393,8 @@ function getViewportByLocation() {
                     reverseGeocode(latLng, 'country'); 
 			   }
 			   function error(error) {
-				   locationModalTitle.html('<h3 class="modal-title">Error Finding Location</h3>');
-				   locationModalBody.html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
+				   $('#locationModalTitle').html('<h3 class="modal-title">Error Finding Location</h3>');
+				   $('#locationModalBody').html('<i class="fa fa-exclamation-triangle fa-3x warning h3"></i>' +
 						   'Error finding location');
 				   $('#locationModal').modal();
 				   console.log(error);
