@@ -3,7 +3,7 @@ $(document).ready(function() {
 	getHTML ( 'footer', 'footer');
 	initStaticDeptTable();
 	initDeptTable();
-	
+
 });
 
 function getHTML (div, content){
@@ -11,12 +11,12 @@ function getHTML (div, content){
 		   url: '../main/php/serverHTML.php?type=HTML&content=' + content,
 		   beforeSend: showLoadingImage (div),
 		   contentType : 'html',
-		   
+
 	   })
 	   .done (function ( content ) {
 		   $('#'+div).html(content);
 		   hljs.initHighlightingOnLoad();
-	   }); 
+	   });
 	}
 
 
@@ -37,12 +37,12 @@ function initStaticDeptTable () {
 
 function initDeptTable () {
 	var table = $('#employee-dept').DataTable({
-		"ajax" : { 
+		"ajax" : {
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employee-dept',
 	        "cache": false,
             "contentType": "application/json",
 		},
-        "columns" :  [  
+        "columns" :  [
                         { "className":      'details-control',
                           "orderable":      false,
                           "data":           null,
@@ -54,13 +54,13 @@ function initDeptTable () {
 		"scrollX" : true,
 		"searching": false,
 		"lengthChange": false
-		
+
 	});
 
 	   $('#employee-dept tbody').on('click', 'td.details-control', function () {
 	        var tr = $(this).closest('tr');
 	        var row = table.row( tr );
-	 
+
 	        if ( row.child.isShown() ) {
 	            // This row is already open - close it
 	            row.child.hide();
@@ -76,12 +76,12 @@ function initDeptTable () {
 	            tr.addClass('shown');
 	        }
 	    } );
-	 
+
 }
 
 function format (d) {
 	return '<div id=\"'+d.dept_no+'\"></div>';
-		  
+
 }
 function initEmployeeTable (deptNo) {
 	$.ajax ({
@@ -90,9 +90,9 @@ function initEmployeeTable (deptNo) {
 		   contentType : 'html',
 	   })
 	   .done (function (content ) {
-	   $('#'+deptNo).html(content);	   
+	   $('#'+deptNo).html(content);
 	   var table = $('#employees').DataTable({
-		"ajax" : { 
+		"ajax" : {
 			"url" : '../main/php/serverHTML.php?type=JSON&content=employees&dept='+deptNo,
 	        "cache": false,
             "contentType": "application/json",
@@ -103,9 +103,7 @@ function initEmployeeTable (deptNo) {
                         {'data': 'salary'}
 	                 ],
 	                 "scrollX": true
-    
+
 	   });
     });
 }
-
-
