@@ -40,14 +40,17 @@ class contentServer extends database {
 
 	/**
 	 * Returns JSON NOT formatted for a DataTable by querying the database
-	 * (using the database class) with the provided $sql string (no bound
-	 * parameters allowed in SQL)
 	 * @param string $sql SQL to query db with to get JSON
 	 * @return string JSON
 	 *
 	 */
-	public function getSimpleJSON ( $sql ){
-		$resultArray = parent::query($sql);
+	public function getSimpleJSON ( $sql, $params = array() ){
+		if (!empty($params)) {
+		    $resultArray = parent::boundQuery($sql, $params);
+		}
+		else {
+			$resultArray = parent::query($sql);
+		}
 		return (json_encode($resultArray));
 	}
 }
