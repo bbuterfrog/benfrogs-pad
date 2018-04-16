@@ -6,4 +6,5 @@ index.old
 main/config/db.ini
 main/config/geocode.ini
 .ftpconfig
-.history/.gitignore_20180322213624
+.history/
+.vscode/
