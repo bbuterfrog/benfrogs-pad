@@ -1,9 +1,0 @@
-index.old
-.remote-sync.json
-.settings/org.eclipse.core.resources.prefs
-.settings/de.loskutov.FileSync.prefs
-.ftpconfig
-main/config/db.ini
-main/config/geocode.ini
-.ftpconfig
-.history/.gitignore_20180322213624
