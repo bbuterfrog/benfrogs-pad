@@ -11,10 +11,13 @@ class database {
 		$dsn = "mysql:dbname=$database;host=$server";
 		try {
 		   $this->dbh = new PDO($dsn, $user, $password);
+		   
 		}
 		catch (PDOException $e) {
 			echo "Database connection failed " . $e->getMessage();
 		}
+		//this allows binding of LIMIT attributes
+		$this->dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	}
 
 	/**

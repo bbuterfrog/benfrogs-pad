@@ -1,0 +1,26 @@
+// Push settings file - first generated on Sat Sep 29 2018 15:14:54 GMT-0400 (EDT)
+// Note: Optional items are commented out and can be uncommented if you wish to set them
+{
+	"env": "default",
+	"default": {
+		"service": "SFTP",
+		"options": {
+			// "timeZoneOffset": 0,
+			// "testCollisionTimeDiffs": true,
+			// "collisionUploadAction": null,
+			// "collisionDownloadAction": null,
+			// "followSymlinks": false,
+			"host": "benfrog.net",
+			// "port": 22,
+			"username": "ubuntu",
+			// "password": "",
+			 "privateKey": "/home/bbutler/.ssh/paycheck.pem",
+			// "keyPassphrase": "",
+			"root": "/var/www/test",
+			// "keepaliveInterval": 3000,
+			// "debug": false,
+			// "fileMode": "",
+			// "sshGateway": null
+		}
+	}
+}
